@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<%@ page autoFlush="true" buffer="1094kb"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>J & A Business Hunter</title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
@@ -342,7 +342,7 @@ jQuery(document).ready(function() {
      </div> 
 </nav> 
          
-  <section class="main-container col2-left-layout">
+  <section id="sell1" class="main-container col2-left-layout">
            <div class="main-container-inner">   
             
   <div class="breadcrumbs">
@@ -394,8 +394,8 @@ jQuery(document).ready(function() {
                     <label for="package">Select a Package<em class="required">*</em></label>
             
                   <div class="input-box">
-				  <select name="package" id="package" title="package" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
+				  <select name="package" id="package" title="package" class="required-entry input-text" required>
+ <option value="">--- Select ---</option> 
  <option value="30_Days_Standard">30 Days Standard Posting</option> 
  <option value="90_Days_Standard">90 Days Standard Posting</option> 
  <option value="180_Days_Standard">180 Days Standard Posting</option>  
@@ -416,7 +416,7 @@ jQuery(document).ready(function() {
 		 <div class="textright">
                  
                  <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
-                 <button type="submit" title="Next" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span></button>
+                 <button type="button" title="Next" class="button btn-sent" onclick="sellerPage2()"><span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span></button>
 		 <img src="images/loader.gif" id="loader" style="display:none;">
               </div> 
 		
@@ -455,6 +455,13 @@ function callQuickView(qurl) {
 jQuery('#mgkquickview').hide();
     });
  }
+ function sellerPage2(){
+	 var page1=document.getElementById('sell1');
+	 page1.style.display='none';
+	 var page2=document.getElementById('sell2');
+	 page2.style.display='block';
+	 
+ }
  
 </script>                   
           </article> 
@@ -465,6 +472,12 @@ jQuery('#mgkquickview').hide();
       <section class="service-section service-section1">
           
       </section> <!--service-section service-section1--> 
+      <section id="sell2" style="display: none">sell1
+      <jsp:include page="seller_page2.jsp"></jsp:include>
+      </section>
+      <section id="sell3" style="display: none">
+      <jsp:include page="seller_page2.jsp"></jsp:include>
+      </section>
 <jsp:include page="footer.jsp"></jsp:include>
 <jsp:include page="reachUsSlider.jsp"></jsp:include>
 
