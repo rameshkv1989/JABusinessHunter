@@ -13,6 +13,7 @@ import com.utils.logging.Logger;
 public class Redirect {
 
 	private static final String CLASS_NAME = Redirect.class.getName();
+	public String subPackage=null;
 	@RequestMapping(value={"/home.do"}, method={RequestMethod.GET})
 	public String HomeRedirect(ModelMap map, HttpServletRequest request){
 		try{
@@ -172,6 +173,37 @@ public class Redirect {
 			Logger.logStatus(CLASS_NAME,"Entering into GET MyAccountRedirect","debug");
 			Logger.logStatus(CLASS_NAME,"Exiting GET MyAccountRedirect","debug");
 			return "./jsp/myAccount.jsp";
+			
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET MyAccountRedirect : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	@RequestMapping(value={"/page2.do"}, method={RequestMethod.GET})
+	public String Page2Redirect(ModelMap map, HttpServletRequest request){
+		try{
+			subPackage=request.getParameter("package");
+			System.out.println(subPackage);
+			Logger.logStatus(CLASS_NAME,"Entering into GET MyAccountRedirect","debug");
+			Logger.logStatus(CLASS_NAME,"Exiting GET MyAccountRedirect","debug");
+			return "./jsp/seller_page2.jsp";
+			
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET MyAccountRedirect : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	@RequestMapping(value={"/page3.do"}, method={RequestMethod.GET})
+	public String Page3Redirect(ModelMap map, HttpServletRequest request){
+		try{
+			
+			Logger.logStatus(CLASS_NAME,"Entering into GET MyAccountRedirect","debug");
+			Logger.logStatus(CLASS_NAME,"Exiting GET MyAccountRedirect","debug");
+			return "./jsp/seller_page3.jsp";
 			
 		}
 		catch(Exception e){
