@@ -7,6 +7,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.jabh.manager.SellerManager;
+import com.jabh.model.Seller;
 import com.utils.logging.Logger;
 
 @Controller
@@ -64,6 +66,11 @@ public class Redirect {
 	public String SellerRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET SellerRedirect","debug");
+			Seller sellerModel = new Seller();
+			sellerModel.setPackageIdList(new SellerManager().getPackageIDsList());
+			System.out.println("size : "+sellerModel.getPackageIdList().size());
+			//map.addObject("packageIdList",new SellerManager().getPackageIDsList());
+			map.addAttribute("sellerModel",sellerModel);
 			Logger.logStatus(CLASS_NAME,"Exiting GET SellerRedirect","debug");
 			return "./jsp/seller.jsp";
 			

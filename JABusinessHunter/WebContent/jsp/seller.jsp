@@ -1,12 +1,18 @@
-
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>J & A Business Hunter</title>
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
 <meta name="description" content=" " />
 <meta name="keywords" content=" " />
 <meta name="robots" content="*" /> 
@@ -33,6 +39,7 @@
 <script type="text/javascript" src="js/left-nav.js"></script>
 <script type="text/javascript" src="js/mob-nav.js"></script>
 <script type="text/javascript" src="js/toggle.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
 
 
@@ -368,7 +375,7 @@ jQuery(document).ready(function() {
 
 
 
-    <div class="category-description std">
+    <div id="sellBizPackagePic" class="category-description std">
         <div class="category-image">
         <div id="slides">
           <div class="slides_container">
@@ -383,29 +390,22 @@ jQuery(document).ready(function() {
       </div>    </div>
 
 <div class="category-products"><br/>
-  <form id="contactForm" action="page2.do">
+  <form:form id="contactForm" method="post" commandName="sellerModel">
 
-
+<div id="sellerPage1NewDiv">
   <div class="column sixty">
 
         <ul class="form-list">
            
 		     <li>
-                    <label for="package">Select a Package<em class="required">*</em></label>
+                    <label for="packages">Select a Package<em class="required">*</em></label>
             
                   <div class="input-box">
-				  <select name="package" id="package" title="package" class="required-entry input-text" required>
- <option value="">--- Select ---</option> 
- <option value="30_Days_Standard">30 Days Standard Posting</option> 
- <option value="90_Days_Standard">90 Days Standard Posting</option> 
- <option value="180_Days_Standard">180 Days Standard Posting</option>  
- <option value="12_months_Standard">12 Months Standard Posting</option> 
- <option value="30_Days_Featured">30 Days Featured Posting</option> 
- <option value="90_Days_Featured">90 Days Featured Posting</option> 
- <option value="180_Days_Featured">180 Days Featured Posting</option>  
- <option value="12_months_Featured">12 Months Featured Posting</option> 
- 
-</select>
+				  <form:select path="packages"  class="required-entry input-text">
+ 						<form:option value="select" label="--- Select ---"/> 
+ 						<form:options items="${sellerModel.packageIdList}"/>
+ 						
+				</form:select>
            </div>
 
 		   </li>
@@ -416,22 +416,24 @@ jQuery(document).ready(function() {
 		 <div class="textright">
                  
                  <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
-                 <button type="submit" title="Next" name="package" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span></button>
+                 <button type="button" title="Next" onclick="sellGoToSecondPage()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span></button>
 		 <img src="images/loader.gif" id="loader" style="display:none;">
               </div> 
 		
   </div> <!--column sixty-->
   <div class="column fourty last">
-     <div class="padding">
-	  
-
-  
-             
+     <div class="padding">         
      </div>
   </div> 
        
-
-</form>
+</div>
+<div id="sellerPage2NewDiv" style="display:none">
+<jsp:include page="seller_page2.jsp"></jsp:include>
+</div>
+<div id="sellerPage3NewDiv" style="display:none">
+<jsp:include page="seller_page3.jsp"></jsp:include>
+</div>
+</form:form>
 </div>
     
 
