@@ -1,27 +1,42 @@
-
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>J & A Business Hunter</title>
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
+<meta name="viewport"
+	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
 <meta name="description" content=" " />
 <meta name="keywords" content=" " />
-<meta name="robots" content="*" /> 
+<meta name="robots" content="*" />
 <link rel="shortcut png" href="images/favicon.png" type="image/x-icon" />
-<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Bitter:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
- 
-      
+<link
+	href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Bitter:200,300,400,500,600,700,800'
+	rel='stylesheet' type='text/css'>
+
+
 <link rel="stylesheet" href="css/styles.css" type="text/css" />
 <link rel="stylesheet" href="css/responsive.css" type="text/css" />
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all" />
-<link rel="stylesheet" type="text/css" href="css/fancybox.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"
+	media="all" />
+<link rel="stylesheet" type="text/css" href="css/fancybox.css"
+	media="all" />
 <link rel="stylesheet" type="text/css" href="css/scroll.css" media="all" />
-<link rel="stylesheet" type="text/css" href="css/blogmate.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/blogmate.css"
+	media="all" />
 
 
 
@@ -34,11 +49,12 @@
 <script type="text/javascript" src="js/mob-nav.js"></script>
 <script type="text/javascript" src="js/toggle.js"></script>
 <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" /> 
- 
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" />
+
 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
- 
- <script type="text/javascript">
+
+<script type="text/javascript">
 jQuery(document).ready(function() {
 
 	jQuery("#right_toolbar").show(); 
@@ -104,152 +120,169 @@ function updateTextInput(val) {
           document.getElementById('askingpricetxt').value=val; 
         }
 
-
-
-
-
-
-
-</script> 
+</script>
 
 <style>
 #right_toolbar {
 	position: fixed;
-	right:5px;
+	right: 5px;
 	top: 30%;
 	z-index: 50;
-	width:45px;
+	width: 45px;
 }
+
 #left_toolbar {
 	position: fixed;
-	left:0px;
+	left: 0px;
 	top: 30%;
 	z-index: 500;
-	width:45px;
+	width: 45px;
 }
+
 #right_toolbar .form-search button {
-    background-color: #FF1341;
-    border: medium none;
-    border-radius: 4px 4px 4px 4px;
-    float: right;
-    margin: -3px 0 0 5px;
-    padding: 3px 0 1px;
-    position: relative;
-    width: 40px;
-    z-index: 100;
+	background-color: #FF1341;
+	border: medium none;
+	border-radius: 4px 4px 4px 4px;
+	float: right;
+	margin: -3px 0 0 5px;
+	padding: 3px 0 1px;
+	position: relative;
+	width: 40px;
+	z-index: 100;
 }
+
 #left_toolbar .form-search button {
-    background-color: #FF1341;
-    border: medium none;
-    border-radius: 4px 4px 4px 4px;
-    float: right;
-    margin: -3px 0 0 5px;
-    padding: 3px 0 1px;
-    position: relative;
-    width: 40px;
-    z-index: 100;
-} 
-.scarttxtcolor{
-color:#333333;
+	background-color: #FF1341;
+	border: medium none;
+	border-radius: 4px 4px 4px 4px;
+	float: right;
+	margin: -3px 0 0 5px;
+	padding: 3px 0 1px;
+	position: relative;
+	width: 40px;
+	z-index: 100;
+}
+
+.scarttxtcolor {
+	color: #333333;
 }
 
 .intro-btn a {
-    color: #fff;
-    padding: 15px 45px;
-    letter-spacing: 2px;
-    font-size: 12px;margin-top: 15px;
-    font-weight: normal;
-    background: #ff1341;
-    font-family: 'Bitter', serif;
+	color: #fff;
+	padding: 15px 45px;
+	letter-spacing: 2px;
+	font-size: 12px;
+	margin-top: 15px;
+	font-weight: normal;
+	background: #ff1341;
+	font-family: 'Bitter', serif;
 }
+
 .intro-btn a:hover {
- background: black;color:white;
+	background: black;
+	color: white;
 }
-p{font-size:15px; text-align:justify;}
+
+p {
+	font-size: 15px;
+	text-align: justify;
+}
 
 #contactForm textarea {
-    background: #F0F0F0;
-    border: none;
-  /*  height: 175px;*/
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 97%;
-    border: 1px solid #f0f0f0;
-    margin-top: 15px;
+	background: #F0F0F0;
+	border: none;
+	/*  height: 175px;*/
+	margin-bottom: 10px;
+	padding: 5px;
+	width: 97%;
+	border: 1px solid #f0f0f0;
+	margin-top: 15px;
 }
+
 .form-list select {
-    background: #f0f0f0;
-    border: 1px solid #f0f0f0;
-    padding: 10px;
-    width: 80%;
-    margin-top: 5px;
-    outline: none;
-    margin: 5px 0 2px;
-    width: 84%;
-    outline: none;
+	background: #f0f0f0;
+	border: 1px solid #f0f0f0;
+	padding: 10px;
+	width: 80%;
+	margin-top: 5px;
+	outline: none;
+	margin: 5px 0 2px;
+	width: 84%;
+	outline: none;
 }
-.column.fifty
-{
 
-width:50%;
+.column.fifty {
+	width: 50%;
 }
- 
-
 </style>
 
-            
-<div  id="right_toolbar">
-     
-    		  <div class="search_wrapper">
-			      <form class="form-search" action="#" method="get">
-				<button type="submit"><img src="images/scrollsearch_icon.png" align="absmiddle"></button>
-				<input name="q" class="input-medium search-query" value="search" onBlur="if (this.value == '') {this.value = 'search';}" onFocus="if(this.value =='search') {this.value = '';}" type="text">
-			      </form>
-		  </div>
-	  
-    	      <div id="back-top" style="display:none;"><a href="#top"><img src="images/backto_top.png"></a></div>
-    </div>
+
+<div id="right_toolbar">
+
+	<div class="search_wrapper">
+		<form class="form-search" action="#" method="get">
+			<button type="submit">
+				<img src="images/scrollsearch_icon.png" align="absmiddle">
+			</button>
+			<input name="q" class="input-medium search-query" value="search"
+				onBlur="if (this.value == '') {this.value = 'search';}"
+				onFocus="if(this.value =='search') {this.value = '';}" type="text">
+		</form>
+	</div>
+
+	<div id="back-top" style="display: none;">
+		<a href="#top"><img src="images/backto_top.png"></a>
+	</div>
+</div>
 
 
- 
+
 
 
 
 </head>
 
 <body class="flexible  cms-index-index cms-accord-home">
-            <noscript>
-        <div class="global-site-notice noscript">
-            <div class="notice-inner">
-                <p>
-                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
-                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
-            </div>
-        </div>
-    </noscript>
-    <header>
- <jsp:include page="loginHeader.jsp"></jsp:include>
-   
-  <div class="header">     
-            
- <div class="top-cart-contain">
- 
-   <p class="intro-btn">
-      <a href="postad.html" ><span>Post Your Ad </span></a></p>
-	  </div>
-               
-			   <div class="logo"><a href="index.html" title="J & A Business Hunter"><div><img src="images/logo.png" alt="J & A Business Hunter Logo" /></div></a></div>
-      
-  </div> <!--header-->
-  </header>
-<nav>
-  <div class="nav-inner">
-    
-            
+	<noscript>
+		<div class="global-site-notice noscript">
+			<div class="notice-inner">
+				<p>
+					<strong>JavaScript seems to be disabled in your browser.</strong><br />
+					You must have JavaScript enabled in your browser to utilize the
+					functionality of this website.
+				</p>
+			</div>
+		</div>
+	</noscript>
+	<header>
+		<jsp:include page="loginHeader.jsp"></jsp:include>
+
+		<div class="header">
+
+			<div class="top-cart-contain">
+
+				<p class="intro-btn">
+					<a href="postad.html"><span>Post Your Ad </span></a>
+				</p>
+			</div>
+
+			<div class="logo">
+				<a href="index.html" title="J & A Business Hunter"><div>
+						<img src="images/logo.png" alt="J & A Business Hunter Logo" />
+					</div></a>
+			</div>
+
+		</div>
+		<!--header-->
+	</header>
+	<nav>
+		<div class="nav-inner">
 
 
 
-<script type="text/javascript">
+
+
+			<script type="text/javascript">
 jQuery(document).ready(function() {
           jQuery('.toggle').click(function() {
                if (jQuery('.submenu').is(":hidden"))
@@ -273,9 +306,9 @@ jQuery(document).ready(function() {
 
 </script>
 
-<jsp:include page="menu.jsp"></jsp:include>
-<jsp:include page="nav.jsp"></jsp:include>  
-<script type="text/javascript">
+			<jsp:include page="menu.jsp"></jsp:include>
+			<jsp:include page="nav.jsp"></jsp:include>
+			<script type="text/javascript">
         //<![CDATA[
 
             jQuery(function($) {
@@ -317,7 +350,7 @@ jQuery(document).ready(function() {
 
         //]]>
 </script>
-<script type="text/javascript">
+			<script type="text/javascript">
 //<![CDATA[
     jQuery(document).ready(function(){
         var scrolled = false;
@@ -356,204 +389,185 @@ jQuery(document).ready(function() {
     });
 //]]>
 </script>
-     </div> 
-</nav> 
-         
-  <section class="main-container col2-left-layout">
-           <div class="main-container-inner">   
-            
-  <div class="breadcrumbs">
-    <div class="inner">
-      <ul>
-                    <li class="home">
-                            <a href="index.html" title=" ">Home</a>
-                                        <span>» </span>
-                        </li>
-                    <li class="category348">
-                            <strong>Buy A Business</strong>
-                                    </li>
-              </ul>
-    </div> <!--inner-->
-  </div> <!--breadcrumbs-->
-             
-          <article class="col-main">                                          
-                            
+		</div>
+	</nav>
 
-<div class="page-title">
-        <h2>Buy A Business </h2>
-</div> <!--page-title-->
+	<section class="main-container col2-left-layout">
+		<div class="main-container-inner">
 
- 
-<div class="category-products"><br/>
-  <form id="contactForm" >
+			<div class="breadcrumbs">
+				<div class="inner">
+					<ul>
+						<li class="home"><a href="index.html" title=" ">Home</a> <span>»
+						</span></li>
+						<li class="category348"><strong>Buy A Business</strong></li>
+					</ul>
+				</div>
+				<!--inner-->
+			</div>
+			<!--breadcrumbs-->
+
+			<article class="col-main">
 
 
-  <div class="column fifty">
+				<div class="page-title">
+					<h2>Buy A Business</h2>
+				</div>
+				<!--page-title-->
 
-        <ul class="form-list">
-            <li>
-                    <label for="areaofinterest">Area of Interest</label>
-            
-                  <div class="input-box">
-				  <select name="areaofinterest" id="areaofinterest" title="areaofinterest" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
- <option value="businessforsales">Business For Sales</option> 
- <option value="businessopportunities">Business Opportunities</option> 
- <option value="serviceprovider">Service Provider</option>  
-</select>
-           </div>
 
-		   </li>
-			 <li>
-                    <label for="businesstype">Business Type</label>
-            
-                  <div class="input-box">
-				  <select name="businesstype" id="businesstype" title="businesstype" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
- <option value="Franchise">Franchise</option> 
- <option value="Non_Franchise">Non Franchise</option>  
-</select>
-           </div>
+				<div class="category-products">
+					<br />
+					<form:form id="contactForm" method="post" action="buySubmit.do" commandName="buyerModel">
 
-		   </li>
-		    
-		   
-		   <li>
-                    <label for="businesscategory">Business Category</label>
-            
-                  <div class="input-box">
-				  <select name="businesscategory" id="businesscategory" title="businesscategory" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
-</select>
-           </div>
-		   </li>  
-		   
-		     
-		   <li>
-                    <label for="businesssubcategory">Business Sub Category</label>
-            
-                  <div class="input-box">
-				  <select name="businesssubcategory" id="businesssubcategory" title="businesssubcategory" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
-</select>
-           </div>
-		   </li>  
-		   
-		    <li>
-                    <label for="Country">Select Country</label>
-            
-                  <div class="input-box">
-				  <select name="Country" id="Country" title="Country" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
-</select>
-           </div>
-		   </li>  
-		   
-		    <li>
-                    <label for="State">Select State</label>
-            
-                  <div class="input-box">
-				  <select name="State" id="State" title="State" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
-</select>
-           </div>
-		   </li>   
-		   
-		   
-		    <li>
-                    <label for="City">Select City</label>
-            
-                  <div class="input-box">
-				  <select name="City" id="City" title="City" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
-</select>
-           </div>
-		   </li>   
-		    
-			</li>
-		    	
-		   
-		  
-        </ul>
-		 
-		
-  </div> <!--column sixty-->
 
-  <div class="column fifty last">
-  
-  <ul class="form-list">
-  
-  
-  
-  <li>
-                    <label for="askingprice">Asking Price (in Ringgit Malaysia):</label>
-					<div class="input-box">
-					 <input id="slider2" type ="range" min ="1000" max="50000" step ="100" value ="1000" class="input-text" onchange="updateTextInput(this.value);"/>
-			
-                    <input name="askingpricetxt" id="askingpricetxt" title="askingprice" value="" class="input-text" type="text" />
-					</div>
-            </li>
-		   
-		   
-		   
-		   	<li>
-                    <label for="annual_revenue">Annual Revenue</label>
-					<div class="input-box">
-                    <input name="annual_revenue" id="annual_revenue" title="annual_revenue" value="" class="input-text" type="text" />
-					</div>
-            </li>
-			<li>
-                    <label for="annualprofit_loss">Annual Profit/(Loss) After Tax </label>
-					<div class="input-box">
-                    <input name="annualprofit_loss" id="annualprofit_loss" title="annualprofit_loss" value="" class="input-text" type="text" />
-					</div>
-            </li>
-			
-		   <li>
-                    <label for="annualcashinflow_outflow">Annual Cash Inflow/(Outflow) </label>
-					<div class="input-box">
-                    <input name="annualcashinflow_outflow" id="annualcashinflow_outflow" title="annualcashinflow_outflow" value="" class="input-text" type="text" />
-					</div>
-            </li>
-			
-		   
-		   
-		   
-		   
-		   	<li>
-                    <label for="employeesno">Number of Employees</label>
-					<div class="input-box">
-                    <input name="employeesno" id="employeesno" title="employeesno" value="" class="input-text" type="text" />
-					</div>
-            </li>
-			
-		   
-		   
-  </ul>
-  
-  <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />                  
-   <button type="submit" title="Get Search Results" class="button btn-sent"><span>Get Search Results</span></button>
-    <img src="images/loader.gif" id="loader" style="display:none;">
- 
-  
-  </div>
-  
-  
-</form>
-</div>
-    
+						<div class="column fifty">
 
-  </article> <!--main-container-inner-->
-    
- 
-<!--div class="toolbar-bottom">
+							<ul class="form-list">
+								<li><label for="areaofinterest">Area of Interest</label>
+
+									<div class="input-box">
+										<form:select path="areaofinterest" title="areaofinterest" class="required-entry input-text">
+											<form:option value="" label="--- Select ---"/> 
+											<form:option value="businessforsales" label="Business For Sales"/> 
+											<form:option value="businessopportunities" label="Business Opportunities"/> 
+											<form:option value="serviceprovider" label="Service Provider"/> 
+										</form:select>
+									</div></li>
+								<li><label for="businesstype">Business Type</label>
+
+									<div class="input-box">
+										<form:select path="businesstype" title="businesstype" class="required-entry input-text">
+											<form:option value="" label="--- Select ---"/> 
+											<form:option value="Franchise" label="Franchise"/> 
+											<form:option value="Non_Franchise" label="Non Franchise"/>
+										</form:select>
+									</div></li>
+
+
+								<li><label for="businesscategory">Business Category</label>
+
+									<div class="input-box">
+										<form:select path="businesscategory" title="businesscategory" class="required-entry input-text">
+											<form:option value="" label="--- Select ---"/>
+											<form:option value="Advertising" label="Advertising"/>
+											<form:option value="Agriculture" label="Agriculture"/>
+										</form:select>
+									</div></li>
+
+
+								<li><label for="businesssubcategory">Business Sub
+										Category</label>
+
+									<div class="input-box">
+										<form:select path="businesssubcategory" title="businesssubcategory" class="required-entry input-text">
+											<form:option value="" label="--- Select ---"/>
+											<form:option value="Bill Board Planner" label="Bill Board Planner"/>
+											<form:option value="Event Organiser" label="Event Organiser"/>
+										</form:select>
+									</div></li>
+
+								<li><label for="Country">Select Country</label>
+
+									<div class="input-box">
+										<form:select path="Country" title="Country" class="required-entry input-text">
+											<form:option value="" label="--- Select ---"/>
+											<form:option value="Malaysia" label="Malaysia"/>
+										</form:select>
+									</div></li>
+
+								<li><label for="State">Select State</label>
+
+									<div class="input-box">
+										<form:select path="State" title="State"	class="required-entry input-text">
+											<form:option value="" label="--- Select ---"/>
+											<form:option value="Johor" label="Johor"/>
+										</form:select>
+									</div></li>
+
+
+								<li><label for="City">Select City</label>
+
+									<div class="input-box">
+										<form:select path="City" title="City" class="required-entry input-text">
+											<form:option value="" label="--- Select ---"/>
+											<form:option value="Ayer Baloi" label="Ayer Baloi"/>
+										</form:select>
+									</div></li>
+
+								</li>
+
+
+
+							</ul>
+
+
+						</div>
+						<!--column sixty-->
+
+						<div class="column fifty last">
+
+							<ul class="form-list">
+
+
+
+								<li><label for="askingprice">Asking Price (in Ringgit Malaysia):</label>
+									<div class="input-box">
+										<input id="slider2" type="range" min="1000" max="50000" step="100" value="1000" class="input-text"	onchange="updateTextInput(this.value);" /> 
+										<form:input	path="askingpricetxt" title="askingprice" value="" class="input-text" type="text" ></form:input>
+									</div></li>
+
+								<li><label for="annual_revenue">Annual Revenue</label>
+									<div class="input-box">
+										<form:input path="annual_revenue" title="annual_revenue" value="" class="input-text" type="text" />
+									</div></li>
+								<li><label for="annualprofit_loss">Annual
+										Profit/(Loss) After Tax </label>
+									<div class="input-box">
+										<form:input path="annualprofit_loss" title="annualprofit_loss" value="" class="input-text" type="text" />
+									</div></li>
+
+								<li><label for="annualcashinflow_outflow">Annual
+										Cash Inflow/(Outflow) </label>
+									<div class="input-box">
+										<form:input path="annualcashinflow_outflow" title="annualcashinflow_outflow" value="" class="input-text" type="text" />
+									</div></li>
+
+								<li><label for="employeesno">Number of Employees</label>
+									<div class="input-box">
+										<form:input path="employeesno" title="employeesno" value="" class="input-text" type="text" />
+									</div></li>
+							</ul>
+
+							<input type="text" name="hideit" id="hideit" value="" style="display: none !important;" />
+							<button type="submit" title="Get Search Results" class="button btn-sent">
+								<span>Get Search Results</span>
+							</button>
+							<img src="images/loader.gif" id="loader" style="display: none;">
+
+
+						</div>
+
+
+					</form:form>
+				</div>
+
+
+			</article>
+			<!--main-container-inner-->
+
+
+			<!--div class="toolbar-bottom">
     </div-->
 
 
-<div id="mgkquickview">
-<div id="magikloading" style="display:none;text-align:center;margin-top:400px;"><img src="images/loader.gif" alt="loading">
-</div></div>
-<script type="text/javascript">
+			<div id="mgkquickview">
+				<div id="magikloading"
+					style="display: none; text-align: center; margin-top: 400px;">
+					<img src="images/loader.gif" alt="loading">
+				</div>
+			</div>
+			<script type="text/javascript">
 function callQuickView(qurl) { 
     jQuery('#mgkquickview').show();
     jQuery('#magikloading').show();
@@ -564,20 +578,21 @@ jQuery('#mgkquickview').hide();
     });
  }
  
-</script>                   
-          </article> 
-<jsp:include page="aside.jsp"></jsp:include>
- <!--col-right sidebar-->         
-          </div><!--main-container-inner-->
-       </section> <!--main-container col2-left-layout-->   
-      <section class="service-section service-section1">
-          
-      </section> <!--service-section service-section1--> 
+</script>
+			</article>
+			<jsp:include page="aside.jsp"></jsp:include>
+			<!--col-right sidebar-->
+		</div>
+		<!--main-container-inner-->
+	</section>
+	<!--main-container col2-left-layout-->
+	<section class="service-section service-section1"></section>
+	<!--service-section service-section1-->
 
-<jsp:include page="footer.jsp"></jsp:include>
-<jsp:include page="reachUsSlider.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="reachUsSlider.jsp"></jsp:include>
 
-      
 
-  </body>
+
+</body>
 </html>

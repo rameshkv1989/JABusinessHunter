@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -12,22 +12,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>J & A Business Hunter</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
+<meta name="viewport"
+	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
 <meta name="description" content=" " />
 <meta name="keywords" content=" " />
-<meta name="robots" content="*" /> 
+<meta name="robots" content="*" />
 <link rel="shortcut png" href="images/favicon.png" type="image/x-icon" />
-<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Bitter:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
- 
-      
+<link
+	href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Bitter:200,300,400,500,600,700,800'
+	rel='stylesheet' type='text/css'>
+
+
 <link rel="stylesheet" href="css/styles.css" type="text/css" />
 <link rel="stylesheet" href="css/responsive.css" type="text/css" />
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all" />
-<link rel="stylesheet" type="text/css" href="css/fancybox.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"
+	media="all" />
+<link rel="stylesheet" type="text/css" href="css/fancybox.css"
+	media="all" />
 <link rel="stylesheet" type="text/css" href="css/scroll.css" media="all" />
-<link rel="stylesheet" type="text/css" href="css/blogmate.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/blogmate.css"
+	media="all" />
 
 
 
@@ -43,11 +53,12 @@
 <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
 
 
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" /> 
- 
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" />
+
 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
- 
- <script type="text/javascript">
+
+<script type="text/javascript">
 jQuery(document).ready(function() {
 
 	jQuery("#right_toolbar").show(); 
@@ -108,138 +119,169 @@ jQuery(document).ready(function() {
     });
 
 });
-</script> 
+
+function submitSell(){
+	document.getElementById("contactForm").action="sellSubmit.do";
+	document.getElementById("contactForm").submit();
+}
+</script>
 
 <style>
 #right_toolbar {
 	position: fixed;
-	right:5px;
+	right: 5px;
 	top: 30%;
 	z-index: 50;
-	width:45px;
+	width: 45px;
 }
+
 #left_toolbar {
 	position: fixed;
-	left:0px;
+	left: 0px;
 	top: 30%;
 	z-index: 500;
-	width:45px;
+	width: 45px;
 }
+
 #right_toolbar .form-search button {
-    background-color: #FF1341;
-    border: medium none;
-    border-radius: 4px 4px 4px 4px;
-    float: right;
-    margin: -3px 0 0 5px;
-    padding: 3px 0 1px;
-    position: relative;
-    width: 40px;
-    z-index: 100;
+	background-color: #FF1341;
+	border: medium none;
+	border-radius: 4px 4px 4px 4px;
+	float: right;
+	margin: -3px 0 0 5px;
+	padding: 3px 0 1px;
+	position: relative;
+	width: 40px;
+	z-index: 100;
 }
+
 #left_toolbar .form-search button {
-    background-color: #FF1341;
-    border: medium none;
-    border-radius: 4px 4px 4px 4px;
-    float: right;
-    margin: -3px 0 0 5px;
-    padding: 3px 0 1px;
-    position: relative;
-    width: 40px;
-    z-index: 100;
-} 
-.scarttxtcolor{
-color:#333333;
+	background-color: #FF1341;
+	border: medium none;
+	border-radius: 4px 4px 4px 4px;
+	float: right;
+	margin: -3px 0 0 5px;
+	padding: 3px 0 1px;
+	position: relative;
+	width: 40px;
+	z-index: 100;
+}
+
+.scarttxtcolor {
+	color: #333333;
 }
 
 .intro-btn a {
-    color: #fff;
-    padding: 15px 45px;
-    letter-spacing: 2px;
-    font-size: 12px;margin-top: 15px;
-    font-weight: normal;
-    background: #ff1341;
-    font-family: 'Bitter', serif;
+	color: #fff;
+	padding: 15px 45px;
+	letter-spacing: 2px;
+	font-size: 12px;
+	margin-top: 15px;
+	font-weight: normal;
+	background: #ff1341;
+	font-family: 'Bitter', serif;
 }
+
 .intro-btn a:hover {
- background: black;color:white;
+	background: black;
+	color: white;
 }
-p{font-size:15px; text-align:justify;}
+
+p {
+	font-size: 15px;
+	text-align: justify;
+}
 
 #contactForm textarea {
-    background: #F0F0F0;
-    border: none;
-    height: 175px;
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 97%;
-    border: 1px solid #f0f0f0;
-    margin-top: 15px;
+	background: #F0F0F0;
+	border: none;
+	height: 175px;
+	margin-bottom: 10px;
+	padding: 5px;
+	width: 97%;
+	border: 1px solid #f0f0f0;
+	margin-top: 15px;
 }
+
 .form-list select {
-    background: #f0f0f0;
-    border: 1px solid #f0f0f0;
-    padding: 10px;
-    width: 80%;
-    margin-top: 5px;
-    outline: none;
-    margin: 5px 0 2px;
-    width: 84%;
-    outline: none;
+	background: #f0f0f0;
+	border: 1px solid #f0f0f0;
+	padding: 10px;
+	width: 80%;
+	margin-top: 5px;
+	outline: none;
+	margin: 5px 0 2px;
+	width: 84%;
+	outline: none;
 }
 </style>
 
-            
-<div  id="right_toolbar">
-     
-    		  <div class="search_wrapper">
-			      <form class="form-search" action="#" method="get">
-				<button type="submit"><img src="images/scrollsearch_icon.png" align="absmiddle"></button>
-				<input name="q" class="input-medium search-query" value="search" onBlur="if (this.value == '') {this.value = 'search';}" onFocus="if(this.value =='search') {this.value = '';}" type="text">
-			      </form>
-		  </div>
-	  
-    	      <div id="back-top" style="display:none;"><a href="#top"><img src="images/backto_top.png"></a></div>
-    </div>
+
+<div id="right_toolbar">
+
+	<div class="search_wrapper">
+		<form class="form-search" action="#" method="get">
+			<button type="submit">
+				<img src="images/scrollsearch_icon.png" align="absmiddle">
+			</button>
+			<input name="q" class="input-medium search-query" value="search"
+				onBlur="if (this.value == '') {this.value = 'search';}"
+				onFocus="if(this.value =='search') {this.value = '';}" type="text">
+		</form>
+	</div>
+
+	<div id="back-top" style="display: none;">
+		<a href="#top"><img src="images/backto_top.png"></a>
+	</div>
+</div>
 
 
- 
+
 
 
 
 </head>
 
 <body class="flexible  cms-index-index cms-accord-home">
-            <noscript>
-        <div class="global-site-notice noscript">
-            <div class="notice-inner">
-                <p>
-                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
-                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
-            </div>
-        </div>
-    </noscript>
-    <header>
- <jsp:include page="loginHeader.jsp"></jsp:include>
-  <div class="header">     
-            
- <div class="top-cart-contain">
- 
-   <p class="intro-btn">
-      <a href="postad.html" ><span>Post Your Ad </span></a></p>
-	  </div>
-               
-			   <div class="logo"><a href="index.html" title="J & A Business Hunter"><div><img src="images/logo.png" alt="J & A Business Hunter Logo" /></div></a></div>
-      
-  </div> <!--header-->
-  </header>
-<nav>
-  <div class="nav-inner">
-    
-            
+	<noscript>
+		<div class="global-site-notice noscript">
+			<div class="notice-inner">
+				<p>
+					<strong>JavaScript seems to be disabled in your browser.</strong><br />
+					You must have JavaScript enabled in your browser to utilize the
+					functionality of this website.
+				</p>
+			</div>
+		</div>
+	</noscript>
+	<header>
+		<jsp:include page="loginHeader.jsp"></jsp:include>
+		<div class="header">
+
+			<div class="top-cart-contain">
+
+				<p class="intro-btn">
+					<a href="postad.html"><span>Post Your Ad </span></a>
+				</p>
+			</div>
+
+			<div class="logo">
+				<a href="index.html" title="J & A Business Hunter"><div>
+						<img src="images/logo.png" alt="J & A Business Hunter Logo" />
+					</div></a>
+			</div>
+
+		</div>
+		<!--header-->
+	</header>
+	<nav>
+		<div class="nav-inner">
 
 
 
-<script type="text/javascript">
+
+
+			<script type="text/javascript">
 jQuery(document).ready(function() {
           jQuery('.toggle').click(function() {
                if (jQuery('.submenu').is(":hidden"))
@@ -263,9 +305,9 @@ jQuery(document).ready(function() {
 
 </script>
 
-<jsp:include page="menu.jsp"></jsp:include>
-<jsp:include page="nav.jsp"></jsp:include>
-<script type="text/javascript">
+			<jsp:include page="menu.jsp"></jsp:include>
+			<jsp:include page="nav.jsp"></jsp:include>
+			<script type="text/javascript">
         //<![CDATA[
 
             jQuery(function($) {
@@ -307,7 +349,7 @@ jQuery(document).ready(function() {
 
         //]]>
 </script>
-<script type="text/javascript">
+			<script type="text/javascript">
 //<![CDATA[
     jQuery(document).ready(function(){
         var scrolled = false;
@@ -346,108 +388,116 @@ jQuery(document).ready(function() {
     });
 //]]>
 </script>
-     </div> 
-</nav> 
-         
-  <section class="main-container col2-left-layout">
-           <div class="main-container-inner">   
-            
-  <div class="breadcrumbs">
-    <div class="inner">
-      <ul>
-                    <li class="home">
-                            <a href="index.html" title=" ">Home</a>
-                                        <span>» </span>
-                        </li>
-                    <li class="category348">
-                           <strong>Sell A Business</strong>
-                                    </li>
-              </ul>
-    </div> <!--inner-->
-  </div> <!--breadcrumbs-->
-             
-          <article class="col-main">                                          
-                            
+		</div>
+	</nav>
 
-<div class="page-title">
-        <h2>Sell A Business - Ads Subscription</h2>
-</div> <!--page-title-->
+	<section class="main-container col2-left-layout">
+		<div class="main-container-inner">
 
-
-
-    <div id="sellBizPackagePic" class="category-description std">
-        <div class="category-image">
-        <div id="slides">
-          <div class="slides_container">
-            <div><img title="J & A Business Hunter Seller Ads Subscription" src="images/sellabusiness.png" alt="J & A Business Hunter Seller Ads Subscription" /> 
-			<div class="cat-img-title cat-bg cat-box">
-		 
+			<div class="breadcrumbs">
+				<div class="inner">
+					<ul>
+						<li class="home"><a href="index.html" title=" ">Home</a> <span>»
+						</span></li>
+						<li class="category348"><strong>Sell A Business</strong></li>
+					</ul>
 				</div>
-				</div>           
-          </div>
-        </div>
-    
-      </div>    </div>
+				<!--inner-->
+			</div>
+			<!--breadcrumbs-->
 
-<div class="category-products"><br/>
-  <form:form id="contactForm" method="post" commandName="sellerModel">
+			<article class="col-main">
 
-<div id="sellerPage1NewDiv">
-  <div class="column sixty">
 
-        <ul class="form-list">
-           
-		     <li>
-                    <label for="packages">Select a Package<em class="required">*</em></label>
-            
-                  <div class="input-box">
-				  <form:select path="packages"  class="required-entry input-text">
- 						<form:option value="select" label="--- Select ---"/> 
- 						<form:options items="${sellerModel.packageIdList}"/>
- 						
-				</form:select>
-           </div>
+				<div class="page-title">
+					<h2>Sell A Business - Ads Subscription</h2>
+				</div>
+				<!--page-title-->
 
-		   </li>
-		   
-		   
-		   <p class="required">* Required Fields</p>
-        </ul>
-		 <div class="textright">
-                 
-                 <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
-                 <button type="button" title="Next" onclick="sellGoToSecondPage()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span></button>
-		 <img src="images/loader.gif" id="loader" style="display:none;">
-              </div> 
-		
-  </div> <!--column sixty-->
-  <div class="column fourty last">
-     <div class="padding">         
-     </div>
-  </div> 
-       
-</div>
-<div id="sellerPage2NewDiv" style="display:none">
-<jsp:include page="seller_page2.jsp"></jsp:include>
-</div>
-<div id="sellerPage3NewDiv" style="display:none">
-<jsp:include page="seller_page3.jsp"></jsp:include>
-</div>
-</form:form>
-</div>
-    
 
-  </article> <!--main-container-inner-->
-    
- 
-<!--div class="toolbar-bottom">
+
+				<div id="sellBizPackagePic" class="category-description std">
+					<div class="category-image">
+						<div id="slides">
+							<div class="slides_container">
+								<div>
+									<img title="J & A Business Hunter Seller Ads Subscription"
+										src="images/sellabusiness.png"
+										alt="J & A Business Hunter Seller Ads Subscription" />
+									<div class="cat-img-title cat-bg cat-box"></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="category-products">
+					<br />
+					<form:form id="contactForm" method="post" commandName="sellerModel">
+
+						<div id="sellerPage1NewDiv">
+							<div class="column sixty">
+
+								<ul class="form-list">
+
+									<li><label for="packages">Select a Package<em
+											class="required">*</em></label>
+
+										<div class="input-box">
+											<form:select path="packages"
+												class="required-entry input-text">
+												<form:option value="select" label="--- Select ---" />
+												<form:options items="${sellerModel.packageIdList}" />
+
+											</form:select>
+										</div></li>
+
+
+									<p class="required">* Required Fields</p>
+								</ul>
+								<div class="textright">
+
+									<input type="text" name="hideit" id="hideit" value=""
+										style="display: none !important;" />
+									<button type="button" title="Next"
+										onclick="sellGoToSecondPage()" class="button btn-sent">
+										<span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span>
+									</button>
+									<img src="images/loader.gif" id="loader" style="display: none;">
+								</div>
+
+							</div>
+						</div>
+						<div id="sellerPage2NewDiv" style="display: none">
+							<jsp:include page="seller_page2.jsp"></jsp:include>
+						</div>
+						<div id="sellerPage3NewDiv" style="display: none">
+							<jsp:include page="seller_page3.jsp"></jsp:include>
+						</div>
+						<!--column sixty-->
+						<div class="column fourty last">
+							<div class="padding"></div>
+						</div>
+					</form:form>
+				</div>
+
+
+			</article>
+			<!--main-container-inner-->
+
+
+			<!--div class="toolbar-bottom">
     </div-->
 
 
-<div id="mgkquickview">
-<div id="magikloading" style="display:none;text-align:center;margin-top:400px;"><img src="images/loader.gif" alt="loading">
-</div></div>
-<script type="text/javascript">
+			<div id="mgkquickview">
+				<div id="magikloading"
+					style="display: none; text-align: center; margin-top: 400px;">
+					<img src="images/loader.gif" alt="loading">
+				</div>
+			</div>
+			<script type="text/javascript">
 function callQuickView(qurl) { 
     jQuery('#mgkquickview').show();
     jQuery('#magikloading').show();
@@ -458,19 +508,20 @@ jQuery('#mgkquickview').hide();
     });
  }
  
-</script>                   
-          </article> 
- <jsp:include page="aside.jsp"></jsp:include>
-  <!--col-right sidebar-->         
-          </div><!--main-container-inner-->
-       </section> <!--main-container col2-left-layout-->   
-      <section class="service-section service-section1">
-          
-      </section> <!--service-section service-section1--> 
-<jsp:include page="footer.jsp"></jsp:include>
-<jsp:include page="reachUsSlider.jsp"></jsp:include>
+</script>
+			</article>
+			<jsp:include page="aside.jsp"></jsp:include>
+			<!--col-right sidebar-->
+		</div>
+		<!--main-container-inner-->
+	</section>
+	<!--main-container col2-left-layout-->
+	<section class="service-section service-section1"></section>
+	<!--service-section service-section1-->
+	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="reachUsSlider.jsp"></jsp:include>
 
-      
 
-  </body>
+
+</body>
 </html>

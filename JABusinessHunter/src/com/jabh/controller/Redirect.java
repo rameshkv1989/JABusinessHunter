@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jabh.manager.SellerManager;
+import com.jabh.model.Buyer;
+import com.jabh.model.Franchise;
 import com.jabh.model.Seller;
+import com.jabh.model.ServiceProvider;
 import com.utils.logging.Logger;
 
 @Controller
@@ -69,7 +72,6 @@ public class Redirect {
 			Seller sellerModel = new Seller();
 			sellerModel.setPackageIdList(new SellerManager().getPackageIDsList());
 			System.out.println("size : "+sellerModel.getPackageIdList().size());
-			//map.addObject("packageIdList",new SellerManager().getPackageIDsList());
 			map.addAttribute("sellerModel",sellerModel);
 			Logger.logStatus(CLASS_NAME,"Exiting GET SellerRedirect","debug");
 			return "./jsp/seller.jsp";
@@ -86,6 +88,8 @@ public class Redirect {
 	public String BuyerRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET BuyerRedirect","debug");
+			Buyer buyerModel = new Buyer();
+			map.addAttribute("buyerModel",buyerModel);
 			Logger.logStatus(CLASS_NAME,"Exiting GET BuyerRedirect","debug");
 			return "./jsp/buyer.jsp";
 			
@@ -101,6 +105,10 @@ public class Redirect {
 	public String FranchiseRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET FranchiseRedirect","debug");
+			Franchise franchiseModel = new Franchise();
+			franchiseModel.setPackageIdList(new SellerManager().getPackageIDsList());
+			System.out.println("size : "+franchiseModel.getPackageIdList().size());
+			map.addAttribute("franchiseModel",franchiseModel);
 			Logger.logStatus(CLASS_NAME,"Exiting GET FranchiseRedirect","debug");
 			return "./jsp/franchise.jsp";
 			
@@ -116,6 +124,10 @@ public class Redirect {
 	public String ServiveProvidersRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET ServiveProvidersRedirect","debug");
+			ServiceProvider serviceProviderModel = new ServiceProvider();
+			serviceProviderModel.setPackageIdList(new SellerManager().getPackageIDsList());
+			System.out.println("size : "+serviceProviderModel.getPackageIdList().size());
+			map.addAttribute("serviceProviderModel",serviceProviderModel);
 			Logger.logStatus(CLASS_NAME,"Exiting GET ServiveProvidersRedirect","debug");
 			return "./jsp/serviceprovider.jsp";
 			
