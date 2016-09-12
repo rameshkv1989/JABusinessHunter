@@ -120,10 +120,6 @@ jQuery(document).ready(function() {
 
 });
 
-function submitSell(){
-	document.getElementById("contactForm").action="sellSubmit.do";
-	document.getElementById("contactForm").submit();
-}
 </script>
 
 <style>
@@ -409,14 +405,17 @@ jQuery(document).ready(function() {
 			<article class="col-main">
 
 
-				<div class="page-title">
-					<h2>Sell A Business - Ads Subscription</h2>
-				</div>
-				<!--page-title-->
+				
 
 
 
 				<div id="sellBizPackagePic" class="category-description std">
+				
+				<div class="page-title">
+					<h2>Sell A Business - Ads Subscription</h2>
+				</div>
+				<!--page-title-->
+				
 					<div class="category-image">
 						<div id="slides">
 							<div class="slides_container">
@@ -469,15 +468,16 @@ jQuery(document).ready(function() {
 
 							</div>
 						</div>
-						<div id="sellerPage2NewDiv" style="display: none">
+						
+						<!--column sixty-->
+						<div class="column fourty last">
+							<div class="padding"></div>
+						</div>
+						 <div id="sellerPage2NewDiv" style="display: none">
 							<jsp:include page="seller_page2.jsp"></jsp:include>
 						</div>
 						<div id="sellerPage3NewDiv" style="display: none">
 							<jsp:include page="seller_page3.jsp"></jsp:include>
-						</div>
-						<!--column sixty-->
-						<div class="column fourty last">
-							<div class="padding"></div>
 						</div>
 					</form:form>
 				</div>

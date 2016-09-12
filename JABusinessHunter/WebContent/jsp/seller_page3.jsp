@@ -1,5 +1,20 @@
 
-<div class="column">
+
+         
+  <section class="main-container col2-left-layout">
+           <div class="main-container-inner">   
+                            
+
+<div class="page-title">
+        <h2>Sell A Business - Ads Posting</h2>
+</div> <!--page-title-->
+
+ 
+<div class="category-products"><br/>
+  <form id="contactForm" >
+
+
+  <div class="column">
  
  
  <p>
@@ -58,12 +73,18 @@
 			
 			</ul>
  <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />                  
-   <button type="button" title="Next" onclick="submitSell()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Payment&nbsp;&nbsp;&nbsp;</span></button>
+   <button type="submit" title="Next" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Payment&nbsp;&nbsp;&nbsp;</span></button>
   
   
   
   
-  <button type="button" title="Back" onclick="sellGoToSecondPage()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+  <button type="submit" title="Back" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
   <img src="images/loader.gif" id="loader" style="display:none;">
  
   </div> <!--column sixty-->
+ 
+</form>
+</div>
+    
+          </div><!--main-container-inner-->
+       </section> <!--main-container col2-left-layout-->   
