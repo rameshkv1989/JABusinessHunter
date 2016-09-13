@@ -299,7 +299,7 @@
   
    <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />                  
    <button type="button" id="next" title="Next" onclick="sellGoToThirdPage()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span></button>
-   <button type="submit" id="payment" title="Payment" name="action" value="page3.do" class="button btn-sent" style="display:none"><span>&nbsp;&nbsp;&nbsp;Payment&nbsp;&nbsp;&nbsp;</span></button>
+   <button type="submit" id="payment" title="Payment" name="action"  class="button btn-sent" style="display:none"><span>&nbsp;&nbsp;&nbsp;Payment&nbsp;&nbsp;&nbsp;</span></button>
   
   <button type="button" title="Back" onclick="sellGoToFirstPage()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</span></button>
   <img src="images/loader.gif" id="loader" style="display:none;">
