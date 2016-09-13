@@ -1,6 +1,22 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
+  <style>
+.column.thirty {
+	width: 25%;
+}
+
+#contactForm textarea {
+	background: #F0F0F0;
+	border: none;
+	margin-bottom: 10px;
+	padding: 5px;
+	width: 97%;
+	border: 1px solid #f0f0f0;
+	margin-top: 15px;
+}
+
+</style>
          
   <section class="main-container col2-left-layout">
            <div class="main-container-inner">   
