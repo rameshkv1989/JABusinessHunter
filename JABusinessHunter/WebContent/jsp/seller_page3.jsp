@@ -1,4 +1,5 @@
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
          
   <section class="main-container col2-left-layout">
@@ -53,7 +54,7 @@
   <li>
                     <label for="companyfullname ">Company Full Name <font style="color:red;">(will not be disclosed)</font></label>
 					<div class="input-box">
-                    <input name="companyfullname" id="companyfullname" title="companyfullname" value="" class="input-text" type="text" />
+                    <form:input path="companyfullname" title="companyfullname" value="" class="input-text" type="text" />
 					</div>
             </li>
 			
@@ -61,13 +62,13 @@
   <li>
                     <label for="companyregdno">Company Registration No.  <font style="color:red;">(will not be disclosed)</font></label>
 					<div class="input-box">
-                    <input name="companyregdno" id="companyregdno" title="companyregdno" value="" class="input-text" type="text" />
+                    <form:input path="companyregdno" title="companyregdno" value="" class="input-text" type="text" />
 					</div>
             </li>			
 			
 			 <li>
                   
-                    <input name="terms" id="terms" title="terms" value="terms" class="input-text" type="checkbox" style="width:5%"/> Pls tick here to accept our <a href="#" target="_blank">Terms & Conditions</a>
+                    <form:input path="terms" title="terms" value="terms" class="input-text" type="checkbox" style="width:5%"/> Pls tick here to accept our <a href="#" target="_blank">Terms & Conditions</a>
 					
             </li>	
 			
@@ -78,7 +79,7 @@
   
   
   
-  <button type="submit" title="Back" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+  <button type="button" title="Back" class="button btn-sent" onclick="sellGoToSecondPage()"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
   <img src="images/loader.gif" id="loader" style="display:none;">
  
   </div> <!--column sixty-->

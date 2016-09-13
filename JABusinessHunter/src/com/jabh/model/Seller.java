@@ -39,6 +39,7 @@ public class Seller implements Serializable{
 	private String sellingreason;
 	private String companyfullname;
 	private String companyregdno;
+	private String terms;
 	private Map<Integer,String> packageIdList;
 		
 	public Integer getPackages() {
@@ -229,6 +230,12 @@ public class Seller implements Serializable{
 	}
 	public Map<Integer, String> getPackageIdList() {
 		return packageIdList;
+	}
+	public String getTerms() {
+		return terms;
+	}
+	public void setTerms(String terms) {
+		this.terms = terms;
 	}
 	public void setPackageIdList(Map<Integer, String> packageIdList) {
 		this.packageIdList = packageIdList;

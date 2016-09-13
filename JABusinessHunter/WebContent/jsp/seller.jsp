@@ -433,7 +433,7 @@ jQuery(document).ready(function() {
 
 				<div class="category-products">
 					<br />
-					<form:form id="contactForm" method="post" commandName="sellerModel">
+					<form:form id="contactForm" method="post" commandName="sellerModel" action="sellSubmit.do">
 
 						<div id="sellerPage1NewDiv">
 							<div class="column sixty">

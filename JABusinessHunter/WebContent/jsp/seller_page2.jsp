@@ -298,13 +298,10 @@
              <form:textarea path="sellingreason" title="sellingreason" class="required-entry" cols="5" rows="10"></form:textarea>
   
    <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />                  
-   <button type="submit" id="next" title="Next" onclick="sellGoToThirdPage()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span></button>
+   <button type="button" id="next" title="Next" onclick="sellGoToThirdPage()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span></button>
    <button type="submit" id="payment" title="Payment" name="action" value="page3.do" class="button btn-sent" style="display:none"><span>&nbsp;&nbsp;&nbsp;Payment&nbsp;&nbsp;&nbsp;</span></button>
   
-  
-  
-  
-  <button type="submit" title="Back" onclick="sellGoToSecondPage()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</span></button>
+  <button type="button" title="Back" onclick="sellGoToFirstPage()" class="button btn-sent"><span>&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</span></button>
   <img src="images/loader.gif" id="loader" style="display:none;">
   
  </div>
