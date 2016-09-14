@@ -95,8 +95,9 @@
 					<li><label for="Country">Country<em class="required">*</em></label>
 
 						<div class="input-box">
-							<form:select path="Country" class="required-entry input-text">
+							<form:select path="Country" onchange="getOptionValues(this.value,'State','getOptionValues.do')" class="required-entry input-text">
 								<form:option value="" label="--- Select ---" />
+								<form:option value="Malaysia" label="Malaysia" />
 							</form:select>
 						</div></li>
 
@@ -104,7 +105,7 @@
 
 						<div class="input-box">
 							<form:select path="State" title="State"
-								class="required-entry input-text">
+								class="required-entry input-text" onchange="getOptionValues(this.value,'City','getOptionValues.do')">
 								<form:option value="" label="--- Select ---" />
 							</form:select>
 						</div></li>

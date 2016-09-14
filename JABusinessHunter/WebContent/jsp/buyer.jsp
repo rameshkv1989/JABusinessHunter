@@ -48,6 +48,7 @@
 <script type="text/javascript" src="js/left-nav.js"></script>
 <script type="text/javascript" src="js/mob-nav.js"></script>
 <script type="text/javascript" src="js/toggle.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" />
@@ -470,7 +471,7 @@ jQuery(document).ready(function() {
 								<li><label for="Country">Select Country</label>
 
 									<div class="input-box">
-										<form:select path="Country" title="Country" class="required-entry input-text">
+										<form:select path="Country" title="Country" onchange="getOptionValues(this.value,'State','getOptionValues.do')" class="required-entry input-text">
 											<form:option value="" label="--- Select ---"/>
 											<form:option value="Malaysia" label="Malaysia"/>
 										</form:select>
@@ -479,9 +480,8 @@ jQuery(document).ready(function() {
 								<li><label for="State">Select State</label>
 
 									<div class="input-box">
-										<form:select path="State" title="State"	class="required-entry input-text">
+										<form:select path="State" onchange="getOptionValues(this.value,'City','getOptionValues.do')" title="State"	class="required-entry input-text">
 											<form:option value="" label="--- Select ---"/>
-											<form:option value="Johor" label="Johor"/>
 										</form:select>
 									</div></li>
 
@@ -491,7 +491,6 @@ jQuery(document).ready(function() {
 									<div class="input-box">
 										<form:select path="City" title="City" class="required-entry input-text">
 											<form:option value="" label="--- Select ---"/>
-											<form:option value="Ayer Baloi" label="Ayer Baloi"/>
 										</form:select>
 									</div></li>
 

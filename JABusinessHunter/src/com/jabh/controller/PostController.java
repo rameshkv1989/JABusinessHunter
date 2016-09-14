@@ -8,11 +8,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jabh.model.Buyer;
 import com.jabh.model.Franchise;
 import com.jabh.model.Seller;
 import com.jabh.model.ServiceProvider;
+import com.jabh.util.Utility;
 import com.utils.logging.Logger;
 
 @Controller
@@ -88,4 +91,20 @@ public class PostController {
 			return "./jsp/error.jsp";
 		}
 	}
+	
+	@RequestMapping(value = "/getOptionValues.do", method = RequestMethod.GET)
+    public @ResponseBody String getStates(@RequestParam("param") String param) {
+        try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET getStates","debug");
+			Logger.logStatus(CLASS_NAME,"Input Selected value : "+param,"debug");
+			String result = Utility.getStates(param);
+			Logger.logStatus(CLASS_NAME,"OutPut Option Values : "+result,"debug");
+			Logger.logStatus(CLASS_NAME,"Exiting GET getStates","debug");
+			return result;
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET ServiceProviderSubmit : "+e.getMessage(), "error");
+			return null;
+		}
+    }
 }

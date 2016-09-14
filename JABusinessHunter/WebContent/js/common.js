@@ -47,6 +47,22 @@ function serviceProGoToFirstPage(){
 	document.getElementById('servicePro1NewDiv').style.display='block';
 }
 
+function getOptionValues(selectValue,populateValue,submitValue){
+	jQuery.ajax({
+		 type: "GET",
+         url : submitValue,
+         data: { param: selectValue},
+         dataType: 'text',
+         success : function(data) {
+        	 jQuery('#'+populateValue).empty(); // empty existing list
+        	 jQuery('#'+populateValue).append('<option value="">--- Select ---</option>');
+        	 jQuery.each(data.split(","), function (varIndex,varState){
+        		 jQuery('#'+populateValue).append(jQuery('<option>').text(varState).val(varState));
+             });  
+         }
+     });
+}
+
 function change(val){
 	if(val == 'Sdn_Bhd'){
 		document.getElementById('payment').style.display='inline-block';
