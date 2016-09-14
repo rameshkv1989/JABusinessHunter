@@ -22,7 +22,7 @@
            <div class="main-container-inner">   
                             
 
-<div class="page-title">
+<div class="page-title" style="margin:-9px 0 15px 0px;">
         <h2>Sell A Business - Ads Posting</h2>
 </div> <!--page-title-->
 

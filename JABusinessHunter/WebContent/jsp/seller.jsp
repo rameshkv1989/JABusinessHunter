@@ -411,7 +411,7 @@ jQuery(document).ready(function() {
 
 				<div id="sellBizPackagePic" class="category-description std">
 				
-				<div class="page-title">
+				<div class="page-title" style="margin:-9px 0 15px 0px;">
 					<h2>Sell A Business - Ads Subscription</h2>
 				</div>
 				<!--page-title-->

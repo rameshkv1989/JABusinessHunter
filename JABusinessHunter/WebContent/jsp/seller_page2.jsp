@@ -11,6 +11,7 @@
 	margin-bottom: 10px;
 	padding: 5px;
 	width: 97%;
+	height: 260px;
 	border: 1px solid #f0f0f0;
 	margin-top: 15px;
 }
@@ -21,7 +22,7 @@
 
 
 
-		 <div class="page-title">
+		 <div class="page-title" style="margin:-29px 0 15px 0px;">
 			<h2>Sell A Business - Ads Posting</h2>
 		</div>
 		<!--page-title-->
@@ -37,7 +38,7 @@
 					<li><label for="heading">Ad Heading<em
 							class="required">*</em></label>
 						<div class="input-box">
-							<form:input path="heading" title="heading" value=""
+							<form:input id="heading" path="heading" title="heading" value=""
 								class="input-text required-entry" type="text" />
 						</div></li>
 
@@ -45,7 +46,7 @@
 							class="required">*</em></label>
 
 						<div class="input-box">
-							<form:select path="businesstype" title="businesstype"
+							<form:select id="businesstype" path="businesstype" title="businesstype"
 								class="required-entry input-text">
 								<form:option value="" label="--- Select ---" />
 								<form:option value="Franchise" label="Franchise" />
@@ -56,7 +57,7 @@
 							class="required">*</em></label>
 
 						<div class="input-box">
-							<form:select path="companytype" title="companytype"
+							<form:select id="companytype" path="companytype" title="companytype"
 								onchange="change(this.value)" class="required-entry input-text">
 								<form:option value="" label="--- Select ---" />
 								<form:option value="Sole_Proprietor" label="Sole Proprietor" />
@@ -71,7 +72,7 @@
 							class="required">*</em></label>
 
 						<div class="input-box">
-							<form:select path="businesscategory" title="businesscategory"
+							<form:select id="businesscategory" path="businesscategory" title="businesscategory"
 								class="required-entry input-text">
 								<form:option value="" label="--- Select ---" />
 
@@ -85,7 +86,7 @@
 					</label>
 
 						<div class="input-box">
-							<form:select path="businesssubcategory"
+							<form:select id="businesssubcategory" path="businesssubcategory"
 								title="businesssubcategory" class="required-entry input-text">
 								<form:option value="" label="--- Select ---" />
 							</form:select>
@@ -95,7 +96,7 @@
 					<li><label for="Country">Country<em class="required">*</em></label>
 
 						<div class="input-box">
-							<form:select path="Country" onchange="getOptionValues(this.value,'State','getOptionValues.do')" class="required-entry input-text">
+							<form:select id="Country" path="Country" onchange="getOptionValues(this.value,'State','getOptionValues.do')" class="required-entry input-text">
 								<form:option value="" label="--- Select ---" />
 								<form:option value="Malaysia" label="Malaysia" />
 							</form:select>
@@ -104,7 +105,7 @@
 					<li><label for="State">State<em class="required">*</em></label>
 
 						<div class="input-box">
-							<form:select path="State" title="State"
+							<form:select id="State" path="State" title="State"
 								class="required-entry input-text" onchange="getOptionValues(this.value,'City','getOptionValues.do')">
 								<form:option value="" label="--- Select ---" />
 							</form:select>
@@ -114,7 +115,7 @@
 					<li><label for="City">City<em class="required">*</em></label>
 
 						<div class="input-box">
-							<form:select path="City" title="City"
+							<form:select id="City" path="City" title="City"
 								class="required-entry input-text">
 								<form:option value="" label="--- Select ---" />
 							</form:select>
@@ -134,7 +135,7 @@
 							class="required">*</em></label>
 
 						<div class="input-box">
-							<form:select path="Contact_Title" title="Contact_Title"
+							<form:select id="Contact_Title" path="Contact_Title" title="Contact_Title"
 								class="required-entry input-text">
 								<form:option value="" label="--- Select ---" />
 								<form:option value="Mr" label="Mr" />
@@ -149,13 +150,13 @@
 					<li><label for="contactname">Contact Name<em
 							class="required">*</em></label>
 						<div class="input-box">
-							<form:input path="contactname" title="contactname" value=""
+							<form:input id="contactname" path="contactname" title="contactname" value=""
 								class="input-text required-entry" type="text" />
 						</div></li>
 					<li><label for="contactno">Contact Mobile No.<em
 							class="required">*</em></label>
 						<div class="input-box">
-							<form:input path="contactno" title="contactno" value=""
+							<form:input id="contactno" path="contactno" title="contactno" value=""
 								class="input-text required-entry" type="text" />
 						</div></li>
 
@@ -163,7 +164,7 @@
 					<li><label for="email">Email Address<em
 							class="required">*</em></label>
 						<div class="input-box">
-							<form:input path="email" title="email" value=""
+							<form:input id="email" path="email" title="email" value=""
 								class="input-text required-entry" type="text" />
 						</div></li>
 
@@ -260,7 +261,7 @@
 				<label for="companyprofile">Company Profile (2000
 					characters)<em class="required">*</em>
 				</label>
-				<form:textarea path="companyprofile" title="companyprofile"
+				<form:textarea id="companyprofile" path="companyprofile" title="companyprofile"
 					class="required-entry" cols="5" rows="10"></form:textarea>
 
 
@@ -280,15 +281,15 @@
 				<label for="whythisbusiness">Why this business is worth
 					investing? (2000 char)<em class="required">*</em>
 				</label>
-				<form:textarea path="whythisbusiness" title="whythisbusiness"
+				<form:textarea id="whythisbusiness" path="whythisbusiness" title="whythisbusiness"
 					class="required-entry" cols="5" rows="10"></form:textarea>
 
 
 				<label for="sellingreason">Reason for Selling the Business
 					(300 characters)<em class="required">*</em>
 				</label>
-				<form:textarea path="sellingreason" title="sellingreason"
-					class="required-entry" cols="5" rows="10"></form:textarea>
+				<form:textarea id="sellingreason" path="sellingreason" title="sellingreason"
+					class="required-entry" cols="5" rows="10" style="height:68px;"></form:textarea>
 
 				<input type="text" name="hideit" id="hideit" value=""
 					style="display: none !important;" />

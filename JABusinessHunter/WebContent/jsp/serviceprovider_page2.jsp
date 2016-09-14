@@ -5,6 +5,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<style>
+.column.thirty {
+	width: 33%;
+}
+
+#contactForm textarea {
+	background: #F0F0F0;
+	border: none;
+	margin-bottom: 10px;
+	padding: 5px;
+	width: 97%;
+	border: 1px solid #f0f0f0;
+	margin-top: 15px;
+}
+
+</style>
 <div class="column thirty">
 
 	<ul class="form-list">
