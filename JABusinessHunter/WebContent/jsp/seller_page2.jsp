@@ -21,7 +21,7 @@
 
 
 
-		<div class="page-title">
+		 <div class="page-title">
 			<h2>Sell A Business - Ads Posting</h2>
 		</div>
 		<!--page-title-->

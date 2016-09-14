@@ -393,7 +393,7 @@ jQuery(document).ready(function() {
 			<div class="breadcrumbs">
 				<div class="inner">
 					<ul>
-						<li class="home"><a href="index.html" title=" ">Home</a> <span>Â»
+						<li class="home"><a href="index.html" title=" ">Home</a> <span>»
 						</span></li>
 						<li class="category348"><strong>Sell A Business</strong></li>
 					</ul>
@@ -470,9 +470,9 @@ jQuery(document).ready(function() {
 						</div>
 						
 						<!--column sixty-->
-						<div class="column fourty last">
+					<!-- 	<div class="column fourty last">
 							<div class="padding"></div>
-						</div>
+						</div> -->
 						 <div id="sellerPage2NewDiv" style="display: none">
 							<jsp:include page="seller_page2.jsp"></jsp:include>
 						</div>

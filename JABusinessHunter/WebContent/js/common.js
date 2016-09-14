@@ -50,11 +50,11 @@ function serviceProGoToFirstPage(){
 function change(val){
 	if(val == 'Sdn_Bhd'){
 		document.getElementById('payment').style.display='inline-block';
-		document.getElementById('next').style.visibility='hidden';
+		document.getElementById('next').style.display='none';
 	}
 	else{
 		document.getElementById('next').style.display='inline-block';
-		document.getElementById('payment').style.visibility='hidden';
+		document.getElementById('payment').style.display='none';
 	}
 }
 

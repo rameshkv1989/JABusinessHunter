@@ -398,7 +398,7 @@ jQuery(document).ready(function() {
 			<div class="breadcrumbs">
 				<div class="inner">
 					<ul>
-						<li class="home"><a href="index.html" title=" ">Home</a> <span>Â»
+						<li class="home"><a href="index.html" title=" ">Home</a> <span>»
 						</span></li>
 						<li class="category348"><strong>Buy A Business</strong></li>
 					</ul>
