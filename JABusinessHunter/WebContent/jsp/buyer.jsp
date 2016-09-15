@@ -643,34 +643,34 @@ p {
 										<input id="slider2" type="range" min="1000" max="50000"
 											step="100" value="1000" class="input-text"
 											onchange="updateTextInput(this.value);" />
-										<form:input path="askingpricetxt" title="askingprice" value=""
-											class="input-text" type="text"></form:input>
+										<form:input path="askingpricetxt" title="Please enter digits" value=""
+											class="input-text" type="text" pattern="\d*"></form:input>
 									</div></li>
 
 								<li><label for="annual_revenue">Annual Revenue</label>
 									<div class="input-box">
-										<form:input path="annual_revenue" title="annual_revenue"
-											value="" class="input-text" type="text" />
+										<form:input path="annual_revenue" title="Please enter digits"
+											value="" class="input-text" type="text" pattern="\d*"/>
 									</div></li>
 								<li><label for="annualprofit_loss">Annual
 										Profit/(Loss) After Tax </label>
 									<div class="input-box">
-										<form:input path="annualprofit_loss" title="annualprofit_loss"
-											value="" class="input-text" type="text" />
+										<form:input path="annualprofit_loss" title="Please enter digits"
+											value="" class="input-text" type="text" pattern="\d*"/>
 									</div></li>
 
 								<li><label for="annualcashinflow_outflow">Annual
 										Cash Inflow/(Outflow) </label>
 									<div class="input-box">
 										<form:input path="annualcashinflow_outflow"
-											title="annualcashinflow_outflow" value="" class="input-text"
-											type="text" />
+											title="Please enter digits" value="" class="input-text"
+											type="text" pattern="\d*"/>
 									</div></li>
 
 								<li><label for="employeesno">Number of Employees</label>
 									<div class="input-box">
-										<form:input path="employeesno" title="employeesno" value=""
-											class="input-text" type="text" />
+										<form:input path="employeesno" title="Please enter digits" value=""
+											class="input-text" type="text" pattern="\d*"/>
 									</div></li>
 							</ul>
 

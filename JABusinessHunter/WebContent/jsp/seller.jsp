@@ -444,7 +444,7 @@ jQuery(document).ready(function() {
 											class="required">*</em></label>
 
 										<div class="input-box">
-											<form:select id="packagesid" path="packages"
+											<form:select path="packages"
 												class="required-entry input-text">
 												<form:option value="" label="--- Select ---" />
 												<form:options items="${sellerModel.packageIdList}" />

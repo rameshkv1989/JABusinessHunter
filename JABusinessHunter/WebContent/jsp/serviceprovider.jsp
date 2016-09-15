@@ -438,8 +438,8 @@ jQuery(document).ready(function() {
 									<div class="input-box">
 										<form:select path="packages" title="packages"
 											class="required-entry input-text">
-											<form:option value="select" label="--- Select ---" />
-											<form:options items="${serviceProviderModel.packageIdList}" />
+											<form:option value="" label="--- Select ---" />
+											<form:options items="${serviceProviderModel.packageIdList}"/>
 										</form:select>
 									</div></li>
 
