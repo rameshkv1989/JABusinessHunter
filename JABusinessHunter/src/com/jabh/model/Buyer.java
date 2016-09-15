@@ -15,11 +15,11 @@ public class Buyer implements Serializable{
 	private String Country;
 	private String State;
 	private String City;
-	private double askingpricetxt;
-	private double annual_revenue;
-	private double annualprofit_loss;
-	private double annualcashinflow_outflow;
-	private int employeesno;
+	private Double askingpricetxt;
+	private Double annual_revenue;
+	private Double annualprofit_loss;
+	private Double annualcashinflow_outflow;
+	private Integer employeesno;
 	public String getAreaofinterest() {
 		return areaofinterest;
 	}
@@ -62,38 +62,34 @@ public class Buyer implements Serializable{
 	public void setCity(String city) {
 		City = city;
 	}
-	
-	public double getAskingpricetxt() {
+	public Double getAskingpricetxt() {
 		return askingpricetxt;
 	}
-	public void setAskingpricetxt(double askingpricetxt) {
+	public void setAskingpricetxt(Double askingpricetxt) {
 		this.askingpricetxt = askingpricetxt;
 	}
-	public double getAnnual_revenue() {
+	public Double getAnnual_revenue() {
 		return annual_revenue;
 	}
-	public void setAnnual_revenue(double annual_revenue) {
+	public void setAnnual_revenue(Double annual_revenue) {
 		this.annual_revenue = annual_revenue;
 	}
-	public double getAnnualprofit_loss() {
+	public Double getAnnualprofit_loss() {
 		return annualprofit_loss;
 	}
-	public void setAnnualprofit_loss(double annualprofit_loss) {
+	public void setAnnualprofit_loss(Double annualprofit_loss) {
 		this.annualprofit_loss = annualprofit_loss;
 	}
-	public double getAnnualcashinflow_outflow() {
+	public Double getAnnualcashinflow_outflow() {
 		return annualcashinflow_outflow;
 	}
-	public void setAnnualcashinflow_outflow(double annualcashinflow_outflow) {
+	public void setAnnualcashinflow_outflow(Double annualcashinflow_outflow) {
 		this.annualcashinflow_outflow = annualcashinflow_outflow;
 	}
-	public int getEmployeesno() {
+	public Integer getEmployeesno() {
 		return employeesno;
 	}
-	public void setEmployeesno(int employeesno) {
+	public void setEmployeesno(Integer employeesno) {
 		this.employeesno = employeesno;
 	}
-	
-	
-
 }

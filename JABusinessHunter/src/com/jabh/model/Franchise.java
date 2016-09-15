@@ -19,10 +19,10 @@ public class Franchise implements Serializable{
 	private String City;
 	private String companyfullname;
 	private String companyregdno;
-	private int Year_Established;
+	private Integer Year_Established;
 	private String Contact_Title;
 	private String contactname;
-	private double contactno;
+	private Double contactno;
 	private String contactwebsite;
 	private String email;
 	private String companyprofile;
@@ -88,10 +88,10 @@ public class Franchise implements Serializable{
 	public void setCompanyregdno(String companyregdno) {
 		this.companyregdno = companyregdno;
 	}
-	public int getYear_Established() {
+	public Integer getYear_Established() {
 		return Year_Established;
 	}
-	public void setYear_Established(int year_Established) {
+	public void setYear_Established(Integer year_Established) {
 		Year_Established = year_Established;
 	}
 	public String getContact_Title() {
@@ -106,10 +106,10 @@ public class Franchise implements Serializable{
 	public void setContactname(String contactname) {
 		this.contactname = contactname;
 	}
-	public double getContactno() {
+	public Double getContactno() {
 		return contactno;
 	}
-	public void setContactno(double contactno) {
+	public void setContactno(Double contactno) {
 		this.contactno = contactno;
 	}
 	public String getContactwebsite() {

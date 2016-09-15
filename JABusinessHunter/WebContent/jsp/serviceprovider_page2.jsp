@@ -19,7 +19,6 @@
 	border: 1px solid #f0f0f0;
 	margin-top: 15px;
 }
-
 </style>
 <div class="column thirty">
 
@@ -36,9 +35,23 @@
 			<div class="input-box">
 				<form:select path="servicetype" title="servicetype"
 					class="required-entry input-text">
-					<form:option value="" label="--- Select ---" />
-					<form:option value="Franchise" label="Franchise" />
-					<form:option value="Non_Franchise" label="Non Franchise" />
+					<form:option value="" label="--- Select ---"></form:option>
+					<form:option value="Accounting & Taxation" label="Accounting & Taxation" />
+					<form:option value="Banking & Financial Services" label="Banking & Financial Services" />
+					<form:option value="Business Brokering" label="Business Brokering" />
+					<form:option value="Business Consultating" label="Business Consultating" />
+					<form:option value="Company Secretarial" label="Company Secretarial" />
+					<form:option value="Computing" label="Computing" />
+					<form:option value="Employment" label="Employment" />
+					<form:option value="Franchising" label="Franchising" />
+					<form:option value="Insurance Services" label="Insurance Services" />
+					<form:option value="Legal Services" label="Legal Services" />
+					<form:option value="Marketing" label="Marketing" />
+					<form:option value="Office Renovation" label="Office Renovation" />
+					<form:option value="Online Marketing" label="Online Marketing" />
+					<form:option value="Venture Capitalist" label="Venture Capitalist" />
+					<form:option value="Web & Internet Services" label="Web & Internet Services" />
+					<form:option value="Others" label="Others" />
 				</form:select>
 			</div></li>
 
@@ -76,7 +89,8 @@
 
 			<div class="input-box">
 				<form:select path="Country" title="Country"
-					class="required-entry input-text" onchange="getOptionValues(this.value,'State','getOptionValues.do')">
+					class="required-entry input-text"
+					onchange="getOptionValues(this.value,'State','getOptionValues.do')">
 					<form:option value="" label="--- Select ---" />
 					<form:option value="Malaysia" label="Malaysia" />
 				</form:select>
@@ -94,7 +108,8 @@
 
 			<div class="input-box">
 				<form:select path="State" title="State"
-					class="required-entry input-text" onchange="getOptionValues(this.value,'City','getOptionValues.do')">
+					class="required-entry input-text"
+					onchange="getOptionValues(this.value,'City','getOptionValues.do')">
 					<form:option value="" label="--- Select ---" />
 				</form:select>
 			</div></li>
@@ -136,8 +151,8 @@
 		<li><label for="contactname">Contact Name<em
 				class="required">*</em></label>
 			<div class="input-box">
-				<form:input path="contactname" title="contactname"
-					value="" class="input-text required-entry" type="text" />
+				<form:input path="contactname" title="contactname" value=""
+					class="input-text required-entry" type="text" />
 			</div></li>
 		<li><label for="contactno">Contact Mobile No.<em
 				class="required">*</em></label>
@@ -147,8 +162,8 @@
 			</div></li>
 		<li><label for="email">Email Address </label>
 			<div class="input-box">
-				<form:input path="email" title="email" value=""
-					class="input-text " type="text" />
+				<form:input path="email" title="email" value="" class="input-text "
+					type="text" />
 			</div></li>
 
 
@@ -161,7 +176,8 @@
 <div class="column thirty last">
 	<label for="companyprofile">Company Profile (2000 characters)<em
 		class="required">*</em></label>
-	<form:textarea path="companyprofile" title="companyprofile" class="required-entry" cols="5" rows="10"></form:textarea>
+	<form:textarea path="companyprofile" title="companyprofile"
+		class="required-entry" cols="5" rows="10"></form:textarea>
 	<ul class="form-list">
 		<li><label for="attachment">Attachment (e.g. business
 				profile, photos) </label>
@@ -174,7 +190,8 @@
 	<label for="howarewedifferent">How are we different from the
 		other service providers?(2000 char)<em class="required">*</em>
 	</label>
-	<form:textarea path="howarewedifferent" title="howarewedifferent" class="required-entry" cols="5" rows="10"></form:textarea>
+	<form:textarea path="howarewedifferent" title="howarewedifferent"
+		class="required-entry" cols="5" rows="10"></form:textarea>
 
 
 	<input type="text" name="hideit" id="hideit" value=""

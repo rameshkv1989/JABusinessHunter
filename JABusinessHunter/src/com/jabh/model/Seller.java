@@ -17,19 +17,19 @@ public class Seller implements Serializable{
 	private String Country;
 	private String State;
 	private String City;
-	private int Year_Established;
+	private Integer Year_Established;
 	private String Contact_Title;
 	private String contactname;
-	private double contactno;
+	private Double contactno;
 	private String email;
-	private double price;
-	private int financialyear;
-	private double annual_revenue;
-	private double annualprofit_loss;
-	private double gross_profit;
-	private double staff_cost;
-	private double rental;
-	private double employeesno;
+	private Double price;
+	private Integer financialyear;
+	private Double annual_revenue;
+	private Double annualprofit_loss;
+	private Double gross_profit;
+	private Double staff_cost;
+	private Double rental;
+	private Double employeesno;
 	private String ppe;
 	private String inventories;
 	private String trade_receivables;
@@ -41,7 +41,6 @@ public class Seller implements Serializable{
 	private String companyregdno;
 	private String terms;
 	private Map<Integer,String> packageIdList;
-		
 	public Integer getPackages() {
 		return packages;
 	}
@@ -96,10 +95,10 @@ public class Seller implements Serializable{
 	public void setCity(String city) {
 		City = city;
 	}
-	public int getYear_Established() {
+	public Integer getYear_Established() {
 		return Year_Established;
 	}
-	public void setYear_Established(int year_Established) {
+	public void setYear_Established(Integer year_Established) {
 		Year_Established = year_Established;
 	}
 	public String getContact_Title() {
@@ -114,10 +113,10 @@ public class Seller implements Serializable{
 	public void setContactname(String contactname) {
 		this.contactname = contactname;
 	}
-	public double getContactno() {
+	public Double getContactno() {
 		return contactno;
 	}
-	public void setContactno(double contactno) {
+	public void setContactno(Double contactno) {
 		this.contactno = contactno;
 	}
 	public String getEmail() {
@@ -126,52 +125,52 @@ public class Seller implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
-	public int getFinancialyear() {
+	public Integer getFinancialyear() {
 		return financialyear;
 	}
-	public void setFinancialyear(int financialyear) {
+	public void setFinancialyear(Integer financialyear) {
 		this.financialyear = financialyear;
 	}
-	public double getAnnual_revenue() {
+	public Double getAnnual_revenue() {
 		return annual_revenue;
 	}
-	public void setAnnual_revenue(double annual_revenue) {
+	public void setAnnual_revenue(Double annual_revenue) {
 		this.annual_revenue = annual_revenue;
 	}
-	public double getAnnualprofit_loss() {
+	public Double getAnnualprofit_loss() {
 		return annualprofit_loss;
 	}
-	public void setAnnualprofit_loss(double annualprofit_loss) {
+	public void setAnnualprofit_loss(Double annualprofit_loss) {
 		this.annualprofit_loss = annualprofit_loss;
 	}
-	public double getGross_profit() {
+	public Double getGross_profit() {
 		return gross_profit;
 	}
-	public void setGross_profit(double gross_profit) {
+	public void setGross_profit(Double gross_profit) {
 		this.gross_profit = gross_profit;
 	}
-	public double getStaff_cost() {
+	public Double getStaff_cost() {
 		return staff_cost;
 	}
-	public void setStaff_cost(double staff_cost) {
+	public void setStaff_cost(Double staff_cost) {
 		this.staff_cost = staff_cost;
 	}
-	public double getRental() {
+	public Double getRental() {
 		return rental;
 	}
-	public void setRental(double rental) {
+	public void setRental(Double rental) {
 		this.rental = rental;
 	}
-	public double getEmployeesno() {
+	public Double getEmployeesno() {
 		return employeesno;
 	}
-	public void setEmployeesno(double employeesno) {
+	public void setEmployeesno(Double employeesno) {
 		this.employeesno = employeesno;
 	}
 	public String getPpe() {
@@ -228,21 +227,16 @@ public class Seller implements Serializable{
 	public void setCompanyregdno(String companyregdno) {
 		this.companyregdno = companyregdno;
 	}
-	public Map<Integer, String> getPackageIdList() {
-		return packageIdList;
-	}
 	public String getTerms() {
 		return terms;
 	}
 	public void setTerms(String terms) {
 		this.terms = terms;
 	}
+	public Map<Integer, String> getPackageIdList() {
+		return packageIdList;
+	}
 	public void setPackageIdList(Map<Integer, String> packageIdList) {
 		this.packageIdList = packageIdList;
-	}
-
-	
-	
-	
-	
+	}	
 }

@@ -330,7 +330,7 @@ jQuery(document).ready(function() {
       <ul>
                     <li class="home">
                             <a href="index.html" title=" ">Home</a>
-                                        <span>Â» </span>
+                                        <span>» </span>
                         </li>
                     <li class="category348">
                             <strong>About</strong>

@@ -56,71 +56,81 @@
 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
 <script type="text/javascript">
-jQuery(document).ready(function() {
+	jQuery(document).ready(
+			function() {
 
-	jQuery("#right_toolbar").show(); 
-	jQuery("#back-top").hide();
+				jQuery("#right_toolbar").show();
+				jQuery("#back-top").hide();
 
-	jQuery(function() {
-	      jQuery(window).scroll(function() {
-		  if (jQuery(this).scrollTop() > 150) {
-			jQuery('#back-top').fadeIn();
-		  } else { 
-			jQuery('#back-top').fadeOut();
-		  }
-	      });
+				jQuery(function() {
+					jQuery(window).scroll(function() {
+						if (jQuery(this).scrollTop() > 150) {
+							jQuery('#back-top').fadeIn();
+						} else {
+							jQuery('#back-top').fadeOut();
+						}
+					});
 
-	      jQuery('#back-top a').click(function() {
-		  jQuery('body,html').animate({scrollTop: 0}, 400);
-		  return false;
-	      });
+					jQuery('#back-top a').click(function() {
+						jQuery('body,html').animate({
+							scrollTop : 0
+						}, 400);
+						return false;
+					});
 
+				});
 
+				jQuery("#right_toolbar .shoppingcart").bind(
+						'mouseenter',
+						function() {
+							jQuery(".shopping_cart_mini", this)
+									.stop(true, true).fadeIn(200, "linear");
+						});
 
-	});
+				jQuery("#right_toolbar .shoppingcart").bind(
+						'mouseleave',
+						function() {
+							jQuery(".shopping_cart_mini", this)
+									.stop(true, true).fadeOut(200, "linear");
+						});
 
-    jQuery("#right_toolbar .shoppingcart").bind('mouseenter',function() {
-        jQuery(".shopping_cart_mini",this).stop(true, true).fadeIn(200, "linear");
-    });
+				jQuery("#right_toolbar .form-search ").mouseenter(function() {
+					jQuery('#right_toolbar .form-search input').animate({
+						right : 48,
+						width : 240
+					}, 300);
+				});
 
-    jQuery("#right_toolbar .shoppingcart").bind('mouseleave',function() {
-        jQuery(".shopping_cart_mini",this).stop(true, true).fadeOut(200, "linear");
-    });
+				jQuery("#left_toolbar .form-search ").mouseenter(function() {
+					jQuery('#left_toolbar .form-search input').animate({
+						left : 40,
+						width : 240
+					}, 300);
+				});
 
-    jQuery("#right_toolbar .form-search ").mouseenter(function() {
-        jQuery('#right_toolbar .form-search input').animate({
-            right: 48,
-            width: 240
-        }, 300);
-    });
+				jQuery("#right_toolbar .form-search ").mouseleave(
+						function() {
+							jQuery('#right_toolbar .form-search input').stop(
+									true, false).animate({
+								right : 20,
+								width : 0
+							}, 300);
+						});
 
- jQuery("#left_toolbar .form-search ").mouseenter(function() {
-        jQuery('#left_toolbar .form-search input').animate({
-            left: 40,
-            width: 240
-        }, 300);
-    });
+				jQuery("#left_toolbar .form-search ").mouseleave(
+						function() {
+							jQuery('#left_toolbar .form-search input').stop(
+									true, false).animate({
+								left : 20,
+								width : 0
+							}, 300);
+						});
 
- jQuery("#right_toolbar .form-search ").mouseleave(function() {
-        jQuery('#right_toolbar .form-search input').stop(true, false).animate({
-            right: 20,
-            width: 0
-        }, 300);
-    });
+			});
 
-    jQuery("#left_toolbar .form-search ").mouseleave(function() {
-        jQuery('#left_toolbar .form-search input').stop(true, false).animate({
-            left: 20,
-            width: 0
-        }, 300);
-    });
-
-});
-
-function updateTextInput(val) {
-          document.getElementById('askingpricetxt').value=val; 
-        }
-
+	function updateTextInput(val) {
+		document.getElementById('askingpricetxt').value = val;
+	}
 </script>
 
 <style>
@@ -284,112 +294,186 @@ p {
 
 
 			<script type="text/javascript">
-jQuery(document).ready(function() {
-          jQuery('.toggle').click(function() {
-               if (jQuery('.submenu').is(":hidden"))
-               {
-                    jQuery('.submenu').slideDown("fast");
-               } else {
-                    jQuery('.submenu').slideUp("fast");
-               }
-               return false;
-          });
-});
+				jQuery(document).ready(function() {
+					jQuery('.toggle').click(function() {
+						if (jQuery('.submenu').is(":hidden")) {
+							jQuery('.submenu').slideDown("fast");
+						} else {
+							jQuery('.submenu').slideUp("fast");
+						}
+						return false;
+					});
+				});
 
-jQuery(document).ready(function() {
-        jQuery(".topnav").accordion({
-                accordion:false,
-                speed: 300,
-                closedSign: '+',
-                openedSign: '-'
-        });
-});
-
-</script>
+				jQuery(document).ready(function() {
+					jQuery(".topnav").accordion({
+						accordion : false,
+						speed : 300,
+						closedSign : '+',
+						openedSign : '-'
+					});
+				});
+			</script>
 
 			<jsp:include page="menu.jsp"></jsp:include>
 			<jsp:include page="nav.jsp"></jsp:include>
 			<script type="text/javascript">
-        //<![CDATA[
+				//<![CDATA[
 
-            jQuery(function($) {
-                $("#nav > li").hover(function() {
-                    var el = $(this).find(".level0-wrapper");
-                    el.hide();
-                    el.css("left", "0");
-                    el.stop(true, true).delay(150).fadeIn(300, "easeOutCubic");
-                }, function() {
-                    $(this).find(".level0-wrapper").stop(true, true).delay(300).fadeOut(300, "easeInCubic");
-                });
-            });
+				jQuery(function($) {
+					$("#nav > li").hover(
+							function() {
+								var el = $(this).find(".level0-wrapper");
+								el.hide();
+								el.css("left", "0");
+								el.stop(true, true).delay(150).fadeIn(300,
+										"easeOutCubic");
+							},
+							function() {
+								$(this).find(".level0-wrapper")
+										.stop(true, true).delay(300).fadeOut(
+												300, "easeInCubic");
+							});
+				});
 
-            var isTouchDevice = ('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0);
-            jQuery(window).on("load", function() {
+				var isTouchDevice = ('ontouchstart' in window)
+						|| (navigator.msMaxTouchPoints > 0);
+				jQuery(window)
+						.on(
+								"load",
+								function() {
 
-                if (isTouchDevice)
-                {
-                    jQuery('#nav a.level-top').click(function(e) {
-                        $t = jQuery(this);
-                        $parent = $t.parent();
-                        if ($parent.hasClass('parent'))
-                        {
-                            if ( !$t.hasClass('menu-ready'))
-                            {                    
-                                jQuery('#nav a.level-top').removeClass('menu-ready');
-                                $t.addClass('menu-ready');
-                                return false;
-                            }
-                            else
-                            {
-                                $t.removeClass('menu-ready');
-                            }
-                        }
-                    });
-                }
+									if (isTouchDevice) {
+										jQuery('#nav a.level-top')
+												.click(
+														function(e) {
+															$t = jQuery(this);
+															$parent = $t
+																	.parent();
+															if ($parent
+																	.hasClass('parent')) {
+																if (!$t
+																		.hasClass('menu-ready')) {
+																	jQuery(
+																			'#nav a.level-top')
+																			.removeClass(
+																					'menu-ready');
+																	$t
+																			.addClass('menu-ready');
+																	return false;
+																} else {
+																	$t
+																			.removeClass('menu-ready');
+																}
+															}
+														});
+									}
 
-            }); //end: on load
+								}); //end: on load
 
-        //]]>
-</script>
+				//]]>
+			</script>
 			<script type="text/javascript">
-//<![CDATA[
-    jQuery(document).ready(function(){
-        var scrolled = false;
-        jQuery("#nav li.level0.drop-menu").mouseover(function(){
-            if(jQuery(window).width() >= 740){
-                jQuery(this).children('ul.level1').fadeIn(100);
-            }
-            return false;
-        }).mouseleave(function(){
-            if(jQuery(window).width() >= 740){
-                jQuery(this).children('ul.level1').fadeOut(100);
-            }
-            return false;
-        });
-        jQuery("#nav li.level0.drop-menu li").mouseover(function(){
-            if(jQuery(window).width() >= 740){
-                jQuery(this).children('ul').css({top:0,left:"165px"});
-                var offset = jQuery(this).offset();
-                if(offset && (jQuery(window).width() < offset.left+325)){
-                    jQuery(this).children('ul').removeClass("right-sub");
-                    jQuery(this).children('ul').addClass("left-sub");
-                    jQuery(this).children('ul').css({top:0,left:"-167px"});
-                } else {
-                    jQuery(this).children('ul').removeClass("left-sub");
-                    jQuery(this).children('ul').addClass("right-sub");
-                }
-                jQuery(this).children('ul').fadeIn(100);
-            }
-        }).mouseleave(function(){
-            if(jQuery(window).width() >= 740){
-                jQuery(this).children('ul').fadeOut(100);
-            }
-        });
-        
+				//<![CDATA[
+				jQuery(document)
+						.ready(
+								function() {
+									var scrolled = false;
+									jQuery("#nav li.level0.drop-menu")
+											.mouseover(
+													function() {
+														if (jQuery(window)
+																.width() >= 740) {
+															jQuery(this)
+																	.children(
+																			'ul.level1')
+																	.fadeIn(100);
+														}
+														return false;
+													})
+											.mouseleave(
+													function() {
+														if (jQuery(window)
+																.width() >= 740) {
+															jQuery(this)
+																	.children(
+																			'ul.level1')
+																	.fadeOut(
+																			100);
+														}
+														return false;
+													});
+									jQuery("#nav li.level0.drop-menu li")
+											.mouseover(
+													function() {
+														if (jQuery(window)
+																.width() >= 740) {
+															jQuery(this)
+																	.children(
+																			'ul')
+																	.css(
+																			{
+																				top : 0,
+																				left : "165px"
+																			});
+															var offset = jQuery(
+																	this)
+																	.offset();
+															if (offset
+																	&& (jQuery(
+																			window)
+																			.width() < offset.left + 325)) {
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.removeClass(
+																				"right-sub");
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.addClass(
+																				"left-sub");
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.css(
+																				{
+																					top : 0,
+																					left : "-167px"
+																				});
+															} else {
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.removeClass(
+																				"left-sub");
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.addClass(
+																				"right-sub");
+															}
+															jQuery(this)
+																	.children(
+																			'ul')
+																	.fadeIn(100);
+														}
+													})
+											.mouseleave(
+													function() {
+														if (jQuery(window)
+																.width() >= 740) {
+															jQuery(this)
+																	.children(
+																			'ul')
+																	.fadeOut(
+																			100);
+														}
+													});
 
-    });
-//]]>
-</script>
+								});
+				//]]>
+			</script>
 		</div>
 	</nav>
 
@@ -419,7 +503,8 @@ jQuery(document).ready(function() {
 
 				<div class="category-products">
 					<br />
-					<form:form id="contactForm" method="post" action="buySubmit.do" commandName="buyerModel">
+					<form:form id="contactForm" method="post" action="buySubmit.do"
+						commandName="buyerModel">
 
 
 						<div class="column fifty">
@@ -428,20 +513,24 @@ jQuery(document).ready(function() {
 								<li><label for="areaofinterest">Area of Interest</label>
 
 									<div class="input-box">
-										<form:select path="areaofinterest" title="areaofinterest" class="required-entry input-text">
-											<form:option value="" label="--- Select ---"/> 
-											<form:option value="businessforsales" label="Business For Sales"/> 
-											<form:option value="businessopportunities" label="Business Opportunities"/> 
-											<form:option value="serviceprovider" label="Service Provider"/> 
+										<form:select path="areaofinterest" title="areaofinterest"
+											class="required-entry input-text">
+											<form:option value="" label="--- Select ---" />
+											<form:option value="businessforsales"
+												label="Business For Sales" />
+											<form:option value="businessopportunities"
+												label="Business Opportunities" />
+											<form:option value="serviceprovider" label="Service Provider" />
 										</form:select>
 									</div></li>
 								<li><label for="businesstype">Business Type</label>
 
 									<div class="input-box">
-										<form:select path="businesstype" title="businesstype" class="required-entry input-text">
-											<form:option value="" label="--- Select ---"/> 
-											<form:option value="Franchise" label="Franchise"/> 
-											<form:option value="Non_Franchise" label="Non Franchise"/>
+										<form:select path="businesstype" title="businesstype"
+											class="required-entry input-text">
+											<form:option value="" label="--- Select ---" />
+											<form:option value="Franchise" label="Franchise" />
+											<form:option value="Non_Franchise" label="Non Franchise" />
 										</form:select>
 									</div></li>
 
@@ -449,10 +538,10 @@ jQuery(document).ready(function() {
 								<li><label for="businesscategory">Business Category</label>
 
 									<div class="input-box">
-										<form:select path="businesscategory" title="businesscategory" class="required-entry input-text">
-											<form:option value="" label="--- Select ---"/>
-											<form:option value="Advertising" label="Advertising"/>
-											<form:option value="Agriculture" label="Agriculture"/>
+										<form:select path="businesscategory" title="businesscategory"
+											class="required-entry input-text"
+											onchange="getOptionValues(this.value,'businesssubcategory','getOptionValues.do')">
+											<form:option value="" label="--- Select ---" />
 										</form:select>
 									</div></li>
 
@@ -461,27 +550,64 @@ jQuery(document).ready(function() {
 										Category</label>
 
 									<div class="input-box">
-										<form:select path="businesssubcategory" title="businesssubcategory" class="required-entry input-text">
-											<form:option value="" label="--- Select ---"/>
-											<form:option value="Bill Board Planner" label="Bill Board Planner"/>
-											<form:option value="Event Organiser" label="Event Organiser"/>
+										<form:select path="businesssubcategory"
+											title="businesssubcategory" class="required-entry input-text">
+											<form:option value="" label="--- Select ---" />
+											<form:option value="Advertising" label="Advertising" />
+											<form:option value="Agriculture" label="Agriculture" />
+											<form:option value="Automotive" label="Automotive" />
+											<form:option value="Beauty" label="Beauty" />
+											<form:option value="Child_Care" label="Child Care" />
+											<form:option value="Construction" label="Construction" />
+											<form:option value="Distribution_Wholesale"
+												label="Distribution / Wholesale" />
+											<form:option value="Education_Training"
+												label="Education & Training" />
+											<form:option value="Engineering" label="Engineering" />
+											<form:option value="Entertainment_Recreation"
+												label="Entertainment & Recreation" />
+											<form:option value="Fashion" label="Fashion" />
+											<form:option value="Financial_Consulting_Services"
+												label="Financial & Consulting Services" />
+											<form:option value="Food_Beverage" label="Food & Beverage" />
+											<form:option value="General_Services_Supplies"
+												label="General Services & Supplies" />
+											<form:option value="Health_Care_Medical"
+												label="Health Care & Medical" />
+											<form:option value="Information_Communication"
+												label="Information & Communication" />
+											<form:option value="Logistics" label="Logistics" />
+											<form:option value="Manufacturing" label="Manufacturing" />
+											<form:option value="Real_Estate" label="Real Estate" />
+											<form:option value="Rental_and_Leasing"
+												label="Rental and Leasing" />
+											<form:option value="Resources" label="Resources" />
+											<form:option value="Retail" label="Retail" />
+											<form:option value="Tourism" label="Tourism" />
+											<form:option value="Transportation_Warehousing"
+												label="Transportation & Warehousing" />
+
 										</form:select>
 									</div></li>
 
 								<li><label for="Country">Select Country</label>
 
 									<div class="input-box">
-										<form:select path="Country" title="Country" onchange="getOptionValues(this.value,'State','getOptionValues.do')" class="required-entry input-text">
-											<form:option value="" label="--- Select ---"/>
-											<form:option value="Malaysia" label="Malaysia"/>
+										<form:select path="Country" title="Country"
+											onchange="getOptionValues(this.value,'State','getOptionValues.do')"
+											class="required-entry input-text">
+											<form:option value="" label="--- Select ---" />
+											<form:option value="Malaysia" label="Malaysia" />
 										</form:select>
 									</div></li>
 
 								<li><label for="State">Select State</label>
 
 									<div class="input-box">
-										<form:select path="State" onchange="getOptionValues(this.value,'City','getOptionValues.do')" title="State"	class="required-entry input-text">
-											<form:option value="" label="--- Select ---"/>
+										<form:select path="State"
+											onchange="getOptionValues(this.value,'City','getOptionValues.do')"
+											title="State" class="required-entry input-text">
+											<form:option value="" label="--- Select ---" />
 										</form:select>
 									</div></li>
 
@@ -489,8 +615,9 @@ jQuery(document).ready(function() {
 								<li><label for="City">Select City</label>
 
 									<div class="input-box">
-										<form:select path="City" title="City" class="required-entry input-text">
-											<form:option value="" label="--- Select ---"/>
+										<form:select path="City" title="City"
+											class="required-entry input-text">
+											<form:option value="" label="--- Select ---" />
 										</form:select>
 									</div></li>
 
@@ -510,36 +637,47 @@ jQuery(document).ready(function() {
 
 
 
-								<li><label for="askingprice">Asking Price (in Ringgit Malaysia):</label>
+								<li><label for="askingprice">Asking Price (in
+										Ringgit Malaysia):</label>
 									<div class="input-box">
-										<input id="slider2" type="range" min="1000" max="50000" step="100" value="1000" class="input-text"	onchange="updateTextInput(this.value);" /> 
-										<form:input	path="askingpricetxt" title="askingprice" value="" class="input-text" type="text" ></form:input>
+										<input id="slider2" type="range" min="1000" max="50000"
+											step="100" value="1000" class="input-text"
+											onchange="updateTextInput(this.value);" />
+										<form:input path="askingpricetxt" title="askingprice" value=""
+											class="input-text" type="text"></form:input>
 									</div></li>
 
 								<li><label for="annual_revenue">Annual Revenue</label>
 									<div class="input-box">
-										<form:input path="annual_revenue" title="annual_revenue" value="" class="input-text" type="text" />
+										<form:input path="annual_revenue" title="annual_revenue"
+											value="" class="input-text" type="text" />
 									</div></li>
 								<li><label for="annualprofit_loss">Annual
 										Profit/(Loss) After Tax </label>
 									<div class="input-box">
-										<form:input path="annualprofit_loss" title="annualprofit_loss" value="" class="input-text" type="text" />
+										<form:input path="annualprofit_loss" title="annualprofit_loss"
+											value="" class="input-text" type="text" />
 									</div></li>
 
 								<li><label for="annualcashinflow_outflow">Annual
 										Cash Inflow/(Outflow) </label>
 									<div class="input-box">
-										<form:input path="annualcashinflow_outflow" title="annualcashinflow_outflow" value="" class="input-text" type="text" />
+										<form:input path="annualcashinflow_outflow"
+											title="annualcashinflow_outflow" value="" class="input-text"
+											type="text" />
 									</div></li>
 
 								<li><label for="employeesno">Number of Employees</label>
 									<div class="input-box">
-										<form:input path="employeesno" title="employeesno" value="" class="input-text" type="text" />
+										<form:input path="employeesno" title="employeesno" value=""
+											class="input-text" type="text" />
 									</div></li>
 							</ul>
 
-							<input type="text" name="hideit" id="hideit" value="" style="display: none !important;" />
-							<button type="submit" title="Get Search Results" class="button btn-sent">
+							<input type="text" name="hideit" id="hideit" value=""
+								style="display: none !important;" />
+							<button type="submit" title="Get Search Results"
+								class="button btn-sent">
 								<span>Get Search Results</span>
 							</button>
 							<img src="images/loader.gif" id="loader" style="display: none;">
@@ -567,17 +705,16 @@ jQuery(document).ready(function() {
 				</div>
 			</div>
 			<script type="text/javascript">
-function callQuickView(qurl) { 
-    jQuery('#mgkquickview').show();
-    jQuery('#magikloading').show();
-    jQuery.get(qurl, function(data) {
-      jQuery.fancybox(data);
-      jQuery('#magikloading').hide();
-jQuery('#mgkquickview').hide();
-    });
- }
- 
-</script>
+				function callQuickView(qurl) {
+					jQuery('#mgkquickview').show();
+					jQuery('#magikloading').show();
+					jQuery.get(qurl, function(data) {
+						jQuery.fancybox(data);
+						jQuery('#magikloading').hide();
+						jQuery('#mgkquickview').hide();
+					});
+				}
+			</script>
 			</article>
 			<jsp:include page="aside.jsp"></jsp:include>
 			<!--col-right sidebar-->
