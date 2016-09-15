@@ -14,7 +14,7 @@ http://www.sprigframework.org/schema/context/spring-context-3.0.xsd"> -->
 	http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 <context:component-scan base-package="com.jabh.controller"/>
 <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-    <property name="location" value="classpath:countries.properties" />
+    <property name="location" value="classpath:lookup.properties" />
 </bean>
 
 </beans>
