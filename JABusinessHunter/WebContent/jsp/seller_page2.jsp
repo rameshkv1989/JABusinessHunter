@@ -146,14 +146,10 @@
 							</form:select>
 						</div></li>
 
-
-
-
-
 					<li><label for="Year_Established">Year Established </label>
 						<div class="input-box">
 							<form:input path="Year_Established" title="Year_Established"
-								value="" class="input-text" type="text" />
+								value="" class="input-text" type="text"  maxlength="4"/>
 						</div></li>
 
 					<li><label for="Contact_Title">Contact Title<em
@@ -190,7 +186,7 @@
 					<li><label for="email">Email Address<em
 							class="required">*</em></label>
 						<div class="input-box">
-							<form:input id="email" path="email" title="email" value=""
+							<form:input id="email" path="email" title="text" value=""
 								class="input-text required-entry" type="text" />
 						</div></li>
 
@@ -212,11 +208,11 @@
 							<form:input path="price" title="price" value=""
 								class="input-text" type="text" />
 						</div></li>
-					<li><label for="financial_year">Financial Year Ended <em
+					<li><label for="financial_year">Financial Year Ended (dd/mm/yyyy) <em
 							class="required">&nbsp;</em></label>
 						<div class="input-box">
 							<form:input path="financialyear" title="financialyear" value=""
-								class="input-text" type="text" />
+								class="input-text" type="text"/>
 						</div></li>
 
 					<li><label for="annual_revenue">Annual Revenue</label>
@@ -288,7 +284,7 @@
 					characters)<em class="required">*</em>
 				</label>
 				<form:textarea id="companyprofile" path="companyprofile"
-					title="companyprofile" class="required-entry" cols="5" rows="10"></form:textarea>
+					title="companyprofile" class="required-entry" cols="5" rows="10" maxlength="2000"></form:textarea>
 
 
 
@@ -308,7 +304,7 @@
 					investing? (2000 char)<em class="required">*</em>
 				</label>
 				<form:textarea id="whythisbusiness" path="whythisbusiness"
-					title="whythisbusiness" class="required-entry" cols="5" rows="10"></form:textarea>
+					title="whythisbusiness" class="required-entry" cols="5" rows="10" maxlength="2000"></form:textarea>
 
 
 				<label for="sellingreason">Reason for Selling the Business
@@ -316,7 +312,7 @@
 				</label>
 				<form:textarea id="sellingreason" path="sellingreason"
 					title="sellingreason" class="required-entry" cols="5" rows="10"
-					style="height:68px;"></form:textarea>
+					style="height:68px;" maxlength="300"></form:textarea>
 
 				<input type="text" name="hideit" id="hideit" value=""
 					style="display: none !important;" />
