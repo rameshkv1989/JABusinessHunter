@@ -7,13 +7,12 @@ function sellGoToFirstPage(){
 }
 
 function sellGoToSecondPage(){
-
 	var bool = isNull(document.getElementById('packages').value,'Package');
 	if(!bool){
-		document.getElementById('sellBizPackagePic').style.display='none';
-		document.getElementById('sellerPage1NewDiv').style.display='none';
-		document.getElementById('sellerPage3NewDiv').style.display='none';
-		document.getElementById('sellerPage2NewDiv').style.display='block';
+			document.getElementById('sellBizPackagePic').style.display='none';
+			document.getElementById('sellerPage1NewDiv').style.display='none';
+			document.getElementById('sellerPage3NewDiv').style.display='none';
+			document.getElementById('sellerPage2NewDiv').style.display='block';
 	}
 }
 
@@ -28,10 +27,16 @@ function sellGoToThirdPage(){
 			&& !isNull((document.getElementById('sellingreason').value),'SellingReason'))
 
 	{
-		document.getElementById('sellerPage2NewDiv').style.display='none';
-		document.getElementById('sellBizPackagePic').style.display='none';
-		document.getElementById('sellerPage1NewDiv').style.display='none';
-		document.getElementById('sellerPage3NewDiv').style.display='block';
+		if(validatedate(document.getElementById('financialyear').value,'Financial Year') && isNumber(document.getElementById('Year_Established').value,'Year Established')
+				&& isNumber(document.getElementById('contactno').value,'Contact Number') && isPrice(document.getElementById('price').value,'Price')
+				&& isPrice(document.getElementById('annual_revenue').value,'Annual Revenue') && isPrice(document.getElementById('annualprofit_loss').value,'Annual Profit/Loss')
+						&& isPrice(document.getElementById('gross_profit').value,'Gross Profit') && isPrice(document.getElementById('staff_cost').value,'Staff Cost')
+						&& isPrice(document.getElementById('rental').value,'Rental') && isNumber(document.getElementById('employeesno').value,'Number Of Employees')){
+			document.getElementById('sellerPage2NewDiv').style.display='none';
+			document.getElementById('sellBizPackagePic').style.display='none';
+			document.getElementById('sellerPage1NewDiv').style.display='none';
+			document.getElementById('sellerPage3NewDiv').style.display='block';
+		}
 	}
 }
 function franchiseGoToSecondPage(){
@@ -104,3 +109,91 @@ function trim(s)
 	s = s.replace(/\n /,"\n");
 	return s;
 }
+
+
+function validatedate(ipDate,id)
+{
+	var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+//	Match the date format through regular expression
+	if(ipDate == null || ipDate == "" || trim(ipDate).length<=0){
+		return true;
+	}
+	if(ipDate.match(dateformat))
+	{
+		var splitDate = ipDate.split('/');
+//		Extract the string into month, date and year
+		if (splitDate.length>1)
+		{
+			var pdate = ipDate.split('/');
+		}
+		var dd = parseInt(pdate[0]);
+		var mm  = parseInt(pdate[1]);
+		var yy = parseInt(pdate[2]);
+//		Create list of days of a month [assume there is no leap year by default]
+		var ListofDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+		var count =0;
+		if (mm==1 || mm>2)
+		{
+			if (dd>ListofDays[mm-1])
+			{
+				alert(id+' is in Invalid date format!');
+				return false;
+			}else{
+				count++;
+			}
+		}
+		if (mm==2)
+		{
+			var leapYear = false;
+			if ( (!(yy % 4) && yy % 100) || !(yy % 400)) 
+			{
+				leapYear = true;
+			}
+			if ((leapYear==false) && (dd>=29))
+			{
+				alert(id+' is in Invalid date format!');
+				return false;
+			}else{
+				count++;
+			}
+			if ((leapYear==true) && (dd>29))
+			{
+				alert(id+' is in Invalid date format!');
+				return false;
+			}else{
+				count++;
+			}
+		}
+		if(count==3 || (count==1 && mm != 2)){
+			return true;
+		}
+	}
+	else
+	{
+		alert(id+' is in Invalid date format!');
+		return false;
+	}
+}
+
+function isNumber(num,id) {
+	if(num == null || num == "" || trim(num).length<=0){
+		return true;
+	}
+	if(!isNaN(parseFloat(num)) && isFinite(num))
+	  return true;
+	else{
+		alert(id+' can be digits only');
+	}
+	}
+function isPrice(price, id){
+	if(price == null || price == "" || trim(price).length<=0){
+		return true;
+	}
+	   var regex  = /^\d+(?:\.\d{0,2})$/;
+	   if (regex.test(price)){
+	     return true;
+	   }else{
+	     alert(id+' should be in the format of dd.dd');
+	     return false;
+	   }
+	 }

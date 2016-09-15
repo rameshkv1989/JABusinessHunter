@@ -148,8 +148,8 @@
 
 					<li><label for="Year_Established">Year Established </label>
 						<div class="input-box">
-							<form:input path="Year_Established" title="Year_Established"
-								value="" class="input-text" type="text"  maxlength="4"/>
+							<form:input id="Year_Established" path="Year_Established" title="Year_Established"
+								value="" class="input-text" type="text"  maxlength="4" />
 						</div></li>
 
 					<li><label for="Contact_Title">Contact Title<em
@@ -205,48 +205,48 @@
 							Malaysia)<em class="required">&nbsp;</em>
 					</label>
 						<div class="input-box">
-							<form:input path="price" title="price" value=""
+							<form:input id="price" path="price" title="price" value=""
 								class="input-text" type="text" />
 						</div></li>
 					<li><label for="financial_year">Financial Year Ended (dd/mm/yyyy) <em
 							class="required">&nbsp;</em></label>
 						<div class="input-box">
-							<form:input path="financialyear" title="financialyear" value=""
+							<form:input id="financialyear" path="financialyear" title="financialyear" value=""
 								class="input-text" type="text"/>
 						</div></li>
 
-					<li><label for="annual_revenue">Annual Revenue</label>
+					<li><label for="annual_revenue">Annual Revenue (dd.dd)</label>
 						<div class="input-box">
-							<form:input path="annual_revenue" title="annual_revenue" value=""
+							<form:input id="annual_revenue" path="annual_revenue" title="annual_revenue" value=""
 								class="input-text" type="text" />
 						</div></li>
 					<li><label for="annualprofit_loss">Annual
 							Profit/(Loss) After Tax </label>
 						<div class="input-box">
-							<form:input path="annualprofit_loss" title="annualprofit_loss"
+							<form:input id="annualprofit_loss" path="annualprofit_loss" title="annualprofit_loss"
 								value="" class="input-text" type="text" />
 						</div></li>
 
 					<li><label for="gross_profit ">Gross Profit </label>
 						<div class="input-box">
-							<form:input path="gross_profit" title="gross_profit" value=""
+							<form:input id="gross_profit" path="gross_profit" title="gross_profit" value=""
 								class="input-text" type="text" />
 						</div></li>
 
 					<li><label for="staff_cost">Staff Cost</label>
 						<div class="input-box">
-							<form:input path="staff_cost" title="staff_cost" value=""
+							<form:input id="staff_cost" path="staff_cost" title="staff_cost" value=""
 								class="input-text" type="text" />
 						</div></li>
 					<li><label for="rental ">Rental</label>
 						<div class="input-box">
-							<form:input path="rental" title="rental" value=""
+							<form:input id="rental" path="rental" title="rental" value=""
 								class="input-text" type="text" />
 						</div></li>
 
 					<li><label for="employeesno">Number of Employees</label>
 						<div class="input-box">
-							<form:input path="employeesno" title="employeesno" value=""
+							<form:input id="employeesno" path="employeesno" title="employeesno" value=""
 								class="input-text" type="text" />
 						</div></li>
 
