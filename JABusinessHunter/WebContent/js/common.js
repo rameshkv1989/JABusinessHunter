@@ -9,14 +9,14 @@ function sellGoToFirstPage(){
 function sellGoToSecondPage(){
 	var bool = isNull(document.getElementById('packages').value,'Package');
 	if(!bool){
-			document.getElementById('sellBizPackagePic').style.display='none';
-			document.getElementById('sellerPage1NewDiv').style.display='none';
-			document.getElementById('sellerPage3NewDiv').style.display='none';
-			document.getElementById('sellerPage2NewDiv').style.display='block';
+		document.getElementById('sellBizPackagePic').style.display='none';
+		document.getElementById('sellerPage1NewDiv').style.display='none';
+		document.getElementById('sellerPage3NewDiv').style.display='none';
+		document.getElementById('sellerPage2NewDiv').style.display='block';
 	}
 }
 
-function sellGoToThirdPage(){
+function sellGoToThirdPage(id){
 	if(!isNull((document.getElementById('heading').value),'Heading') && !isNull((document.getElementById('businesstype').value),'BusinessType')
 			&& !isNull((document.getElementById('companytype').value),'CompanyType') && !isNull((document.getElementById('businesscategory').value),'BusinessCategory')
 			&& !isNull((document.getElementById('businesssubcategory').value),'BusinessCategory') && !isNull((document.getElementById('Country').value),'Country')
@@ -28,15 +28,20 @@ function sellGoToThirdPage(){
 
 	{
 		if(validatedate(document.getElementById('financialyear').value,'Financial Year') && isNumber(document.getElementById('Year_Established').value,'Year Established')
-				&& isNumber(document.getElementById('contactno').value,'Contact Number') && isPrice(document.getElementById('price').value,'Price')
-				&& isPrice(document.getElementById('annual_revenue').value,'Annual Revenue') && isPrice(document.getElementById('annualprofit_loss').value,'Annual Profit/Loss')
-						&& isPrice(document.getElementById('gross_profit').value,'Gross Profit') && isPrice(document.getElementById('staff_cost').value,'Staff Cost')
-						&& isPrice(document.getElementById('rental').value,'Rental') && isNumber(document.getElementById('employeesno').value,'Number Of Employees')
-						&& isEmail(document.getElementById('email').value)){
-			document.getElementById('sellerPage2NewDiv').style.display='none';
-			document.getElementById('sellBizPackagePic').style.display='none';
-			document.getElementById('sellerPage1NewDiv').style.display='none';
-			document.getElementById('sellerPage3NewDiv').style.display='block';
+				&& isNumber(document.getElementById('contactno').value,'Contact Number') && isNumber(document.getElementById('price').value,'Price')
+				&& isNumber(document.getElementById('annual_revenue').value,'Annual Revenue') && isNumber(document.getElementById('annualprofit_loss').value,'Annual Profit/Loss')
+				&& isNumber(document.getElementById('gross_profit').value,'Gross Profit') && isNumber(document.getElementById('staff_cost').value,'Staff Cost')
+				&& isNumber(document.getElementById('rental').value,'Rental') && isNumber(document.getElementById('employeesno').value,'Number Of Employees')
+				&& isEmail(document.getElementById('email').value)){
+			if(id=='next'){
+				document.getElementById('sellerPage2NewDiv').style.display='none';
+				document.getElementById('sellBizPackagePic').style.display='none';
+				document.getElementById('sellerPage1NewDiv').style.display='none';
+				document.getElementById('sellerPage3NewDiv').style.display='block';
+			}
+			else if(id=='payment'){
+				document.getElementById("contactForm").submit();
+			}
 		}
 	}
 }
@@ -181,29 +186,29 @@ function isNumber(num,id) {
 		return true;
 	}
 	if(!isNaN(parseFloat(num)) && isFinite(num))
-	  return true;
+		return true;
 	else{
 		alert(id+' can be digits only');
 	}
-	}
+}
 function isPrice(price, id){
 	if(price == null || price == "" || trim(price).length<=0){
 		return true;
 	}
-	   var regex  = /^\d+(?:\.\d{0,2})$/;
-	   if (regex.test(price)){
-	     return true;
-	   }else{
-	     alert(id+' should be in the format of dd.dd');
-	     return false;
-	   }
-	 }
+	var regex  = /^\d+(?:\.\d{0,2})$/;
+	if (regex.test(price)){
+		return true;
+	}else{
+		alert(id+' should be in the format of dd.dd');
+		return false;
+	}
+}
 
 function isEmail(email){
 	var atposition = email.indexOf("@");
-    var dotposition = email.lastIndexOf(".");
-    if (atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length) {
-        alert("Please enter a valid e-mail address");
-        return false;
-    }else{return true;}
+	var dotposition = email.lastIndexOf(".");
+	if (atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length) {
+		alert("Please enter a valid e-mail address");
+		return false;
+	}else{return true;}
 }

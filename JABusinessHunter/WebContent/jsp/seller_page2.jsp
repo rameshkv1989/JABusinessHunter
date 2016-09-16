@@ -317,11 +317,11 @@
 				<input type="text" name="hideit" id="hideit" value=""
 					style="display: none !important;" />
 				<button type="button" id="next" title="Next"
-					onclick="sellGoToThirdPage()" class="button btn-sent">
+					onclick="sellGoToThirdPage(this.id)" class="button btn-sent">
 					<span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span>
 				</button>
 				<button type="button" id="payment" title="Payment" name="action"
-					class="button btn-sent" style="display: none">
+					class="button btn-sent" style="display: none" onclick="sellGoToThirdPage(this.id)">
 					<span>&nbsp;&nbsp;&nbsp;Payment&nbsp;&nbsp;&nbsp;</span>
 				</button>
 
