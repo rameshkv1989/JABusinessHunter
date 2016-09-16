@@ -31,7 +31,8 @@ function sellGoToThirdPage(){
 				&& isNumber(document.getElementById('contactno').value,'Contact Number') && isPrice(document.getElementById('price').value,'Price')
 				&& isPrice(document.getElementById('annual_revenue').value,'Annual Revenue') && isPrice(document.getElementById('annualprofit_loss').value,'Annual Profit/Loss')
 						&& isPrice(document.getElementById('gross_profit').value,'Gross Profit') && isPrice(document.getElementById('staff_cost').value,'Staff Cost')
-						&& isPrice(document.getElementById('rental').value,'Rental') && isNumber(document.getElementById('employeesno').value,'Number Of Employees')){
+						&& isPrice(document.getElementById('rental').value,'Rental') && isNumber(document.getElementById('employeesno').value,'Number Of Employees')
+						&& isEmail(document.getElementById('email').value)){
 			document.getElementById('sellerPage2NewDiv').style.display='none';
 			document.getElementById('sellBizPackagePic').style.display='none';
 			document.getElementById('sellerPage1NewDiv').style.display='none';
@@ -197,3 +198,12 @@ function isPrice(price, id){
 	     return false;
 	   }
 	 }
+
+function isEmail(email){
+	var atposition = email.indexOf("@");
+    var dotposition = email.lastIndexOf(".");
+    if (atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length) {
+        alert("Please enter a valid e-mail address");
+        return false;
+    }else{return true;}
+}

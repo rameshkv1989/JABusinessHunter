@@ -650,7 +650,7 @@ p {
 								<li><label for="annual_revenue">Annual Revenue</label>
 									<div class="input-box">
 										<form:input path="annual_revenue" title="Please enter digits"
-											value="" class="input-text" type="text" pattern="pattern='^\d+(?:\.\d{0,2})$'"/>
+											value="" class="input-text" type="text" pattern="pattern='^\d*"/>
 									</div></li>
 								<li><label for="annualprofit_loss">Annual
 										Profit/(Loss) After Tax </label>
