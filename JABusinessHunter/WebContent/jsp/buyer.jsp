@@ -230,16 +230,7 @@ p {
 
 <div id="right_toolbar">
 
-	<div class="search_wrapper">
-		<form class="form-search" action="#" method="get">
-			<button type="submit">
-				<img src="images/scrollsearch_icon.png" align="absmiddle">
-			</button>
-			<input name="q" class="input-medium search-query" value="search"
-				onBlur="if (this.value == '') {this.value = 'search';}"
-				onFocus="if(this.value =='search') {this.value = '';}" type="text">
-		</form>
-	</div>
+	<jsp:include page="search.jsp"></jsp:include>
 
 	<div id="back-top" style="display: none;">
 		<a href="#top"><img src="images/backto_top.png"></a>
@@ -268,22 +259,7 @@ p {
 	<header>
 		<jsp:include page="loginHeader.jsp"></jsp:include>
 
-		<div class="header">
-
-			<div class="top-cart-contain">
-
-				<p class="intro-btn">
-					<a href="postad.html"><span>Post Your Ad </span></a>
-				</p>
-			</div>
-
-			<div class="logo">
-				<a href="index.html" title="J & A Business Hunter"><div>
-						<img src="images/logo.png" alt="J & A Business Hunter Logo" />
-					</div></a>
-			</div>
-
-		</div>
+		
 		<!--header-->
 	</header>
 	<nav>

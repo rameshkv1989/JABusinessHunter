@@ -33,7 +33,8 @@
 <script type="text/javascript" src="js/left-nav.js"></script>
 <script type="text/javascript" src="js/mob-nav.js"></script>
 <script type="text/javascript" src="js/toggle.js"></script>
-<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>   
+
 
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" /> 
@@ -184,7 +185,7 @@ p{font-size:15px; text-align:justify;}
             
 <div  id="right_toolbar">
      
-    		 <jsp:include page="search.jsp"></jsp:include>
+    		  <jsp:include page="search.jsp"></jsp:include>
 	  
     	      <div id="back-top" style="display:none;"><a href="#top"><img src="images/backto_top.png"></a></div>
     </div>
@@ -207,10 +208,14 @@ p{font-size:15px; text-align:justify;}
         </div>
     </noscript>
     <header>
- <jsp:include page="loginHeader.jsp"></jsp:include>
+<jsp:include page="loginHeader.jsp"></jsp:include>
   </header>
 <nav>
   <div class="nav-inner">
+    
+            
+
+
 
 <script type="text/javascript">
 jQuery(document).ready(function() {
@@ -236,8 +241,8 @@ jQuery(document).ready(function() {
 
 </script>
 
-<jsp:include page="menu.jsp"></jsp:include>
-<jsp:include page="nav.jsp"></jsp:include> 
+			<jsp:include page="menu.jsp"></jsp:include>
+			<jsp:include page="nav.jsp"></jsp:include>
 <script type="text/javascript">
         //<![CDATA[
 
@@ -322,197 +327,196 @@ jQuery(document).ready(function() {
      </div> 
 </nav> 
          
-  <section class="main-container col2-left-layout">
-           <div class="main-container-inner">   
-            
+   <section class="main-container"> 
+<!-- BEGIN Main Container Inner-->
+          <article class="main-container-inner">              
+              
   <div class="breadcrumbs">
     <div class="inner">
       <ul>
                     <li class="home">
-                            <a href="index.html" title=" ">Home</a>
-                                        <span>Â» </span>
+                            <a href="index.html" title="Go to Home Page">Home</a>
+                                        <span>» </span>
                         </li>
-                    <li class="category348">
-                            <strong>Login</strong>
-                                    </li>
+                    <li class="category365">
+                            <a href="#" title="">Search Results</a> 
+                        </li> 
               </ul>
     </div> <!--inner-->
   </div> <!--breadcrumbs-->
-             
-          <article class="col-main">                                          
-                            
+               
+                            <div class="col-main">
 
-<div class="page-title">
-        <h2>Login</h2>
-</div> <!--page-title-->
-
-
-
-
-<div class="category-products"><br/>
-  <form id="contactForm" >
-
-
-  <div class="column sixty">
-
-        <ul class="form-list">
-		 <li>
-                    <label for="Title">Title<em class="required">*</em></label>
-            
-                  <div class="input-box">
-				  <select name="department" id="department" title="Department" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
- <option value="">Mr</option> 
-  <option value="">Ms</option> 
-   <option value="">Mrs</option> 
-    <option value="">Madam</option> 
-	 <option value="">Datuk</option> 
-	  <option value="">Datin</option> 
-	   <option value="">Dr</option> 
-</select>
-           </div>
-
-		   </li>
-            <li>
-                    <label for="name">Name<em class="required">*</em></label>
-					<div class="input-box">
-                    <input name="name" id="name" title="Name" value="" class="input-text required-entry" type="text" />
-					</div>
-            </li>
-            <li>
-                    <label for="email">Email<em class="required">*</em></label>
-                   <div class="input-box">
-				   <input name="email" id="email" title="Email" value="" class="input-text required-entry validate-email" type="text" />
-           </div>
-		   </li>
-           
-		     <li>
-                    <label for="city">City<em class="required">*</em></label>
-            
-                  <div class="input-box">
-				  <select name="city" id="city" title="City" class="required-entry input-text">
- <option value="select">--- Select ---</option>  
-</select>
-           </div>
-
-		   </li>
-		     <li>
-                    <label for="state">State<em class="required">*</em></label>
-            
-                  <div class="input-box">
-				  <select name="state" id="state" title="State" class="required-entry input-text">
- <option value="select">--- Select ---</option>  
-</select>
-           </div>
-
-		   </li>
-		   
-		   
-		   
-		   
-		
-        </ul>
-  </div> <!--column sixty-->
-  <div class="column fourty last">
-     <div class="padding">
-	  
-
-  <ul class="form-list">
-		   
-		    <li>
-                    <label for="country">Country<em class="required">*</em></label>
-                  <div class="input-box">
-				 <input name="country" id="country" title="Country" value="" class="input-text" type="text" />
-           </div>
-
-		   </li>
-		   
-		     <li>
-                    <label for="tel">Telephone No.<em class="required">*</em></label>
-                  <div class="input-box">
-				 <input name="tel" id="tel" title="Telephone" value="" class="input-text" type="text" />
-           </div>
-
-		   </li>
-		    <li>
-                    <label for="mobile">Mobile No.<em class="required">*</em></label>
-                  <div class="input-box">
-				 <input name="mobile" id="mobile" title="Mobile" value="" class="input-text" type="text" />
-           </div>
-
-		   </li>
-	  <li>
-                    <label for="about">How do you know about us ?<em class="required">*</em></label>
-            
-                  <div class="input-box">
-				  <select name="about" id="about" title="About" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
- <option value="Advertisement">Advertisement</option> 
-  <option value="Blog">Blog</option> 
-   <option value="Email_Invite">Email Invite</option> 
-    <option value="Facebook">Facebook</option> 
-	 <option value="Forum">Forum</option> 
-	  <option value="Friends">Friends</option> 
-	   <option value="Twitter">Twitter</option> 
-	   
-	   <option value="Whatapps_Invite">Whatapps Invite</option> 
-	   
-</select>
-           </div>
-
-		   </li>   <p class="required">* Required Fields</p>
-             </ul>
-
-
-
-			 <div class="textright">
-                 
-                 <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
-                 <button type="submit" title="Submit" class="button btn-sent"><span>Submit</span></button>
-		 <img src="images/loader.gif" id="loader" style="display:none;">
-              </div> 
-     </div>
-  </div> 
-       
-
-</form>
-</div>
-    
-
-  </article> <!--main-container-inner-->
-    
  
-<!--div class="toolbar-bottom">
-    </div-->
-
-
-<div id="mgkquickview">
-<div id="magikloading" style="display:none;text-align:center;margin-top:400px;"><img src="images/loader.gif" alt="loading">
-</div></div>
-<script type="text/javascript">
-function callQuickView(qurl) { 
-    jQuery('#mgkquickview').show();
-    jQuery('#magikloading').show();
-    jQuery.get(qurl, function(data) {
-      jQuery.fancybox(data);
-      jQuery('#magikloading').hide();
-jQuery('#mgkquickview').hide();
-    });
- }
- 
-</script>                   
-          </article> 
- <jsp:include page="aside.jsp"></jsp:include>
- <!--col-right sidebar-->         
-          </div><!--main-container-inner-->
-       </section> <!--main-container col2-left-layout-->   
-      <section class="service-section service-section1">
+  <div class="product-next-prev">
+               <a class="product-next" title="Next" href="#"><span></span></a>
+        
+               <a class="product-prev" title="Previous" href="#"><span></span></a>
           
-      </section> <!--service-section service-section1--> 
-<jsp:include page="footer.jsp"></jsp:include>
+  </div> 
 
- <jsp:include page="reachUsSlider.jsp"></jsp:include>
-      
+<div class="product-view">
+ 
 
+  <div class="product-essential">
+
+  
+        <div id="product-img-box"> 
+                 <div class="bx-wrapper">
+                <div class="bx-viewport">
+                  <ul id="large-images1">
+                                           <li id="0">
+                         <a class="zoomable zoomified parent-zoom"  href="#inline0" id="various0">  
+                            <img style="margin: 0px;" src="images/bus3.jpg" class="product-image"> 
+                         </a>
+                         <div style="display: none;"><div id="inline0" style="text-align:center;" class="zm">   
+                            <img style="margin: 0px;" src="images/bus3.jpg" class="product-image">    
+                         </div></div>
+             <script type="text/javascript">
+                jQuery(document).ready(function() {
+                jQuery("#various0").fancybox({
+                'transitionIn'  : 'elastic',
+                'transitionOut' : 'elastic'
+                });
+                });
+             </script>
+                       </li> 
+                                                          
+                                      
+                  </ul>
+                </div> 
+               
+              </div>  
+
+     </div>
+
+        <div class="no-display">
+            <input type="hidden" name="product" value="56" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+               
+          <div class="product-shop">
+             <div class="product-name">
+               <h1 itemprop="name">Business Heading</h1>
+             </div>
+                            <div class="short-description" style="text-align:justify;">                
+               Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. 
+			   Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.
+			  
+
+				 </div>
+              
+ 
+  
+         
+ 
+ 
+<div class="toggle-content">
+
+                       <div class="toggle toggle-white">
+              <h4 class="trigger"><a href="#">Contact Details</a></h4>
+              <div class="toggle_container" style="display: none;">
+                   
+    <div class="std">
+      <p>
+<strong>Contact Name : </strong>XXXXXXXX<br/>
+<strong>Mobile Number :</strong> XXXXXXXX <br/>
+<strong>Email Address : </strong>XXXXX@XXXXX.XX<br/>
+<strong>City :</strong> XXXXXXXXX<br/>
+<strong>State :</strong> XXXXXXXX<br/>
+<strong>Country :</strong> XXXXXXXX<br/>
+</p>
+	  </div> <!--toggle_container -->
+           </div> <!--toggle toggle-white-->
+                                  <div class="toggle toggle-white">
+        <h4 class="trigger"><a href="#">Company Details</a></h4>
+        <div class="toggle_container" style="display: none;">
+           
+ <div class="std">
+		   <p><strong>Year Established :</strong>XXXXXXXX<br/>
+			
+			<strong>Annual Revenue :</strong>XXXXXXXX<br/>
+			<strong>Annual Profit / (Loss) After Tax :</strong>XXXXXXXX<br/>
+			<strong>Gross Profit :</strong>XXXXXXXX<br/>
+			<strong>Number of Employees :</strong>XXXXXXXX<br/>
+			 
+			
+			</p>        </div> <!--toggle_container -->
+        </div> <!--toggle toggle-white-->
+                <div class="toggle toggle-white">
+        <h4 class="trigger"><a href="#">Business Importance</a></h4>
+        <div class="toggle_container" style="display: none;">
+            
+       
+ <div class="std">
+		   <p> 
+		   
+		   Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+			     Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+			  
+		      Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+			  
+		      Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+			  
+		      Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
+			  
+		   
+		   
+			</p>        </div>
+
+			</div> <!--toggle toggle-white-->
+    
+</div> <!--toggle-content-->
+          <!-- Magik Social Share-->
+            	<div class="social">      
+       <ul class="link">
+
+					<li class="fb">
+			<a href="#" rel="nofollow" target="_blank" style="text-decoration:none;">
+				
+			</a>
+			</li>
+
+				<li class="linkedin">
+			<a href="#" rel="nofollow" target="_blank" style="text-decoration:none;">
+				
+			</a>
+			</li>
+
+				<li class="tw">
+			<a href="#" rel="nofollow" target="_blank" style="text-decoration:none;">
+				
+			</a>
+			</li>
+
+				 
+				<li class="googleplus">
+			<a href="#" rel="nofollow" target="_blank" style="text-decoration:none;">
+				
+			</a>
+			</li>
+
+	</ul>
+	</div>
+
+			    
+		      
+				 
+                                
+            
+       </div>     
+ 
+</div> 
+</div>  
+</div>   <div class="clear"></div>
+          </article> 
+      </section>  
+	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="reachUsSlider.jsp"></jsp:include>
   </body>
 </html>

@@ -169,7 +169,7 @@ public class Redirect {
 		}
 	}
 	
-	@RequestMapping(value={"/Learn.do"}, method={RequestMethod.GET})
+	@RequestMapping(value={"/learn.do"}, method={RequestMethod.GET})
 	public String LearnRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET LearnRedirect","debug");
@@ -200,7 +200,7 @@ public class Redirect {
 			return "./jsp/error.jsp";
 		}
 	}
-	@RequestMapping(value={"/page2.do"}, method={RequestMethod.GET})
+	/*@RequestMapping(value={"/page2.do"}, method={RequestMethod.GET})
 	public String Page2Redirect(ModelMap map, HttpServletRequest request){
 		try{
 			subPackage=request.getParameter("package");
@@ -230,5 +230,77 @@ public class Redirect {
 			request.setAttribute("errorMessage", e.getMessage());
 			return "./jsp/error.jsp";
 		}
+	}*/
+	
+	@RequestMapping(value={"/terms.do"}, method={RequestMethod.GET})
+	public String TermsRedirect(ModelMap map, HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET TermsRedirect","debug");
+			Logger.logStatus(CLASS_NAME,"Exiting GET TermsRedirect","debug");
+			return "./jsp/terms.jsp";
+			
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET TermsRedirect : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
 	}
+	@RequestMapping(value={"/policy.do"}, method={RequestMethod.GET})
+	public String PolicyRedirect(ModelMap map, HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET PolicyRedirect","debug");
+			Logger.logStatus(CLASS_NAME,"Exiting GET PolicyRedirect","debug");
+			return "./jsp/privacypolicy.jsp";
+			
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET PolicyRedirect : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	@RequestMapping(value={"/buyerTest.do"}, method={RequestMethod.GET})
+	public String BuyerTestRedirect(ModelMap map, HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET BuyerTestRedirect","debug");
+			Logger.logStatus(CLASS_NAME,"Exiting GET BuyerTestRedirect","debug");
+			return "./jsp/buyertestimonials.jsp";
+			
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET BuyerTestRedirect : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	@RequestMapping(value={"/sellerTest.do"}, method={RequestMethod.GET})
+	public String SellerTestRedirect(ModelMap map, HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET SellerTestRedirect","debug");
+			Logger.logStatus(CLASS_NAME,"Exiting GET SellerTestRedirect","debug");
+			return "./jsp/sellertestimonials.jsp";
+			
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET SellerTestRedirect : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	@RequestMapping(value={"/serProvTest.do"}, method={RequestMethod.GET})
+	public String ServiceProviderTestRedirect(ModelMap map, HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET ServiceProviderTestRedirect","debug");
+			Logger.logStatus(CLASS_NAME,"Exiting GET ServiceProviderTestRedirect","debug");
+			return "./jsp/serviceprovidertestimonials.jsp";
+			
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET ServiceProviderTestRedirect : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	
 }

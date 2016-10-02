@@ -104,6 +104,10 @@ jQuery(document).ready(function() {
 </script> 
 
 <style>
+
+.products-list .product-shop {
+float:left;
+}
 #right_toolbar {
 	position: fixed;
 	right:5px;
@@ -207,10 +211,14 @@ p{font-size:15px; text-align:justify;}
         </div>
     </noscript>
     <header>
- <jsp:include page="loginHeader.jsp"></jsp:include>
+<jsp:include page="loginHeader.jsp"></jsp:include>
   </header>
 <nav>
   <div class="nav-inner">
+    
+            
+
+
 
 <script type="text/javascript">
 jQuery(document).ready(function() {
@@ -236,8 +244,8 @@ jQuery(document).ready(function() {
 
 </script>
 
-<jsp:include page="menu.jsp"></jsp:include>
-<jsp:include page="nav.jsp"></jsp:include> 
+			<jsp:include page="menu.jsp"></jsp:include>
+			<jsp:include page="nav.jsp"></jsp:include>
 <script type="text/javascript">
         //<![CDATA[
 
@@ -330,10 +338,10 @@ jQuery(document).ready(function() {
       <ul>
                     <li class="home">
                             <a href="index.html" title=" ">Home</a>
-                                        <span>Â» </span>
+                                        <span>» </span>
                         </li>
                     <li class="category348">
-                            <strong>Login</strong>
+                           <strong>Service Provider Testimonials</strong>
                                     </li>
               </ul>
     </div> <!--inner-->
@@ -343,141 +351,83 @@ jQuery(document).ready(function() {
                             
 
 <div class="page-title">
-        <h2>Login</h2>
+        <h2>Service Provider Testimonials</h2>
 </div> <!--page-title-->
 
-
-
-
-<div class="category-products"><br/>
-  <form id="contactForm" >
-
-
-  <div class="column sixty">
-
-        <ul class="form-list">
-		 <li>
-                    <label for="Title">Title<em class="required">*</em></label>
+ 
+<div class="category-products">
             
-                  <div class="input-box">
-				  <select name="department" id="department" title="Department" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
- <option value="">Mr</option> 
-  <option value="">Ms</option> 
-   <option value="">Mrs</option> 
-    <option value="">Madam</option> 
-	 <option value="">Datuk</option> 
-	  <option value="">Datin</option> 
-	   <option value="">Dr</option> 
-</select>
-           </div>
-
-		   </li>
-            <li>
-                    <label for="name">Name<em class="required">*</em></label>
-					<div class="input-box">
-                    <input name="name" id="name" title="Name" value="" class="input-text required-entry" type="text" />
-					</div>
-            </li>
-            <li>
-                    <label for="email">Email<em class="required">*</em></label>
-                   <div class="input-box">
-				   <input name="email" id="email" title="Email" value="" class="input-text required-entry validate-email" type="text" />
-           </div>
-		   </li>
-           
-		     <li>
-                    <label for="city">City<em class="required">*</em></label>
+    <ol class="products-list" id="products-list">
+            <li class="item first odd">
+       
+       
+          <div class="product-shop">
+            <h2 class="product-name">
+                             <a href="# title="Person 1">Person 1 Name</a>
+            </h2>
             
-                  <div class="input-box">
-				  <select name="city" id="city" title="City" class="required-entry input-text">
- <option value="select">--- Select ---</option>  
-</select>
-           </div>
-
-		   </li>
-		     <li>
-                    <label for="state">State<em class="required">*</em></label>
             
-                  <div class="input-box">
-				  <select name="state" id="state" title="State" class="required-entry input-text">
- <option value="select">--- Select ---</option>  
-</select>
-           </div>
+ 
 
-		   </li>
-		   
-		   
-		   
-		   
-		
-        </ul>
-  </div> <!--column sixty-->
-  <div class="column fourty last">
-     <div class="padding">
-	  
-
-  <ul class="form-list">
-		   
-		    <li>
-                    <label for="country">Country<em class="required">*</em></label>
-                  <div class="input-box">
-				 <input name="country" id="country" title="Country" value="" class="input-text" type="text" />
-           </div>
-
-		   </li>
-		   
-		     <li>
-                    <label for="tel">Telephone No.<em class="required">*</em></label>
-                  <div class="input-box">
-				 <input name="tel" id="tel" title="Telephone" value="" class="input-text" type="text" />
-           </div>
-
-		   </li>
-		    <li>
-                    <label for="mobile">Mobile No.<em class="required">*</em></label>
-                  <div class="input-box">
-				 <input name="mobile" id="mobile" title="Mobile" value="" class="input-text" type="text" />
-           </div>
-
-		   </li>
-	  <li>
-                    <label for="about">How do you know about us ?<em class="required">*</em></label>
-            
-                  <div class="input-box">
-				  <select name="about" id="about" title="About" class="required-entry input-text">
- <option value="select">--- Select ---</option> 
- <option value="Advertisement">Advertisement</option> 
-  <option value="Blog">Blog</option> 
-   <option value="Email_Invite">Email Invite</option> 
-    <option value="Facebook">Facebook</option> 
-	 <option value="Forum">Forum</option> 
-	  <option value="Friends">Friends</option> 
-	   <option value="Twitter">Twitter</option> 
-	   
-	   <option value="Whatapps_Invite">Whatapps Invite</option> 
-	   
-</select>
-           </div>
-
-		   </li>   <p class="required">* Required Fields</p>
-             </ul>
-
-
-
-			 <div class="textright">
-                 
-                 <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
-                 <button type="submit" title="Submit" class="button btn-sent"><span>Submit</span></button>
-		 <img src="images/loader.gif" id="loader" style="display:none;">
-              </div> 
-     </div>
-  </div> 
+                                                                       
+            <div class="desc std">
+              <p>Person 1 testimonial. Person 1 testimonial. Person 1 testimonial.
+			  
+			  </p>
+             </div>  
+             
+          </div>  
+        </li>
        
 
-</form>
-</div>
-    
+	  
+			<li class="item first odd">
+        <div class="product-shop">
+            <h2 class="product-name">
+                             <a href="# title="Person 2">Person 2 Name</a>
+            </h2>
+            
+            
+ 
+
+                                                                       
+            <div class="desc std">
+              <p>Person 2 testimonial. Person 2 testimonial. Person 2 testimonial.
+			  
+			  </p>
+             </div>  
+             
+          </div>  
+        </li>
+            <li class="item first last even">
+       
+          <div class="product-shop">
+            <h2 class="product-name">
+                             <a href="# title="Person 3">Person 3 Name</a>
+            </h2>
+            
+            
+ 
+
+                                                                       
+            <div class="desc std">
+              <p>Person 3 testimonial. Person 3 testimonial. Person 3 testimonial.
+			  
+			  </p>
+             </div>  
+             
+          </div>   
+          </li>
+       
+
+
+
+
+	   </ol>
+
+    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+    </div>
 
   </article> <!--main-container-inner-->
     
@@ -502,17 +452,13 @@ jQuery('#mgkquickview').hide();
  
 </script>                   
           </article> 
- <jsp:include page="aside.jsp"></jsp:include>
- <!--col-right sidebar-->         
+          <jsp:include page="aside.jsp"></jsp:include> <!--col-right sidebar-->         
           </div><!--main-container-inner-->
        </section> <!--main-container col2-left-layout-->   
       <section class="service-section service-section1">
           
       </section> <!--service-section service-section1--> 
-<jsp:include page="footer.jsp"></jsp:include>
-
- <jsp:include page="reachUsSlider.jsp"></jsp:include>
-      
-
+ 	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="reachUsSlider.jsp"></jsp:include>
   </body>
 </html>

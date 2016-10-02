@@ -29,15 +29,15 @@
 <li class="first"><a title="Your Account" href="#">Advertise With Us</a></li>
 <li><a title="Business Opportunity" href="franchise.do">Business Opportunity</a></li>
 <li><a title="Forum" href="#">Forum</a></li>
-<li class="last"><a title="Learn" href="#">Learn</a></li> 
+<li class="last"><a title="Learn" href="learn.do">Learn</a></li> 
 </ul>
 </div>
 <div class="footer-column">
 <h4>Information</h4>
 <ul class="links">
 <li class="first"><a title="Site Map" href="#">Site Map</a></li>
-<li><a title="Terms & Conditions" href="#">Terms & Conditions</a></li>
-<li class=" last"><a title="Privacy Policy" href="#">Privacy Policy</a></li> 
+<li><a title="Terms & Conditions" href="terms.do">Terms & Conditions</a></li>
+<li class=" last"><a title="Privacy Policy" href="policy.do">Privacy Policy</a></li> 
 </ul>
 </div> 
 

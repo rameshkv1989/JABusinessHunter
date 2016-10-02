@@ -184,7 +184,7 @@ p{font-size:15px; text-align:justify;}
             
 <div  id="right_toolbar">
      
-    		 <jsp:include page="search.jsp"></jsp:include>
+    		  <jsp:include page="search.jsp"></jsp:include>
 	  
     	      <div id="back-top" style="display:none;"><a href="#top"><img src="images/backto_top.png"></a></div>
     </div>
@@ -207,10 +207,14 @@ p{font-size:15px; text-align:justify;}
         </div>
     </noscript>
     <header>
- <jsp:include page="loginHeader.jsp"></jsp:include>
+<jsp:include page="loginHeader.jsp"></jsp:include>
   </header>
 <nav>
   <div class="nav-inner">
+    
+            
+
+
 
 <script type="text/javascript">
 jQuery(document).ready(function() {
@@ -236,8 +240,8 @@ jQuery(document).ready(function() {
 
 </script>
 
-<jsp:include page="menu.jsp"></jsp:include>
-<jsp:include page="nav.jsp"></jsp:include> 
+			<jsp:include page="menu.jsp"></jsp:include>
+			<jsp:include page="nav.jsp"></jsp:include>
 <script type="text/javascript">
         //<![CDATA[
 
@@ -330,10 +334,10 @@ jQuery(document).ready(function() {
       <ul>
                     <li class="home">
                             <a href="index.html" title=" ">Home</a>
-                                        <span>Â» </span>
+                                        <span>» </span>
                         </li>
                     <li class="category348">
-                            <strong>Login</strong>
+                            <strong>Login / Sign Up</strong>
                                     </li>
               </ul>
     </div> <!--inner-->
@@ -342,10 +346,6 @@ jQuery(document).ready(function() {
           <article class="col-main">                                          
                             
 
-<div class="page-title">
-        <h2>Login</h2>
-</div> <!--page-title-->
-
 
 
 
@@ -353,9 +353,51 @@ jQuery(document).ready(function() {
   <form id="contactForm" >
 
 
-  <div class="column sixty">
+  <div class="column fourty">
 
-        <ul class="form-list">
+<div class="page-title">
+        <h2>Login</h2>
+</div> <!--page-title-->
+
+         <ul class="form-list">
+		 <li>
+                    <label for="username">User Name<em class="required">*</em></label>
+					<div class="input-box">
+                    <input name="username" id="username" title="User Name" value="" class="input-text required-entry" type="text" />
+					</div>
+            </li>
+			 <li>
+                    <label for="password">Password<em class="required">*</em></label>
+					<div class="input-box">
+                    <input name="password" id="password" title="Password" value="" class="input-text required-entry" type="text" />
+					</div>
+            </li> <p class="required">* Required Fields</p>
+             </ul>
+
+
+
+			 <div class="textright">
+                 
+                 <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+                 <button type="submit" title="Submit" class="button btn-sent"><span>Login</span></button>
+		 <img src="images/loader.gif" id="loader" style="display:none;">
+              </div> 
+		
+		
+  </div> <!--column sixty-->
+  <div class="column sixty last">
+  
+  
+  
+     <div class="padding">
+	 
+	 
+<div class="page-title">
+        <h2>Sign Up</h2>
+</div> <!--page-title-->
+
+	 
+	   <ul class="form-list">
 		 <li>
                     <label for="Title">Title<em class="required">*</em></label>
             
@@ -410,14 +452,7 @@ jQuery(document).ready(function() {
 		   
 		   
 		   
-		
-        </ul>
-  </div> <!--column sixty-->
-  <div class="column fourty last">
-     <div class="padding">
-	  
-
-  <ul class="form-list">
+	 
 		   
 		    <li>
                     <label for="country">Country<em class="required">*</em></label>
@@ -471,6 +506,10 @@ jQuery(document).ready(function() {
                  <button type="submit" title="Submit" class="button btn-sent"><span>Submit</span></button>
 		 <img src="images/loader.gif" id="loader" style="display:none;">
               </div> 
+		
+		
+		
+
      </div>
   </div> 
        
@@ -502,17 +541,13 @@ jQuery('#mgkquickview').hide();
  
 </script>                   
           </article> 
- <jsp:include page="aside.jsp"></jsp:include>
- <!--col-right sidebar-->         
+           <jsp:include page="aside.jsp"> <!--col-right sidebar-->         
           </div><!--main-container-inner-->
        </section> <!--main-container col2-left-layout-->   
       <section class="service-section service-section1">
           
       </section> <!--service-section service-section1--> 
-<jsp:include page="footer.jsp"></jsp:include>
-
- <jsp:include page="reachUsSlider.jsp"></jsp:include>
-      
-
+ <jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="reachUsSlider.jsp"></jsp:include>
   </body>
 </html>

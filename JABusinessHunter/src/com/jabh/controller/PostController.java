@@ -27,7 +27,7 @@ public class PostController {
 			Logger.logStatus(CLASS_NAME,"Entering into POST SellSubmit","debug");
 			System.out.println("Seller Package : "+sellerModel.getPackages());
 			Logger.logStatus(CLASS_NAME,"Exiting POST SellSubmit","debug");
-			return "./jsp/seller.jsp";
+			return "./jsp/search_results_Buy_Sell.jsp";
 			
 		}
 		catch(Exception e){
@@ -47,7 +47,7 @@ public class PostController {
 			System.out.println(buyerModel.getBusinesssubcategory());
 			System.out.println(buyerModel.getAnnual_revenue());
 			Logger.logStatus(CLASS_NAME,"Exiting POST BuySubmit","debug");
-			return "./jsp/buyer.jsp";
+			return "./jsp/search_results_Buy_Sell.jsp";
 			
 		}
 		catch(Exception e){
@@ -65,7 +65,7 @@ public class PostController {
 			System.out.println("Franchise Ad Heading : "+franchiseModel.getHeading());
 			
 			Logger.logStatus(CLASS_NAME,"Exiting POST FranchiseSubmit","debug");
-			return "./jsp/franchise.jsp";
+			return "./jsp/search_results_Buy_Sell.jsp";
 			
 		}
 		catch(Exception e){
@@ -82,7 +82,7 @@ public class PostController {
 			System.out.println("Service Provider Package : "+serviceProviderModel.getPackages());
 			System.out.println("Service Provider Ad Heading : "+serviceProviderModel.getHeading());
 			Logger.logStatus(CLASS_NAME,"Exiting POST ServiceProviderSubmit","debug");
-			return "./jsp/serviceprovider.jsp";
+			return "./jsp/search_results_Buy_Sell.jsp";
 			
 		}
 		catch(Exception e){
@@ -104,6 +104,49 @@ public class PostController {
 		}
 		catch(Exception e){
 			Logger.logStatus(CLASS_NAME,"Exception in GET ServiceProviderSubmit : "+e.getMessage(), "error");
+			return null;
+		}
+    }
+	@RequestMapping(value={"/search.do"}, method={RequestMethod.GET})
+	public String SearchSubmit(@RequestParam("searchValue") String searchValue,HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET SearchSubmit","debug");
+			System.out.println("searchValue : "+searchValue);
+			Logger.logStatus(CLASS_NAME,"Exiting GET SearchSubmit","debug");
+			return "./jsp/search_results.jsp";
+			
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET SearchSubmit : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	@RequestMapping(value={"/readMore.do"}, method={RequestMethod.POST})
+	public String ReadMoreSubmit(HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into POST ReadMoreSubmit","debug");
+			Logger.logStatus(CLASS_NAME,"Exiting POST ReadMoreSubmit","debug");
+			return "./jsp/search_results_readmore.jsp";
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in POST ReadMoreSubmit : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	@RequestMapping(value = "/getImage.do", method = RequestMethod.GET)
+    public @ResponseBody String getImages(@RequestParam("imageNeed") String imageNeed) {
+        try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET getImages","debug");
+			System.out.println("ImageNeed : "+imageNeed);
+			String result = imageNeed+","+imageNeed;
+
+			Logger.logStatus(CLASS_NAME,"Exiting GET getImages","debug");
+			return result;
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET getImages : "+e.getMessage(), "error");
 			return null;
 		}
     }
