@@ -318,7 +318,7 @@ jQuery(document).ready(function() {
     <div class="inner">
       <ul>
                     <li class="home">
-                            <a href="index.html" title=" ">Home</a>
+                            <a href="home.do" title=" ">Home</a>
                                         <span>» </span>
                         </li>
                     <li class="category348">

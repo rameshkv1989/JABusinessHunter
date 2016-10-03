@@ -1,40 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%
+	String uName = (String) request.getSession().getAttribute("uName");
+%>
+<c:set var="uName" scope="session" value="<%=uName%>" />
 <div class="top-links">
-<div class="inner">
-    <div class="toplinks">
-     <div class="links">
-      <div class="check"><a href="#" title="Learn"><span>Learn</span></a></div>     
-     
-<div class="company">
-<div class="click-nav">
-<ul class="no-js">
-<li><a class="clicker" title="Company">Testimonials <span class="caret"></span></a>
-<ul class="link">
-<li><a title="Buyer" href="buyerTest.do">Buyer</a></li>
-<li><a title="Seller" href="sellerTest.do">Seller</a></li>
-<li><a title="Service Provider" href="serProvTest.do">Service Provider</a></li> 
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="login"><a href="login.do"><span>Log In</span></a></div>
-   </div> 
-   </div>
-     </div>
+	<div class="inner">
+		<div class="toplinks">
+			<div class="links">
+				<div class="check">
+					<a href="#" title="Learn"><span>Learn</span></a>
+				</div>
+
+				<div class="company">
+					<div class="click-nav">
+						<ul class="no-js">
+							<li><a class="clicker" title="Company">Testimonials <span
+									class="caret"></span></a>
+								<ul class="link">
+									<li><a title="Buyer" href="buyerTest.do">Buyer</a></li>
+									<li><a title="Seller" href="sellerTest.do">Seller</a></li>
+									<li><a title="Service Provider" href="serProvTest.do">Service
+											Provider</a></li>
+								</ul></li>
+						</ul>
+					</div>
+				</div>
+				<c:choose>
+					<c:when test="${not empty uName}">
+						<div class="login">
+							<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${uName}</span>
+							<a href="logout.do"><span>Log Out</span></a>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="login">
+							<a href="login.do"><span>Log In</span></a>
+						</div>
+					</c:otherwise>
+				</c:choose>
+
+
+			</div>
+		</div>
+	</div>
 </div>
 <div class="header">
 
-			<div class="top-cart-contain">
+	<div class="top-cart-contain">
 
-				<p class="intro-btn">
-					<a href="postad.html"><span>Post Your Ad </span></a>
-				</p>
-			</div>
+		<p class="intro-btn">
+			<a href="postad.html"><span>Post Your Ad </span></a>
+		</p>
+	</div>
 
-			<div class="logo">
-				<a href="index.html" title="J & A Business Hunter"><div>
-						<img src="images/logo.png" alt="J & A Business Hunter Logo" />
-					</div></a>
-			</div>
+	<div class="logo">
+		<a href="home.do" title="J & A Business Hunter"><div>
+				<img src="images/logo.png" alt="J & A Business Hunter Logo" />
+			</div></a>
+	</div>
 
-		</div>
+</div>

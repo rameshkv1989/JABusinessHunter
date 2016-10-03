@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.jabh.manager.SellerManager;
 import com.jabh.model.Buyer;
 import com.jabh.model.Franchise;
+import com.jabh.model.Login;
 import com.jabh.model.Seller;
 import com.jabh.model.ServiceProvider;
+import com.jabh.model.SignUp;
 import com.utils.logging.Logger;
 
 @Controller
@@ -158,12 +160,32 @@ public class Redirect {
 	public String LoginRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET LoginRedirect","debug");
+			Login login = new Login();
+			SignUp signUp = new SignUp();
+			map.addAttribute("login",login);
+			map.addAttribute("signUp",signUp);
 			Logger.logStatus(CLASS_NAME,"Exiting GET LoginRedirect","debug");
-			return "./jsp/login.jsp";
+			return "./jsp/login_new.jsp";
 			
 		}
 		catch(Exception e){
 			Logger.logStatus(CLASS_NAME,"Exception in GET LoginRedirect : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	
+	@RequestMapping(value={"/logout.do"}, method={RequestMethod.GET})
+	public String LogoutRedirect(ModelMap map, HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET LogoutRedirect","debug");
+			request.getSession().removeAttribute("uName");
+			Logger.logStatus(CLASS_NAME,"Exiting GET LogoutRedirect","debug");
+			return "./jsp/index.jsp";
+			
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET LogoutRedirect : "+e.getMessage(), "error");
 			request.setAttribute("errorMessage", e.getMessage());
 			return "./jsp/error.jsp";
 		}

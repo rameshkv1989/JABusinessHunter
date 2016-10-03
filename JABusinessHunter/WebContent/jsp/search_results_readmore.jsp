@@ -335,7 +335,7 @@ jQuery(document).ready(function() {
     <div class="inner">
       <ul>
                     <li class="home">
-                            <a href="index.html" title="Go to Home Page">Home</a>
+                            <a href="home.do" title="Go to Home Page">Home</a>
                                         <span>» </span>
                         </li>
                     <li class="category365">
