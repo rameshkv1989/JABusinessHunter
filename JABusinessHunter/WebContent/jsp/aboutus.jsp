@@ -398,7 +398,7 @@ jQuery('#mgkquickview').hide();
 
 <jsp:include page="footer.jsp"></jsp:include>
 
- <jsp:include page="reachUsSlider.jsp"></jsp:include>
+<%--  <jsp:include page="reachUsSlider.jsp"></jsp:include> --%>
 
       
 

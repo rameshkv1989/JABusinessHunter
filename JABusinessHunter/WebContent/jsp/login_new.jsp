@@ -676,6 +676,6 @@ p {
 	<section class="service-section service-section1"></section>
 	<!--service-section service-section1-->
 	<jsp:include page="footer.jsp" />
-	<jsp:include page="reachUsSlider.jsp" />
+	<%-- <jsp:include page="reachUsSlider.jsp" /> --%>
 </body>
 </html>

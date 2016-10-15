@@ -518,6 +518,38 @@ p {
 											class="required-entry input-text"
 											onchange="getOptionValues(this.value,'businesssubcategory','getOptionValues.do')">
 											<form:option value="" label="--- Select ---" />
+					<form:option value="Advertising" label="Advertising" />
+					<form:option value="Agriculture" label="Agriculture" />
+					<form:option value="Automotive" label="Automotive" />
+					<form:option value="Beauty" label="Beauty" />
+					<form:option value="Child_Care" label="Child Care" />
+					<form:option value="Construction" label="Construction" />
+					<form:option value="Distribution_Wholesale"
+						label="Distribution / Wholesale" />
+					<form:option value="Education_Training"
+						label="Education & Training" />
+					<form:option value="Engineering" label="Engineering" />
+					<form:option value="Entertainment_Recreation"
+						label="Entertainment & Recreation" />
+					<form:option value="Fashion" label="Fashion" />
+					<form:option value="Financial_Consulting_Services"
+						label="Financial & Consulting Services" />
+					<form:option value="Food_Beverage" label="Food & Beverage" />
+					<form:option value="General_Services_Supplies"
+						label="General Services & Supplies" />
+					<form:option value="Health_Care_Medical"
+						label="Health Care & Medical" />
+					<form:option value="Information_Communication"
+						label="Information & Communication" />
+					<form:option value="Logistics" label="Logistics" />
+					<form:option value="Manufacturing" label="Manufacturing" />
+					<form:option value="Real_Estate" label="Real Estate" />
+					<form:option value="Rental_and_Leasing" label="Rental and Leasing" />
+					<form:option value="Resources" label="Resources" />
+					<form:option value="Retail" label="Retail" />
+					<form:option value="Tourism" label="Tourism" />
+					<form:option value="Transportation_Warehousing"
+						label="Transportation & Warehousing" />
 										</form:select>
 									</div></li>
 
@@ -702,7 +734,7 @@ p {
 	<!--service-section service-section1-->
 
 	<jsp:include page="footer.jsp"></jsp:include>
-	<jsp:include page="reachUsSlider.jsp"></jsp:include>
+	<%-- <jsp:include page="reachUsSlider.jsp"></jsp:include> --%>
 
 
 

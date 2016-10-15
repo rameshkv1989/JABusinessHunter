@@ -91,8 +91,8 @@ function getOptionValues(selectValue,populateValue,submitValue){
 
 function change(val){
 	if(val == 'Sdn_Bhd'){
-		document.getElementById('payment').style.display='inline-block';
-		document.getElementById('next').style.display='none';
+		document.getElementById('payment').style.display='none';
+		document.getElementById('next').style.display='inline-block';
 	}
 	else{
 		document.getElementById('next').style.display='inline-block';

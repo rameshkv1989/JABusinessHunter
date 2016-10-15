@@ -563,7 +563,7 @@ p {
 	<!--service-section service-section1-->
 	<jsp:include page="footer.jsp"></jsp:include>
 
-	<jsp:include page="reachUsSlider.jsp"></jsp:include>
+	<%-- <jsp:include page="reachUsSlider.jsp"></jsp:include> --%>
 
 
 

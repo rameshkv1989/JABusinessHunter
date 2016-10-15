@@ -474,7 +474,7 @@ Most of the businessman, individuals or service providers are still using the tr
 </section>
 
 <jsp:include page="footer.jsp"></jsp:include>
-<jsp:include page="reachUsSlider.jsp"></jsp:include>
+<%-- <jsp:include page="reachUsSlider.jsp"></jsp:include> --%>
 
       
 

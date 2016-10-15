@@ -43,14 +43,14 @@
 
 
  <div class="footer-column-last">
-        <div class="social">
+        <!-- <div class="social">
        <h4>Follow Us</h4>
        <ul class="link">
                   <li class="fb"><a  target="_blank" rel="nofollow" href="#" title="Facebook"></a></li>
                   <li class="tw"><a target="_blank" rel="nofollow"  href="#" title="Twitter"></a></li>
                   <li class="googleplus"><a target="_blank" rel="nofollow" href="#" title="GooglePlus"></a></li>
                </ul>
-    </div>
+    </div> -->
       </div> 
 </div> 
 
