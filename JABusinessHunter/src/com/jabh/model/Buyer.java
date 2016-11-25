@@ -15,6 +15,7 @@ public class Buyer implements Serializable{
 	private String Country;
 	private String State;
 	private String City;
+	private String cityText;
 	private Double askingpricetxt;
 	private Double annual_revenue;
 	private Double annualprofit_loss;
@@ -92,4 +93,11 @@ public class Buyer implements Serializable{
 	public void setEmployeesno(Integer employeesno) {
 		this.employeesno = employeesno;
 	}
+	public String getCityText() {
+		return cityText;
+	}
+	public void setCityText(String cityText) {
+		this.cityText = cityText;
+	}
+	
 }

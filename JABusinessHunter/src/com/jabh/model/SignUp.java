@@ -18,6 +18,7 @@ public class SignUp implements Serializable{
 	private int role;
 	private String email;
 	private String city;
+	private String cityText;
 	private String state;
 	private String country;
 	private String mobile;
@@ -100,6 +101,12 @@ public class SignUp implements Serializable{
 	}
 	public void setAbout(String about) {
 		this.about = about;
+	}
+	public String getCityText() {
+		return cityText;
+	}
+	public void setCityText(String cityText) {
+		this.cityText = cityText;
 	}
 	
 

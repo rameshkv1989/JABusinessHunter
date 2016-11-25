@@ -596,15 +596,15 @@ p {
 										<div class="input-box">
 											<form:select path="city" title="City"
 												class="required-entry input-text" 
-												onchange="textBoxForCity(this.value)"
+												onchange="textBoxForCity(document.forms[0],this.value)"
 												required="true">
 												<form:option value="" label="--- Select ---" />
 											</form:select>
 										</div></li>
-										<li id="cityInput" style="display:none"><label for="city">Please enter city<em
+										<li id="cityInput" style="display:none"><label for="cityText">Please enter city<em
 											class="required">*</em></label>
 										<div  class="input-box">
-											<form:input path="city" style="width:410px" title="City" value=""
+											<form:input path="cityText" style="width:410px" title="cityText" value=""
 												class="input-text" type="text" required="true" />
 										</div></li>
 									<li><label for="mobile">Contact No.<em

@@ -132,10 +132,10 @@
 					<form:option value="" label="--- Select ---" />
 				</form:select>
 			</div></li>
-			<li id="cityInput" style="display:none"><label for="city">Please enter city<em
+			<li id="cityInput" style="display:none"><label for="cityText">Please enter city<em
 											class="required">*</em></label>
 										<div  class="input-box">
-											<form:input path="city" style="width:215px" title="City" value=""
+											<form:input path="cityText" style="width:215px" title="cityText" value=""
 												class="input-text" type="text" required="true" />
 										</div></li>
 		<p class="required">* Required Fields</p>

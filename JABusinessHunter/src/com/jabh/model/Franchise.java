@@ -17,6 +17,7 @@ public class Franchise implements Serializable{
 	private String Country;
 	private String State;
 	private String City;
+	private String cityText;
 	private String companyfullname;
 	private String companyregdno;
 	private Integer Year_Established;
@@ -142,4 +143,11 @@ public class Franchise implements Serializable{
 	public void setPackageIdList(Map<Integer, String> packageIdList) {
 		this.packageIdList = packageIdList;
 	}
+	public String getCityText() {
+		return cityText;
+	}
+	public void setCityText(String cityText) {
+		this.cityText = cityText;
+	}
+	
 }

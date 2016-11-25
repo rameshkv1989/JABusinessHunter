@@ -17,6 +17,7 @@ public class Seller implements Serializable{
 	private String Country;
 	private String State;
 	private String City;
+	private String cityText;
 	private Integer Year_Established;
 	private String Contact_Title;
 	private String contactname;
@@ -238,5 +239,12 @@ public class Seller implements Serializable{
 	}
 	public void setPackageIdList(Map<Integer, String> packageIdList) {
 		this.packageIdList = packageIdList;
+	}
+	public String getCityText() {
+		return cityText;
+	}
+	public void setCityText(String cityText) {
+		this.cityText = cityText;
 	}	
+	
 }
