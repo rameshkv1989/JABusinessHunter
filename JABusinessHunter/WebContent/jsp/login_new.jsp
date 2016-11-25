@@ -509,6 +509,9 @@ p {
 								<button type="submit" title="Submit" class="button btn-sent">
 									<span>Login</span>
 								</button>
+								<button type="submit" title="Submit" class="button btn-sent">
+									<span>Forgot Password</span>
+								</button>
 								<img src="images/loader.gif" id="loader" style="display: none;">
 							</div>
 
@@ -592,11 +595,18 @@ p {
 
 										<div class="input-box">
 											<form:select path="city" title="City"
-												class="required-entry input-text" required="true">
+												class="required-entry input-text" 
+												onchange="textBoxForCity(this.value)"
+												required="true">
 												<form:option value="" label="--- Select ---" />
 											</form:select>
 										</div></li>
-
+										<li id="cityInput" style="display:none"><label for="city">Please enter city<em
+											class="required">*</em></label>
+										<div  class="input-box">
+											<form:input path="city" style="width:410px" title="City" value=""
+												class="input-text" type="text" required="true" />
+										</div></li>
 									<li><label for="mobile">Contact No.<em
 											class="required">*</em></label>
 										<div class="input-box">
