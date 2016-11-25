@@ -38,7 +38,7 @@
 							class="required">*</em></label>
 						<div class="input-box">
 							<form:input id="heading" path="heading" title="heading" value=""
-								class="input-text required-entry" type="text" />
+								class="input-text required-entry" type="text" required="true" pattern="^(?!\s*$).*"/>
 						</div></li>
 
 					<li><label for="businesstype">Business Type<em
@@ -46,7 +46,7 @@
 
 						<div class="input-box">
 							<form:select id="businesstype" path="businesstype"
-								title="businesstype" class="required-entry input-text">
+								title="businesstype" class="required-entry input-text" required="true">
 								<form:option value="" label="--- Select ---" />
 								<form:option value="Franchise" label="Franchise" />
 								<form:option value="Non_Franchise" label="Non Franchise" />
@@ -57,8 +57,7 @@
 
 						<div class="input-box">
 							<form:select id="companytype" path="companytype"
-								title="companytype" onchange="change(this.value)"
-								class="required-entry input-text">
+								title="companytype" class="required-entry input-text" required="true">
 								<form:option value="" label="--- Select ---" />
 								<form:option value="Sole_Proprietor" label="Sole Proprietor" />
 								<form:option value="Partnership" label="Partnership" />
@@ -73,7 +72,7 @@
 
 						<div class="input-box">
 							<form:select id="businesscategory" path="businesscategory"
-								title="businesscategory" class="required-entry input-text" onchange="getOptionValues(this.value,'businesssubcategory','getOptionValues.do')">
+								title="businesscategory" class="required-entry input-text" onchange="getOptionValues(this.value,'businesssubcategory','getOptionValuesCat.do')" required="true">
 								<form:option value="" label="--- Select ---" />
 								<form:option value="Advertising" label="Advertising" />
 								<form:option value="Agriculture" label="Agriculture" />
@@ -109,7 +108,7 @@
 
 						<div class="input-box">
 							<form:select path="businesssubcategory"
-								title="businesssubcategory" class="required-entry input-text">
+								title="businesssubcategory" class="required-entry input-text" required="true">
 								<form:option value="" label="--- Select ---" />
 							</form:select>
 
@@ -120,7 +119,7 @@
 						<div class="input-box">
 							<form:select id="Country" path="Country"
 								onchange="getOptionValues(this.value,'State','getOptionValues.do')"
-								class="required-entry input-text">
+								class="required-entry input-text" required="true">
 								<form:option value="" label="--- Select ---" />
 								<form:option value="Malaysia" label="Malaysia" />
 							</form:select>
@@ -131,7 +130,7 @@
 						<div class="input-box">
 							<form:select id="State" path="State" title="State"
 								class="required-entry input-text"
-								onchange="getOptionValues(this.value,'City','getOptionValues.do')">
+								onchange="getOptionValues(this.value,'City','getOptionValues.do')" required="true">
 								<form:option value="" label="--- Select ---" />
 							</form:select>
 						</div></li>
@@ -141,15 +140,15 @@
 
 						<div class="input-box">
 							<form:select id="City" path="City" title="City"
-								class="required-entry input-text">
+								class="required-entry input-text" required="true">
 								<form:option value="" label="--- Select ---" />
 							</form:select>
 						</div></li>
 
 					<li><label for="Year_Established">Year Established </label>
 						<div class="input-box">
-							<form:input id="Year_Established" path="Year_Established" title="Year_Established"
-								value="" class="input-text" type="text"  maxlength="4" />
+							<form:input id="Year_Established" path="Year_Established" title="Please enter year"
+								value="" class="input-text" type="text"  maxlength="4" pattern="\d*"/>
 						</div></li>
 
 					<li><label for="Contact_Title">Contact Title<em
@@ -157,7 +156,7 @@
 
 						<div class="input-box">
 							<form:select id="Contact_Title" path="Contact_Title"
-								title="Contact_Title" class="required-entry input-text">
+								title="Contact_Title" class="required-entry input-text" required="true">
 								<form:option value="" label="--- Select ---" />
 								<form:option value="Mr" label="Mr" />
 								<form:option value="Ms" label="Ms" />
@@ -173,13 +172,13 @@
 						<div class="input-box">
 							<form:input id="contactname" path="contactname"
 								title="contactname" value="" class="input-text required-entry"
-								type="text" />
+								type="text" required="true" pattern="^(?!\s*$).*"/>
 						</div></li>
 					<li><label for="contactno">Contact Mobile No.<em
 							class="required">*</em></label>
 						<div class="input-box">
 							<form:input id="contactno" path="contactno" title="contactno"
-								value="" class="input-text required-entry" type="text" />
+								value="" class="input-text required-entry" type="text" required="true" pattern="\d*"/>
 						</div></li>
 
 
@@ -187,7 +186,7 @@
 							class="required">*</em></label>
 						<div class="input-box">
 							<form:input id="email" path="email" title="text" value=""
-								class="input-text required-entry" type="text" />
+								class="input-text required-entry" type="email" required="true" />
 						</div></li>
 
 					<p class="required">* Required Fields</p>
@@ -215,7 +214,7 @@
 								class="input-text" type="text"/>
 						</div></li>
 
-					<li><label for="annual_revenue">Annual Revenue (dd.dd)</label>
+					<li><label for="annual_revenue">Annual Revenue</label>
 						<div class="input-box">
 							<form:input id="annual_revenue" path="annual_revenue" title="annual_revenue" value=""
 								class="input-text" type="text" />
@@ -247,7 +246,7 @@
 					<li><label for="employeesno">Number of Employees</label>
 						<div class="input-box">
 							<form:input id="employeesno" path="employeesno" title="employeesno" value=""
-								class="input-text" type="text" />
+								class="input-text" type="text" pattern="\d*"/>
 						</div></li>
 
 
@@ -284,7 +283,7 @@
 					characters)<em class="required">*</em>
 				</label>
 				<form:textarea id="companyprofile" path="companyprofile"
-					title="companyprofile" class="required-entry" cols="5" rows="10" maxlength="2000"></form:textarea>
+					title="companyprofile" class="required-entry" cols="5" rows="10" maxlength="2000" required="true" pattern="^(?!\s*$).*"></form:textarea>
 
 
 
@@ -304,7 +303,7 @@
 					investing? (2000 char)<em class="required">*</em>
 				</label>
 				<form:textarea id="whythisbusiness" path="whythisbusiness"
-					title="whythisbusiness" class="required-entry" cols="5" rows="10" maxlength="2000"></form:textarea>
+					title="whythisbusiness" class="required-entry" cols="5" rows="10" maxlength="2000" required="true" pattern="^(?!\s*$).*"></form:textarea>
 
 
 				<label for="sellingreason">Reason for Selling the Business
@@ -312,16 +311,12 @@
 				</label>
 				<form:textarea id="sellingreason" path="sellingreason"
 					title="sellingreason" class="required-entry" cols="5" rows="10"
-					style="height:68px;" maxlength="300"></form:textarea>
+					style="height:68px;" maxlength="300" required="true" pattern="^(?!\s*$).*"></form:textarea>
 
 				<input type="text" name="hideit" id="hideit" value=""
 					style="display: none !important;" />
-				<button type="button" id="next" title="Next"
-					onclick="sellGoToThirdPage(this.id)" class="button btn-sent">
-					<span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span>
-				</button>
-				<button type="button" id="payment" title="Payment" name="action"
-					class="button btn-sent" style="display: none" onclick="sellGoToThirdPage(this.id)">
+				<button type="submit" id="payment" title="Payment" name="action"
+					class="button btn-sent">
 					<span>&nbsp;&nbsp;&nbsp;Payment&nbsp;&nbsp;&nbsp;</span>
 				</button>
 

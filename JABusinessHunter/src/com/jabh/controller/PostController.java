@@ -1,6 +1,7 @@
 package com.jabh.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jabh.mail.SendMailSSL;
+import com.jabh.manager.AccountManager;
 import com.jabh.model.Buyer;
 import com.jabh.model.Franchise;
 import com.jabh.model.Login;
@@ -26,24 +27,59 @@ import com.utils.logging.Logger;
 public class PostController {
 	private static final String CLASS_NAME = PostController.class.getName();
 
-
 	@RequestMapping(value={"/loginSubmit.do"}, method={RequestMethod.POST})
 	public String LoginSubmit(@Valid @ModelAttribute("login")Login login,BindingResult result,ModelMap map,HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into POST LoginSubmit","debug");
-			System.out.println("Login UserName : "+login.getUsername());
-			if(login.getUsername().equalsIgnoreCase("admin@gmail.com") && login.getPassword().equalsIgnoreCase("admin123")){
-				Logger.logStatus(CLASS_NAME,"Exiting POST LoginSubmit","debug");
-				request.getSession().setAttribute("uName", "Venkata Ramesh Karnati");
-				return "./jsp/index.jsp";
+			if(login ==null || login.getUsername()==null ||login.getPassword()==null){
+				SignUp signUp = new SignUp();
+				map.addAttribute("signUp",signUp);
+				login.setMessage("Please enter username or password");
+				Logger.logStatus(CLASS_NAME,"User name or password null","debug");
 			}
-			else{
-				Logger.logStatus(CLASS_NAME,"Exiting POST LoginSubmit","debug");
+			
+			Logger.logStatus(CLASS_NAME,"User Name to Login : "+login.getUsername(),"debug");
+			SignUp loginVerification = new AccountManager().getLoginDetails(login);
+			if(loginVerification == null){
 				result.rejectValue("username", "error.inValid", "Invalid username or password");
 				SignUp signUp = new SignUp();
 				map.addAttribute("signUp",signUp);
 				login.setMessage("Invalid username or password");
+				Logger.logStatus(CLASS_NAME,"Invalid username or password : uName :"+login.getUsername()+" : password : "+login.getPassword(),"debug");
 				return "./jsp/login_new.jsp";
+			}
+			else{
+				if(loginVerification.getStatus()==0){
+					result.rejectValue("username", "error.Registered", "Please activate your account. Activation Email already sent to Email : "+login.getUsername());
+					SignUp signUp = new SignUp();
+					map.addAttribute("signUp",signUp);
+					Logger.logStatus(CLASS_NAME,"Registered user, activation pending : uName :"+login.getUsername()+" : password : "+login.getPassword(),"debug");
+					Logger.logStatus(CLASS_NAME,"Exiting POST LoginSubmit","debug");
+					return "./jsp/login_new.jsp";
+				}
+				else if(loginVerification.getStatus()==1){
+					request.getSession().setAttribute("uName", loginVerification.getName());
+					request.getSession().setAttribute("userName", loginVerification.getUserName());
+					Logger.logStatus(CLASS_NAME,"Exiting POST LoginSubmit","debug");
+					return "./jsp/index.jsp";
+				}
+				else if(loginVerification.getStatus()==2){
+					result.rejectValue("username", "error.Suspended", "Account Suspended, please contact admin");
+					SignUp signUp = new SignUp();
+					map.addAttribute("signUp",signUp);
+					Logger.logStatus(CLASS_NAME,"Account Suspended : uName :"+login.getUsername()+" : password : "+login.getPassword(),"debug");
+					Logger.logStatus(CLASS_NAME,"Exiting POST LoginSubmit","debug");
+					return "./jsp/login_new.jsp";
+				}
+				else{
+					result.rejectValue("username", "error.Deleted", "Invalid username or password");
+					SignUp signUp = new SignUp();
+					map.addAttribute("signUp",signUp);
+					login.setMessage("Invalid username or password");
+					Logger.logStatus(CLASS_NAME,"Account deleted : uName :"+login.getUsername()+" : password : "+login.getPassword(),"debug");
+					return "./jsp/login_new.jsp";
+				}
+				
 			}
 		}
 		catch(Exception e){
@@ -58,47 +94,75 @@ public class PostController {
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into POST SignUpSubmit","debug");
 			System.out.println("SignUp Email : "+signUp.getEmail());
-			if(signUp.getEmail().equalsIgnoreCase("admin@gmail.com")){
-				result.rejectValue("email", "error.AreadyUsed", "EmailID already in use");
+			
+			if(signUp==null || signUp.getTitle()==null || signUp.getEmail()==null || signUp.getPassword()==null || signUp.getName()==null || signUp.getCity()==null
+					|| signUp.getState()==null || signUp.getCountry()==null|| signUp.getAbout()==null){
+				result.rejectValue("email", "error.Empty", "Values Should not be Empty");
+				Login login = new Login();
+				map.addAttribute("login",login);
+				Logger.logStatus(CLASS_NAME,"Empty Values","debug");
+				Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");
+				return "./jsp/login_new.jsp";
+			}
+			SignUp checkExistingUser = new AccountManager().getPersonalDetails(signUp.getEmail());
+			Logger.logStatus(CLASS_NAME,"checkExistingUser : "+checkExistingUser,"debug");
+			if(checkExistingUser!=null){
+				result.rejectValue("email", "error.AreadyUsed", "Email Already in use, please try again");
+				Login login = new Login();
+				map.addAttribute("login",login);
+				signUp.setCountry(null);
+				signUp.setState(null);
+				signUp.setCity(null);
+				signUp.setMobile(null);
+				Logger.logStatus(CLASS_NAME,"EMail already in use : uName :"+signUp.getEmail(),"debug");
+				Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");	
+				return "./jsp/login_new.jsp";
+			}
+			boolean updateStatus = new AccountManager().signUpUser(signUp);
+			if(!updateStatus){
+				result.rejectValue("email", "error.AreadyUsed", "Unable to Sign up, please try again");
+				Login login = new Login();
+				map.addAttribute("login",login);
+				signUp.setCountry(null);
+				signUp.setState(null);
+				signUp.setCity(null);
+				signUp.setMobile(null);
+				Logger.logStatus(CLASS_NAME,"Unable to signUp : uName :"+signUp.getEmail(),"debug");
+				Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");
+				return "./jsp/login_new.jsp";
+			}
+			else{
+				result.rejectValue("title", "error.Success", "Succesfull!!! Activation link has been mailed to your EmailID : "+signUp.getEmail()+". Please activate your account!!!");
 				signUp.setCountry(null);
 				signUp.setState(null);
 				signUp.setCity(null);
 				signUp.setMobile(null);
 				Login login = new Login();
 				map.addAttribute("login",login);
-				Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");
+				Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");	
 				return "./jsp/login_new.jsp";
-			}
-			else{
-				if(SendMailSSL.sendMail(signUp)){
-					result.rejectValue("title", "error.Success", "Succesfull!!! Password has been mailed to your EmailID : "+signUp.getEmail()+". Please login!!!");
-					signUp.setCountry(null);
-					signUp.setState(null);
-					signUp.setCity(null);
-					signUp.setMobile(null);
-					Login login = new Login();
-					map.addAttribute("login",login);
-					Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");	
-					return "./jsp/login_new.jsp";
-				}
-				else{
-					result.rejectValue("email", "error.AreadyUsed", "Please try Again");
-					signUp.setCountry(null);
-					signUp.setState(null);
-					signUp.setCity(null);
-					signUp.setMobile(null);
-					Login login = new Login();
-					map.addAttribute("login",login);
-					Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");
-					return "./jsp/login_new.jsp";
-				}
 			}
 		}
 		catch(Exception e){
 			e.printStackTrace();
+			Logger.logStatus(CLASS_NAME,"Unable to signUp : uName :"+signUp.getEmail(),"debug");
 			Logger.logStatus(CLASS_NAME,"Exception in POST SignUpSubmit : "+e.getMessage(), "error");
-			request.setAttribute("errorMessage", e.getMessage());
-			return "./jsp/error.jsp";
+			try{
+				int deleteSignUpUser = new AccountManager().deleteSignUpUser(signUp.getEmail());
+				Logger.logStatus(CLASS_NAME,"Delete sign up user status : "+deleteSignUpUser,"debug");	
+			}
+			catch(Exception eDelete){
+				Logger.logStatus(CLASS_NAME,"Exception in POST SignUpSubmit : "+eDelete.getMessage(), "error");
+			}
+			result.rejectValue("email", "error.AreadyUsed", "Unable to Sign up, please try again");
+			Login login = new Login();
+			map.addAttribute("login",login);
+			signUp.setCountry(null);
+			signUp.setState(null);
+			signUp.setCity(null);
+			signUp.setMobile(null);
+			Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");
+			return "./jsp/login_new.jsp";
 		}
 	}
 
@@ -109,7 +173,7 @@ public class PostController {
 			Logger.logStatus(CLASS_NAME,"Entering into POST SellSubmit","debug");
 			System.out.println("Seller Package : "+sellerModel.getPackages());
 			Logger.logStatus(CLASS_NAME,"Exiting POST SellSubmit","debug");
-			return "./jsp/search_results_Buy_Sell.jsp";
+			return "./jsp/SellPay.jsp";
 
 		}
 		catch(Exception e){
@@ -185,10 +249,28 @@ public class PostController {
 			return result;
 		}
 		catch(Exception e){
-			Logger.logStatus(CLASS_NAME,"Exception in GET ServiceProviderSubmit : "+e.getMessage(), "error");
+			Logger.logStatus(CLASS_NAME,"Exception in GET getStates : "+e.getMessage(), "error");
 			return null;
 		}
 	}
+	
+	
+	@RequestMapping(value = "/getOptionValuesCat.do", method = RequestMethod.GET)
+	public @ResponseBody String getOptionValuesCat(@RequestParam("param") String param) {
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET getOptionValuesCat","debug");
+			Logger.logStatus(CLASS_NAME,"Input Selected value : "+param,"debug");
+			String result = Utility.getOptionValuesCat(param);
+			Logger.logStatus(CLASS_NAME,"OutPut Option Values : "+result,"debug");
+			Logger.logStatus(CLASS_NAME,"Exiting GET getOptionValuesCat","debug");
+			return result;
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET getOptionValuesCat : "+e.getMessage(), "error");
+			return null;
+		}
+	}
+	
 	@RequestMapping(value={"/search.do"}, method={RequestMethod.GET})
 	public String SearchSubmit(@RequestParam("searchValue") String searchValue,HttpServletRequest request){
 		try{
@@ -217,6 +299,20 @@ public class PostController {
 			return "./jsp/error.jsp";
 		}
 	}
+	
+	@RequestMapping(value={"/editSellDetails.do"}, method={RequestMethod.POST})
+	public String SellDetailsEdit(HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into POST SellDetailsEdit","debug");
+			Logger.logStatus(CLASS_NAME,"Exiting POST SellDetailsEdit","debug");
+			return "./jsp/sellDetailsEdit.jsp";
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in POST SellDetailsEdit : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
 	@RequestMapping(value = "/getImage.do", method = RequestMethod.GET)
 	public @ResponseBody String getImages(@RequestParam("imageNeed") String imageNeed) {
 		try{
@@ -229,6 +325,37 @@ public class PostController {
 		}
 		catch(Exception e){
 			Logger.logStatus(CLASS_NAME,"Exception in GET getImages : "+e.getMessage(), "error");
+			return null;
+		}
+	}
+	
+	@RequestMapping(value={"/editSellDetails.do"}, method={RequestMethod.POST})
+	public String PaymentSuccess(HttpServletRequest request) {
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET PaymentSuccess","debug");
+			System.out.println("Entering into GET PaymentSuccess");
+			Logger.logStatus(CLASS_NAME,"Exiting GET PaymentSuccess","debug");
+			return "./jsp/sellDetailsEdit.jsp";
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET PaymentSuccess : "+e.getMessage(), "error");
+			return null;
+		}
+	}
+	
+	@RequestMapping(value={"/paymentCancel.do"}, method={RequestMethod.GET})
+	public String PaymentCancel(HttpServletRequest request,HttpServletResponse response) {
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET PaymentCancel","debug");
+			System.out.println("Entering into GET PaymentCancel");
+			System.out.println("req Query : "+request.getQueryString());
+			System.out.println("req header : "+request.getHeaderNames());
+		
+			Logger.logStatus(CLASS_NAME,"Exiting GET PaymentCancel","debug");
+			return "./jsp/cancel.jsp";
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET PaymentCancel : "+e.getMessage(), "error");
 			return null;
 		}
 	}

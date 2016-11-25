@@ -33,6 +33,7 @@
 <script type="text/javascript" src="js/left-nav.js"></script>
 <script type="text/javascript" src="js/mob-nav.js"></script>
 <script type="text/javascript" src="js/toggle.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
 
 
@@ -244,7 +245,7 @@ jQuery(document).ready(function() {
 
 </script>
 
-			<jsp:include page="menu.jsp"></jsp:include>
+			<%-- <jsp:include page="menu.jsp"></jsp:include> --%>
 			<jsp:include page="nav.jsp"></jsp:include>
 <script type="text/javascript">
         //<![CDATA[

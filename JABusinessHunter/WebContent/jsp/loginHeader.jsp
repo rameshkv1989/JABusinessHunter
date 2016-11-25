@@ -33,8 +33,24 @@
 				</div>
 				<c:choose>
 					<c:when test="${not empty uName}">
+						<%--  --%>
+						<div class="company">
+							<div class="click-nav">
+								<ul class="no-js">
+									<li><a href="myaccount.do" class="clicker"><span
+											class="caret">${uName}</span></a>
+										<ul class="link">
+											<li><a href="myaccount.do">Personal	Details</a></li>
+											<li><a href="sellDetails.do">Sell Details</a></li>
+											<li><a href="buyDetails.do">Buy Details</a></li>
+											<li><a href="#">Payment History</a></li>
+											<li><a href="#">Write Testimonials</a></li>
+										</ul></li>
+								</ul>
+
+							</div>
+						</div>
 						<div class="login">
-							<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${uName}</span>
 							<a href="logout.do"><span>Log Out</span></a>
 						</div>
 					</c:when>

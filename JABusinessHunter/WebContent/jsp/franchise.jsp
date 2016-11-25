@@ -128,7 +128,7 @@
 							}, 300);
 						});
 
-			});	
+			});
 </script>
 
 <style>
@@ -238,7 +238,8 @@ p {
 
 </head>
 
-<body class="flexible  cms-index-index cms-accord-home">
+<body class="flexible  cms-index-index cms-accord-home"
+	onload="tabCssChange('nav-franchise');">
 	<noscript>
 		<div class="global-site-notice noscript">
 			<div class="notice-inner">
@@ -282,7 +283,7 @@ p {
 				});
 			</script>
 
-			<jsp:include page="menu.jsp"></jsp:include>
+			<%-- <jsp:include page="menu.jsp"></jsp:include> --%>
 			<jsp:include page="nav.jsp"></jsp:include>
 
 			<script type="text/javascript">
@@ -474,11 +475,7 @@ p {
 					<div class="category-image">
 						<div id="slides">
 							<div class="slides_container">
-								<div>
-									<img title="J & A Business Hunter Seller Ads Subscription" src="images/sellabusiness.png"
-										alt="J & A Business Hunter Seller Ads Subscription" />
-									<div class="cat-img-title cat-bg cat-box"></div>
-								</div>
+								<jsp:include page="packages.jsp"></jsp:include>
 							</div>
 						</div>
 
@@ -487,31 +484,35 @@ p {
 
 				<div class="category-products">
 					<br />
-					<form:form id="contactForm" method="post" commandName="franchiseModel" action="franchiseSubmit.do">
+					<form:form id="contactForm" method="post"
+						commandName="franchiseModel" action="franchiseSubmit.do">
 						<div id="franchise1NewDiv">
 							<div class="column sixty">
-								<ul class="form-list">
-									<li><label for="packages">Select a Package<em
-											class="required">*</em></label>
-										<div class="input-box">
-											<form:select path="packages" title="packages"
-												class="required-entry input-text">
-												<form:option value="" label="--- Select ---" />
-												<form:options items="${franchiseModel.packageIdList}" />
-											</form:select>
-										</div></li>
-									<p class="required">* Required Fields</p>
-								</ul>
-								<div class="textright">
+								<c:if test="${not empty franchiseModel.packageIdList}">
+									<ul class="form-list">
+										<li><label for="packages">Select a Package<em
+												class="required">*</em></label>
+											<div class="input-box">
+												<form:select path="packages" title="packages"
+													class="required-entry input-text">
+													<form:option value="" label="--- Select ---" />
+													<form:options items="${franchiseModel.packageIdList}" />
+												</form:select>
+											</div></li>
+										<p class="required">* Required Fields</p>
+									</ul>
+									<div class="textright">
 
-									<input type="text" name="hideit" id="hideit" value=""
-										style="display: none !important;" />
-									<button type="button" title="Next" class="button btn-sent" onclick="franchiseGoToSecondPage()">
-										<span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span>
-									</button>
-									<img src="images/loader.gif" id="loader" style="display: none;">
-								</div>
-
+										<input type="text" name="hideit" id="hideit" value=""
+											style="display: none !important;" />
+										<button type="button" title="Next" class="button btn-sent"
+											onclick="franchiseGoToSecondPage()">
+											<span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span>
+										</button>
+										<img src="images/loader.gif" id="loader"
+											style="display: none;">
+									</div>
+								</c:if>
 							</div>
 						</div>
 						<div id="franchise2NewDiv" style="display: none">

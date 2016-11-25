@@ -5,7 +5,7 @@
   <div class="inner">
 <div class="footer-column-1">
 <div class="footer-logo"><a title="Logo" href="#"><img src="images/logo1.png" alt="footer  logo" /></a></div>
-<address><em class="add-icon">&nbsp;</em>XXXXXXXX, XXXXXXX <br /> &nbsp;XXXXXXXXX.</address>
+<!-- <address><em class="add-icon">&nbsp;</em>XXXXXXXX, XXXXXXX <br /> &nbsp;XXXXXXXXX.</address> -->
 <div class="phone-footer"><em class="phone-icon">&nbsp;</em> Alex : 012-6535669</div>
 <div class="phone-footer"><em class="phone-icon">&nbsp;</em> James : 012-7771222</div>
 

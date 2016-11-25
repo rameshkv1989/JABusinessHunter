@@ -244,7 +244,7 @@ p {
 
 </head>
 
-<body class="flexible  cms-index-index cms-accord-home">
+<body class="flexible  cms-index-index cms-accord-home" onload="tabCssChange('nav-buyer');">
 	<noscript>
 		<div class="global-site-notice noscript">
 			<div class="notice-inner">
@@ -291,7 +291,7 @@ p {
 				});
 			</script>
 
-			<jsp:include page="menu.jsp"></jsp:include>
+			<%-- <jsp:include page="menu.jsp"></jsp:include> --%>
 			<jsp:include page="nav.jsp"></jsp:include>
 			<script type="text/javascript">
 				//<![CDATA[
@@ -516,7 +516,7 @@ p {
 									<div class="input-box">
 										<form:select path="businesscategory" title="businesscategory"
 											class="required-entry input-text"
-											onchange="getOptionValues(this.value,'businesssubcategory','getOptionValues.do')">
+											onchange="getOptionValues(this.value,'businesssubcategory','getOptionValuesCat.do')">
 											<form:option value="" label="--- Select ---" />
 					<form:option value="Advertising" label="Advertising" />
 					<form:option value="Agriculture" label="Agriculture" />

@@ -283,7 +283,7 @@ p {
 				});
 			</script>
 
-			<jsp:include page="menu.jsp" />
+			<%-- <jsp:include page="menu.jsp" /> --%>
 			<jsp:include page="nav.jsp" />
 			<script type="text/javascript">
 				//<![CDATA[
@@ -531,7 +531,7 @@ p {
 								<!--page-title-->
 
 								<form:errors path="email" class="required"/><br>
-								<form:errors path="title" class="required"/><br>
+								<form:errors path="title" class="required_success"/><br>
 								<ul class="form-list">
 									<li><label for="Title">Title<em class="required">*</em></label>
 
@@ -559,6 +559,12 @@ p {
 											<form:input path="email" title="Email" value=""
 												class="input-text required-entry validate-email"
 												type="email" required="true" />
+										</div></li>
+										<li><label for="password">Password<em class="required">*</em></label>
+										<div class="input-box">
+											<form:input path="password" title="password" value=""
+												class="input-text required-entry"
+												type="password" required="true" />
 										</div></li>
 
 									<li><label for="country">Country<em

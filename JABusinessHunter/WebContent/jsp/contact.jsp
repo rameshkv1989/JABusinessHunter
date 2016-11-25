@@ -33,6 +33,7 @@
 <script type="text/javascript" src="js/left-nav.js"></script>
 <script type="text/javascript" src="js/mob-nav.js"></script>
 <script type="text/javascript" src="js/toggle.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
 
 
@@ -196,7 +197,7 @@ p{font-size:15px; text-align:justify;}
 
 </head>
 
-<body class="flexible  cms-index-index cms-accord-home">
+<body class="flexible  cms-index-index cms-accord-home" onload="tabCssChange('nav-contactus');">
             <noscript>
         <div class="global-site-notice noscript">
             <div class="notice-inner">
@@ -240,7 +241,7 @@ jQuery(document).ready(function() {
 
 </script>
 
-<jsp:include page="menu.jsp"></jsp:include>
+<%-- <jsp:include page="menu.jsp"></jsp:include> --%>
 <jsp:include page="nav.jsp"></jsp:include> 
     
 <script type="text/javascript">

@@ -59,67 +59,77 @@
 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
 <script type="text/javascript">
-jQuery(document).ready(function() {
+	jQuery(document).ready(
+			function() {
 
-	jQuery("#right_toolbar").show(); 
-	jQuery("#back-top").hide();
+				jQuery("#right_toolbar").show();
+				jQuery("#back-top").hide();
 
-	jQuery(function() {
-	      jQuery(window).scroll(function() {
-		  if (jQuery(this).scrollTop() > 150) {
-			jQuery('#back-top').fadeIn();
-		  } else { 
-			jQuery('#back-top').fadeOut();
-		  }
-	      });
+				jQuery(function() {
+					jQuery(window).scroll(function() {
+						if (jQuery(this).scrollTop() > 150) {
+							jQuery('#back-top').fadeIn();
+						} else {
+							jQuery('#back-top').fadeOut();
+						}
+					});
 
-	      jQuery('#back-top a').click(function() {
-		  jQuery('body,html').animate({scrollTop: 0}, 400);
-		  return false;
-	      });
+					jQuery('#back-top a').click(function() {
+						jQuery('body,html').animate({
+							scrollTop : 0
+						}, 400);
+						return false;
+					});
 
+				});
 
+				jQuery("#right_toolbar .shoppingcart").bind(
+						'mouseenter',
+						function() {
+							jQuery(".shopping_cart_mini", this)
+									.stop(true, true).fadeIn(200, "linear");
+						});
 
-	});
+				jQuery("#right_toolbar .shoppingcart").bind(
+						'mouseleave',
+						function() {
+							jQuery(".shopping_cart_mini", this)
+									.stop(true, true).fadeOut(200, "linear");
+						});
 
-    jQuery("#right_toolbar .shoppingcart").bind('mouseenter',function() {
-        jQuery(".shopping_cart_mini",this).stop(true, true).fadeIn(200, "linear");
-    });
+				jQuery("#right_toolbar .form-search ").mouseenter(function() {
+					jQuery('#right_toolbar .form-search input').animate({
+						right : 48,
+						width : 240
+					}, 300);
+				});
 
-    jQuery("#right_toolbar .shoppingcart").bind('mouseleave',function() {
-        jQuery(".shopping_cart_mini",this).stop(true, true).fadeOut(200, "linear");
-    });
+				jQuery("#left_toolbar .form-search ").mouseenter(function() {
+					jQuery('#left_toolbar .form-search input').animate({
+						left : 40,
+						width : 240
+					}, 300);
+				});
 
-    jQuery("#right_toolbar .form-search ").mouseenter(function() {
-        jQuery('#right_toolbar .form-search input').animate({
-            right: 48,
-            width: 240
-        }, 300);
-    });
+				jQuery("#right_toolbar .form-search ").mouseleave(
+						function() {
+							jQuery('#right_toolbar .form-search input').stop(
+									true, false).animate({
+								right : 20,
+								width : 0
+							}, 300);
+						});
 
- jQuery("#left_toolbar .form-search ").mouseenter(function() {
-        jQuery('#left_toolbar .form-search input').animate({
-            left: 40,
-            width: 240
-        }, 300);
-    });
+				jQuery("#left_toolbar .form-search ").mouseleave(
+						function() {
+							jQuery('#left_toolbar .form-search input').stop(
+									true, false).animate({
+								left : 20,
+								width : 0
+							}, 300);
+						});
 
- jQuery("#right_toolbar .form-search ").mouseleave(function() {
-        jQuery('#right_toolbar .form-search input').stop(true, false).animate({
-            right: 20,
-            width: 0
-        }, 300);
-    });
-
-    jQuery("#left_toolbar .form-search ").mouseleave(function() {
-        jQuery('#left_toolbar .form-search input').stop(true, false).animate({
-            left: 20,
-            width: 0
-        }, 300);
-    });
-
-});
-
+			});
 </script>
 
 <style>
@@ -229,7 +239,8 @@ p {
 
 </head>
 
-<body class="flexible  cms-index-index cms-accord-home">
+<body class="flexible  cms-index-index cms-accord-home"
+	onload="tabCssChange('nav-seller');">
 	<noscript>
 		<div class="global-site-notice noscript">
 			<div class="notice-inner">
@@ -252,112 +263,186 @@ p {
 
 
 			<script type="text/javascript">
-jQuery(document).ready(function() {
-          jQuery('.toggle').click(function() {
-               if (jQuery('.submenu').is(":hidden"))
-               {
-                    jQuery('.submenu').slideDown("fast");
-               } else {
-                    jQuery('.submenu').slideUp("fast");
-               }
-               return false;
-          });
-});
+				jQuery(document).ready(function() {
+					jQuery('.toggle').click(function() {
+						if (jQuery('.submenu').is(":hidden")) {
+							jQuery('.submenu').slideDown("fast");
+						} else {
+							jQuery('.submenu').slideUp("fast");
+						}
+						return false;
+					});
+				});
 
-jQuery(document).ready(function() {
-        jQuery(".topnav").accordion({
-                accordion:false,
-                speed: 300,
-                closedSign: '+',
-                openedSign: '-'
-        });
-});
+				jQuery(document).ready(function() {
+					jQuery(".topnav").accordion({
+						accordion : false,
+						speed : 300,
+						closedSign : '+',
+						openedSign : '-'
+					});
+				});
+			</script>
 
-</script>
-
-			<jsp:include page="menu.jsp"></jsp:include>
+			<%-- <jsp:include page="menu.jsp"></jsp:include> --%>
 			<jsp:include page="nav.jsp"></jsp:include>
 			<script type="text/javascript">
-        //<![CDATA[
+				//<![CDATA[
 
-            jQuery(function($) {
-                $("#nav > li").hover(function() {
-                    var el = $(this).find(".level0-wrapper");
-                    el.hide();
-                    el.css("left", "0");
-                    el.stop(true, true).delay(150).fadeIn(300, "easeOutCubic");
-                }, function() {
-                    $(this).find(".level0-wrapper").stop(true, true).delay(300).fadeOut(300, "easeInCubic");
-                });
-            });
+				jQuery(function($) {
+					$("#nav > li").hover(
+							function() {
+								var el = $(this).find(".level0-wrapper");
+								el.hide();
+								el.css("left", "0");
+								el.stop(true, true).delay(150).fadeIn(300,
+										"easeOutCubic");
+							},
+							function() {
+								$(this).find(".level0-wrapper")
+										.stop(true, true).delay(300).fadeOut(
+												300, "easeInCubic");
+							});
+				});
 
-            var isTouchDevice = ('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0);
-            jQuery(window).on("load", function() {
+				var isTouchDevice = ('ontouchstart' in window)
+						|| (navigator.msMaxTouchPoints > 0);
+				jQuery(window)
+						.on(
+								"load",
+								function() {
 
-                if (isTouchDevice)
-                {
-                    jQuery('#nav a.level-top').click(function(e) {
-                        $t = jQuery(this);
-                        $parent = $t.parent();
-                        if ($parent.hasClass('parent'))
-                        {
-                            if ( !$t.hasClass('menu-ready'))
-                            {                    
-                                jQuery('#nav a.level-top').removeClass('menu-ready');
-                                $t.addClass('menu-ready');
-                                return false;
-                            }
-                            else
-                            {
-                                $t.removeClass('menu-ready');
-                            }
-                        }
-                    });
-                }
+									if (isTouchDevice) {
+										jQuery('#nav a.level-top')
+												.click(
+														function(e) {
+															$t = jQuery(this);
+															$parent = $t
+																	.parent();
+															if ($parent
+																	.hasClass('parent')) {
+																if (!$t
+																		.hasClass('menu-ready')) {
+																	jQuery(
+																			'#nav a.level-top')
+																			.removeClass(
+																					'menu-ready');
+																	$t
+																			.addClass('menu-ready');
+																	return false;
+																} else {
+																	$t
+																			.removeClass('menu-ready');
+																}
+															}
+														});
+									}
 
-            }); //end: on load
+								}); //end: on load
 
-        //]]>
-</script>
+				//]]>
+			</script>
 			<script type="text/javascript">
-//<![CDATA[
-    jQuery(document).ready(function(){
-        var scrolled = false;
-        jQuery("#nav li.level0.drop-menu").mouseover(function(){
-            if(jQuery(window).width() >= 740){
-                jQuery(this).children('ul.level1').fadeIn(100);
-            }
-            return false;
-        }).mouseleave(function(){
-            if(jQuery(window).width() >= 740){
-                jQuery(this).children('ul.level1').fadeOut(100);
-            }
-            return false;
-        });
-        jQuery("#nav li.level0.drop-menu li").mouseover(function(){
-            if(jQuery(window).width() >= 740){
-                jQuery(this).children('ul').css({top:0,left:"165px"});
-                var offset = jQuery(this).offset();
-                if(offset && (jQuery(window).width() < offset.left+325)){
-                    jQuery(this).children('ul').removeClass("right-sub");
-                    jQuery(this).children('ul').addClass("left-sub");
-                    jQuery(this).children('ul').css({top:0,left:"-167px"});
-                } else {
-                    jQuery(this).children('ul').removeClass("left-sub");
-                    jQuery(this).children('ul').addClass("right-sub");
-                }
-                jQuery(this).children('ul').fadeIn(100);
-            }
-        }).mouseleave(function(){
-            if(jQuery(window).width() >= 740){
-                jQuery(this).children('ul').fadeOut(100);
-            }
-        });
-        
+				//<![CDATA[
+				jQuery(document)
+						.ready(
+								function() {
+									var scrolled = false;
+									jQuery("#nav li.level0.drop-menu")
+											.mouseover(
+													function() {
+														if (jQuery(window)
+																.width() >= 740) {
+															jQuery(this)
+																	.children(
+																			'ul.level1')
+																	.fadeIn(100);
+														}
+														return false;
+													})
+											.mouseleave(
+													function() {
+														if (jQuery(window)
+																.width() >= 740) {
+															jQuery(this)
+																	.children(
+																			'ul.level1')
+																	.fadeOut(
+																			100);
+														}
+														return false;
+													});
+									jQuery("#nav li.level0.drop-menu li")
+											.mouseover(
+													function() {
+														if (jQuery(window)
+																.width() >= 740) {
+															jQuery(this)
+																	.children(
+																			'ul')
+																	.css(
+																			{
+																				top : 0,
+																				left : "165px"
+																			});
+															var offset = jQuery(
+																	this)
+																	.offset();
+															if (offset
+																	&& (jQuery(
+																			window)
+																			.width() < offset.left + 325)) {
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.removeClass(
+																				"right-sub");
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.addClass(
+																				"left-sub");
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.css(
+																				{
+																					top : 0,
+																					left : "-167px"
+																				});
+															} else {
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.removeClass(
+																				"left-sub");
+																jQuery(this)
+																		.children(
+																				'ul')
+																		.addClass(
+																				"right-sub");
+															}
+															jQuery(this)
+																	.children(
+																			'ul')
+																	.fadeIn(100);
+														}
+													})
+											.mouseleave(
+													function() {
+														if (jQuery(window)
+																.width() >= 740) {
+															jQuery(this)
+																	.children(
+																			'ul')
+																	.fadeOut(
+																			100);
+														}
+													});
 
-    });
-//]]>
-</script>
+								});
+				//]]>
+			</script>
 		</div>
 	</nav>
 
@@ -379,26 +464,21 @@ jQuery(document).ready(function() {
 			<article class="col-main">
 
 
-				
+
 
 
 
 				<div id="sellBizPackagePic" class="category-description std">
-				
-				<div class="page-title" style="margin:-9px 0 15px 0px;">
-					<h2>Sell A Business - Ads Subscription</h2>
-				</div>
-				<!--page-title-->
-				
+
+					<div class="page-title" style="margin: -9px 0 15px 0px;">
+						<h2>Sell A Business - Ads Subscription</h2>
+					</div>
+					<!--page-title-->
+
 					<div class="category-image">
 						<div id="slides">
 							<div class="slides_container">
-								<div>
-									<img title="J & A Business Hunter Seller Ads Subscription"
-										src="images/sellabusiness.png"
-										alt="J & A Business Hunter Seller Ads Subscription" />
-									<div class="cat-img-title cat-bg cat-box"></div>
-								</div>
+								<jsp:include page="packages.jsp"></jsp:include>
 							</div>
 						</div>
 
@@ -407,47 +487,49 @@ jQuery(document).ready(function() {
 
 				<div class="category-products">
 					<br />
-					<form:form id="contactForm" method="post" commandName="sellerModel" action="sellSubmit.do">
+					<form:form id="contactForm" method="post" commandName="sellerModel"
+						action="sellSubmit.do">
 
 						<div id="sellerPage1NewDiv">
 							<div class="column sixty">
+								<c:if test="${not empty sellerModel.packageIdList}">
+									<ul class="form-list">
 
-								<ul class="form-list">
+										<li><label for="packages">Select a Package<em
+												class="required">*</em></label>
 
-									<li><label for="packages">Select a Package<em
-											class="required">*</em></label>
+											<div class="input-box">
+												<form:select path="packages"
+													class="required-entry input-text">
+													<form:option value="" label="--- Select ---" />
+													<form:options items="${sellerModel.packageIdList}" />
 
-										<div class="input-box">
-											<form:select path="packages"
-												class="required-entry input-text">
-												<form:option value="" label="--- Select ---" />
-												<form:options items="${sellerModel.packageIdList}" />
-
-											</form:select>
-										</div></li>
+												</form:select>
+											</div></li>
 
 
-									<p class="required">* Required Fields</p>
-								</ul>
-								<div class="textright">
+										<p class="required">* Required Fields</p>
+									</ul>
+									<div class="textright">
 
-									<input type="text" name="hideit" id="hideit" value=""
-										style="display: none !important;" />
-									<button type="button" title="Next"
-										onclick="sellGoToSecondPage()" class="button btn-sent">
-										<span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span>
-									</button>
-									<img src="images/loader.gif" id="loader" style="display: none;">
-								</div>
-
+										<input type="text" name="hideit" id="hideit" value=""
+											style="display: none !important;" />
+										<button type="button" title="Next"
+											onclick="sellGoToSecondPage()" class="button btn-sent">
+											<span>&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</span>
+										</button>
+										<img src="images/loader.gif" id="loader"
+											style="display: none;">
+									</div>
+								</c:if>
 							</div>
 						</div>
-						
+
 						<!--column sixty-->
-					<!-- 	<div class="column fourty last">
+						<!-- 	<div class="column fourty last">
 							<div class="padding"></div>
 						</div> -->
-						 <div id="sellerPage2NewDiv" style="display: none">
+						<div id="sellerPage2NewDiv" style="display: none">
 							<jsp:include page="seller_page2.jsp"></jsp:include>
 						</div>
 						<div id="sellerPage3NewDiv" style="display: none">
@@ -472,17 +554,16 @@ jQuery(document).ready(function() {
 				</div>
 			</div>
 			<script type="text/javascript">
-function callQuickView(qurl) { 
-    jQuery('#mgkquickview').show();
-    jQuery('#magikloading').show();
-    jQuery.get(qurl, function(data) {
-      jQuery.fancybox(data);
-      jQuery('#magikloading').hide();
-jQuery('#mgkquickview').hide();
-    });
- }
- 
-</script>
+				function callQuickView(qurl) {
+					jQuery('#mgkquickview').show();
+					jQuery('#magikloading').show();
+					jQuery.get(qurl, function(data) {
+						jQuery.fancybox(data);
+						jQuery('#magikloading').hide();
+						jQuery('#mgkquickview').hide();
+					});
+				}
+			</script>
 			</article>
 			<jsp:include page="aside.jsp"></jsp:include>
 			<!--col-right sidebar-->

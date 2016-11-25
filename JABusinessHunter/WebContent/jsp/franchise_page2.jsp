@@ -48,7 +48,7 @@
 			<div class="input-box">
 				<form:select path="businesscategory" title="businesscategory"
 					class="required-entry input-text"
-					onchange="getOptionValues(this.value,'businesssubcategory','getOptionValues.do')" required="true">
+					onchange="getOptionValues(this.value,'businesssubcategory','getOptionValuesCat.do')" required="true">
 					<form:option value="" label="--- Select ---" />
 					<form:option value="Advertising" label="Advertising" />
 					<form:option value="Agriculture" label="Agriculture" />

@@ -212,3 +212,9 @@ function isEmail(email){
 		return false;
 	}else{return true;}
 }
+
+function tabCssChange(id){
+	document.getElementById(id).style.background='#ff1341';
+	document.getElementById(id).style.color='white';
+	document.getElementById(id).style.borderColor='#ff1341';
+}

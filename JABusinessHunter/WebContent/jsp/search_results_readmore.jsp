@@ -6,22 +6,32 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>J & A Business Hunter</title>
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
+<meta name="viewport"
+	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
 <meta name="description" content=" " />
 <meta name="keywords" content=" " />
-<meta name="robots" content="*" /> 
+<meta name="robots" content="*" />
 <link rel="shortcut png" href="images/favicon.png" type="image/x-icon" />
-<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Bitter:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
- 
-      
+<link
+	href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Bitter:200,300,400,500,600,700,800'
+	rel='stylesheet' type='text/css'>
+
+
 <link rel="stylesheet" href="css/styles.css" type="text/css" />
 <link rel="stylesheet" href="css/responsive.css" type="text/css" />
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all" />
-<link rel="stylesheet" type="text/css" href="css/fancybox.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"
+	media="all" />
+<link rel="stylesheet" type="text/css" href="css/fancybox.css"
+	media="all" />
 <link rel="stylesheet" type="text/css" href="css/scroll.css" media="all" />
-<link rel="stylesheet" type="text/css" href="css/blogmate.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/blogmate.css"
+	media="all" />
 
 
 
@@ -33,15 +43,17 @@
 <script type="text/javascript" src="js/left-nav.js"></script>
 <script type="text/javascript" src="js/mob-nav.js"></script>
 <script type="text/javascript" src="js/toggle.js"></script>
-<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>   
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
 
 
 
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" /> 
- 
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" />
+
 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
- 
- <script type="text/javascript">
+
+<script type="text/javascript">
 jQuery(document).ready(function() {
 
 	jQuery("#right_toolbar").show(); 
@@ -102,122 +114,138 @@ jQuery(document).ready(function() {
     });
 
 });
-</script> 
+</script>
 
 <style>
 #right_toolbar {
 	position: fixed;
-	right:5px;
+	right: 5px;
 	top: 30%;
 	z-index: 50;
-	width:45px;
+	width: 45px;
 }
+
 #left_toolbar {
 	position: fixed;
-	left:0px;
+	left: 0px;
 	top: 30%;
 	z-index: 500;
-	width:45px;
+	width: 45px;
 }
+
 #right_toolbar .form-search button {
-    background-color: #FF1341;
-    border: medium none;
-    border-radius: 4px 4px 4px 4px;
-    float: right;
-    margin: -3px 0 0 5px;
-    padding: 3px 0 1px;
-    position: relative;
-    width: 40px;
-    z-index: 100;
+	background-color: #FF1341;
+	border: medium none;
+	border-radius: 4px 4px 4px 4px;
+	float: right;
+	margin: -3px 0 0 5px;
+	padding: 3px 0 1px;
+	position: relative;
+	width: 40px;
+	z-index: 100;
 }
+
 #left_toolbar .form-search button {
-    background-color: #FF1341;
-    border: medium none;
-    border-radius: 4px 4px 4px 4px;
-    float: right;
-    margin: -3px 0 0 5px;
-    padding: 3px 0 1px;
-    position: relative;
-    width: 40px;
-    z-index: 100;
-} 
-.scarttxtcolor{
-color:#333333;
+	background-color: #FF1341;
+	border: medium none;
+	border-radius: 4px 4px 4px 4px;
+	float: right;
+	margin: -3px 0 0 5px;
+	padding: 3px 0 1px;
+	position: relative;
+	width: 40px;
+	z-index: 100;
+}
+
+.scarttxtcolor {
+	color: #333333;
 }
 
 .intro-btn a {
-    color: #fff;
-    padding: 15px 45px;
-    letter-spacing: 2px;
-    font-size: 12px;margin-top: 15px;
-    font-weight: normal;
-    background: #ff1341;
-    font-family: 'Bitter', serif;
+	color: #fff;
+	padding: 15px 45px;
+	letter-spacing: 2px;
+	font-size: 12px;
+	margin-top: 15px;
+	font-weight: normal;
+	background: #ff1341;
+	font-family: 'Bitter', serif;
 }
+
 .intro-btn a:hover {
- background: black;color:white;
+	background: black;
+	color: white;
 }
-p{font-size:15px; text-align:justify;}
+
+p {
+	font-size: 15px;
+	text-align: justify;
+}
 
 #contactForm textarea {
-    background: #F0F0F0;
-    border: none;
-    height: 175px;
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 97%;
-    border: 1px solid #f0f0f0;
-    margin-top: 15px;
+	background: #F0F0F0;
+	border: none;
+	height: 175px;
+	margin-bottom: 10px;
+	padding: 5px;
+	width: 97%;
+	border: 1px solid #f0f0f0;
+	margin-top: 15px;
 }
+
 .form-list select {
-    background: #f0f0f0;
-    border: 1px solid #f0f0f0;
-    padding: 10px;
-    width: 80%;
-    margin-top: 5px;
-    outline: none;
-    margin: 5px 0 2px;
-    width: 84%;
-    outline: none;
+	background: #f0f0f0;
+	border: 1px solid #f0f0f0;
+	padding: 10px;
+	width: 80%;
+	margin-top: 5px;
+	outline: none;
+	margin: 5px 0 2px;
+	width: 84%;
+	outline: none;
 }
 </style>
 
-            
-<div  id="right_toolbar">
-     
-    		  <jsp:include page="search.jsp"></jsp:include>
-	  
-    	      <div id="back-top" style="display:none;"><a href="#top"><img src="images/backto_top.png"></a></div>
-    </div>
+
+<div id="right_toolbar">
+
+	<jsp:include page="search.jsp"></jsp:include>
+
+	<div id="back-top" style="display: none;">
+		<a href="#top"><img src="images/backto_top.png"></a>
+	</div>
+</div>
 
 
- 
+
 
 
 
 </head>
 
 <body class="flexible  cms-index-index cms-accord-home">
-            <noscript>
-        <div class="global-site-notice noscript">
-            <div class="notice-inner">
-                <p>
-                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
-                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
-            </div>
-        </div>
-    </noscript>
-    <header>
-<jsp:include page="loginHeader.jsp"></jsp:include>
-  </header>
-<nav>
-  <div class="nav-inner">
-    
-            
+	<noscript>
+		<div class="global-site-notice noscript">
+			<div class="notice-inner">
+				<p>
+					<strong>JavaScript seems to be disabled in your browser.</strong><br />
+					You must have JavaScript enabled in your browser to utilize the
+					functionality of this website.
+				</p>
+			</div>
+		</div>
+	</noscript>
+	<header>
+		<jsp:include page="loginHeader.jsp"></jsp:include>
+	</header>
+	<nav>
+		<div class="nav-inner">
 
 
 
-<script type="text/javascript">
+
+
+			<script type="text/javascript">
 jQuery(document).ready(function() {
           jQuery('.toggle').click(function() {
                if (jQuery('.submenu').is(":hidden"))
@@ -241,9 +269,9 @@ jQuery(document).ready(function() {
 
 </script>
 
-			<jsp:include page="menu.jsp"></jsp:include>
+			<%-- <jsp:include page="menu.jsp"></jsp:include> --%>
 			<jsp:include page="nav.jsp"></jsp:include>
-<script type="text/javascript">
+			<script type="text/javascript">
         //<![CDATA[
 
             jQuery(function($) {
@@ -285,7 +313,7 @@ jQuery(document).ready(function() {
 
         //]]>
 </script>
-<script type="text/javascript">
+			<script type="text/javascript">
 //<![CDATA[
     jQuery(document).ready(function(){
         var scrolled = false;
@@ -324,199 +352,231 @@ jQuery(document).ready(function() {
     });
 //]]>
 </script>
-     </div> 
-</nav> 
-         
-   <section class="main-container"> 
-<!-- BEGIN Main Container Inner-->
-          <article class="main-container-inner">              
-              
-  <div class="breadcrumbs">
-    <div class="inner">
-      <ul>
-                    <li class="home">
-                            <a href="home.do" title="Go to Home Page">Home</a>
-                                        <span>» </span>
-                        </li>
-                    <li class="category365">
-                            <a href="#" title="">Search Results</a> 
-                        </li> 
-              </ul>
-    </div> <!--inner-->
-  </div> <!--breadcrumbs-->
-               
-                            <div class="col-main">
+		</div>
+	</nav>
 
- 
-  <div class="product-next-prev">
-               <a class="product-next" title="Next" href="#"><span></span></a>
-        
-               <a class="product-prev" title="Previous" href="#"><span></span></a>
-          
-  </div> 
+	<section class="main-container">
+		<!-- BEGIN Main Container Inner-->
+		<article class="main-container-inner">
 
-<div class="product-view">
- 
+			<div class="breadcrumbs">
+				<div class="inner">
+					<ul>
+						<li class="home"><a href="home.do" title="Go to Home Page">Home</a>
+							<span>» </span></li>
+						<li class="category365"><a href="#" title="">Read More</a></li>
+					</ul>
+				</div>
+				<!--inner-->
+			</div>
+			<!--breadcrumbs-->
 
-  <div class="product-essential">
+			<div class="col-main">
 
-  
-        <div id="product-img-box"> 
-                 <div class="bx-wrapper">
-                <div class="bx-viewport">
-                  <ul id="large-images1">
-                                           <li id="0">
-                         <a class="zoomable zoomified parent-zoom"  href="#inline0" id="various0">  
-                            <img style="margin: 0px;" src="images/bus3.jpg" class="product-image"> 
-                         </a>
-                         <div style="display: none;"><div id="inline0" style="text-align:center;" class="zm">   
-                            <img style="margin: 0px;" src="images/bus3.jpg" class="product-image">    
-                         </div></div>
-             <script type="text/javascript">
+
+				<!-- <div class="product-next-prev">
+					<a class="product-next" title="Next" href="#"><span></span></a> <a
+						class="product-prev" title="Previous" href="#"><span></span></a>
+
+				</div> -->
+
+				<div class="product-view">
+
+
+					<div class="product-essential">
+
+
+						<div id="product-img-box">
+							<div class="bx-wrapper">
+								<div class="bx-viewport">
+									<ul id="large-images1">
+										<li id="0"><a class="zoomable zoomified parent-zoom"
+											href="#inline0" id="various0"> <img style="margin: 0px;"
+												src="images/bus3.jpg" class="product-image">
+										</a>
+											<div style="display: none;">
+												<div id="inline0" style="text-align: center;" class="zm">
+													<img style="margin: 0px;" src="images/bus3.jpg"
+														class="product-image">
+												</div>
+											</div> <script type="text/javascript">
                 jQuery(document).ready(function() {
                 jQuery("#various0").fancybox({
                 'transitionIn'  : 'elastic',
                 'transitionOut' : 'elastic'
                 });
                 });
-             </script>
-                       </li> 
-                                                          
-                                      
-                  </ul>
-                </div> 
-               
-              </div>  
+             </script></li>
 
-     </div>
 
-        <div class="no-display">
-            <input type="hidden" name="product" value="56" />
-            <input type="hidden" name="related_product" id="related-products-field" value="" />
-        </div>
-               
-          <div class="product-shop">
-             <div class="product-name">
-               <h1 itemprop="name">Business Heading</h1>
-             </div>
-                            <div class="short-description" style="text-align:justify;">                
-               Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. 
-			   Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description. Business Profile short description. Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.Business Profile short description.
-			  
+									</ul>
+								</div>
 
-				 </div>
-              
- 
-  
-         
- 
- 
-<div class="toggle-content">
+							</div>
 
-                       <div class="toggle toggle-white">
-              <h4 class="trigger"><a href="#">Contact Details</a></h4>
-              <div class="toggle_container" style="display: none;">
-                   
-    <div class="std">
-      <p>
-<strong>Contact Name : </strong>XXXXXXXX<br/>
-<strong>Mobile Number :</strong> XXXXXXXX <br/>
-<strong>Email Address : </strong>XXXXX@XXXXX.XX<br/>
-<strong>City :</strong> XXXXXXXXX<br/>
-<strong>State :</strong> XXXXXXXX<br/>
-<strong>Country :</strong> XXXXXXXX<br/>
-</p>
-	  </div> <!--toggle_container -->
-           </div> <!--toggle toggle-white-->
-                                  <div class="toggle toggle-white">
-        <h4 class="trigger"><a href="#">Company Details</a></h4>
-        <div class="toggle_container" style="display: none;">
-           
- <div class="std">
-		   <p><strong>Year Established :</strong>XXXXXXXX<br/>
-			
-			<strong>Annual Revenue :</strong>XXXXXXXX<br/>
-			<strong>Annual Profit / (Loss) After Tax :</strong>XXXXXXXX<br/>
-			<strong>Gross Profit :</strong>XXXXXXXX<br/>
-			<strong>Number of Employees :</strong>XXXXXXXX<br/>
-			 
-			
-			</p>        </div> <!--toggle_container -->
-        </div> <!--toggle toggle-white-->
-                <div class="toggle toggle-white">
-        <h4 class="trigger"><a href="#">Business Importance</a></h4>
-        <div class="toggle_container" style="display: none;">
-            
-       
- <div class="std">
-		   <p> 
-		   
-		   Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-			     Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-			  
-		      Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-			  
-		      Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-			  
-		      Business description.    Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-		      Business description.   Business description.   Business description.   Business description.   Business description.   Business description.   Business description.
-			  
-		   
-		   
-			</p>        </div>
+						</div>
 
-			</div> <!--toggle toggle-white-->
-    
-</div> <!--toggle-content-->
-          <!-- Magik Social Share-->
-            	<div class="social">      
-       <ul class="link">
+						<div class="no-display">
+							<input type="hidden" name="product" value="56" /> <input
+								type="hidden" name="related_product" id="related-products-field"
+								value="" />
+						</div>
 
-					<li class="fb">
-			<a href="#" rel="nofollow" target="_blank" style="text-decoration:none;">
-				
-			</a>
-			</li>
+						<div class="product-shop">
+							<div class="product-name">
+								<h1 itemprop="name">Business Heading</h1>
+							</div>
+							<div class="short-description" style="text-align: justify;">
+								Business Profile short description. Business Profile short
+								description.Business Profile short description.Business Profile
+								short description.Business Profile short description.Business
+								Profile short description. Business Profile short description.
+								Business Profile short description.Business Profile short
+								description.Business Profile short description.Business Profile
+								short description.Business Profile short description. Business
+								Profile short description. Business Profile short
+								description.Business Profile short description.Business Profile
+								short description.Business Profile short description.Business
+								Profile short description. Business Profile short description.
+								Business Profile short description.Business Profile short
+								description.Business Profile short description.Business Profile
+								short description.Business Profile short description. Business
+								Profile short description. Business Profile short
+								description.Business Profile short description.Business Profile
+								short description.Business Profile short description.Business
+								Profile short description. Business Profile short description.
+								Business Profile short description.Business Profile short
+								description.Business Profile short description.Business Profile
+								short description.Business Profile short description. Business
+								Profile short description. Business Profile short
+								description.Business Profile short description.Business Profile
+								short description.Business Profile short description.Business
+								Profile short description. Business Profile short description.
+								Business Profile short description.Business Profile short
+								description.Business Profile short description.Business Profile
+								short description.Business Profile short description.</div>
 
-				<li class="linkedin">
-			<a href="#" rel="nofollow" target="_blank" style="text-decoration:none;">
-				
-			</a>
-			</li>
 
-				<li class="tw">
-			<a href="#" rel="nofollow" target="_blank" style="text-decoration:none;">
-				
-			</a>
-			</li>
 
-				 
-				<li class="googleplus">
-			<a href="#" rel="nofollow" target="_blank" style="text-decoration:none;">
-				
-			</a>
-			</li>
 
-	</ul>
-	</div>
 
-			    
-		      
-				 
-                                
-            
-       </div>     
- 
-</div> 
-</div>  
-</div>   <div class="clear"></div>
-          </article> 
-      </section>  
+
+							<div class="toggle-content">
+
+								<div class="toggle toggle-white">
+									<h4 >
+										<a href="#">Contact Details</a>
+									</h4>
+									<div  >
+
+										<div class="std">
+											<p>
+												<strong>Contact Name : </strong>XXXXXXXX<br /> <strong>Mobile
+													Number :</strong> XXXXXXXX <br /> <strong>Email Address : </strong>XXXXX@XXXXX.XX<br />
+												<strong>City :</strong> XXXXXXXXX<br /> <strong>State
+													:</strong> XXXXXXXX<br /> <strong>Country :</strong> XXXXXXXX<br />
+											</p>
+										</div>
+										<!--toggle_container -->
+									</div>
+									<!--toggle toggle-white-->
+									<div class="toggle toggle-white">
+										<h4 >
+											<a href="#">Company Details</a>
+										</h4>
+										<div >
+
+											<div class="std">
+												<p>
+													<strong>Year Established :</strong>XXXXXXXX<br /> <strong>Annual
+														Revenue :</strong>XXXXXXXX<br /> <strong>Annual Profit /
+														(Loss) After Tax :</strong>XXXXXXXX<br /> <strong>Gross
+														Profit :</strong>XXXXXXXX<br /> <strong>Number of
+														Employees :</strong>XXXXXXXX<br />
+
+
+												</p>
+											</div>
+											<!--toggle_container -->
+										</div>
+										<!--toggle toggle-white-->
+										<div class="toggle toggle-white">
+											<h4 >
+												<a href="#">Business Importance</a>
+											</h4>
+											<div >
+
+
+												<div class="std">
+													<p>Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.
+														Business description. Business description. Business
+														description. Business description. Business description.</p>
+												</div>
+
+											</div>
+											<!--toggle toggle-white-->
+
+										</div>
+										<!--toggle-content-->
+										<!-- Magik Social Share-->
+										<div class="social">
+											<ul class="link">
+
+												<li class="fb"><a href="#" rel="nofollow"
+													target="_blank" style="text-decoration: none;"> </a></li>
+
+												<li class="linkedin"><a href="#" rel="nofollow"
+													target="_blank" style="text-decoration: none;"> </a></li>
+
+												<li class="tw"><a href="#" rel="nofollow"
+													target="_blank" style="text-decoration: none;"> </a></li>
+
+
+												<li class="googleplus"><a href="#" rel="nofollow"
+													target="_blank" style="text-decoration: none;"> </a></li>
+
+											</ul>
+										</div>
+
+
+
+
+
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+		</article>
+	</section>
 	<jsp:include page="footer.jsp"></jsp:include>
 	<%-- <jsp:include page="reachUsSlider.jsp"></jsp:include> --%>
-  </body>
+</body>
 </html>
