@@ -140,11 +140,17 @@
 
 						<div class="input-box">
 							<form:select id="City" path="City" title="City"
-								class="required-entry input-text" required="true">
+								class="required-entry input-text" onchange="textBoxForCity(this.value)"
+								required="true">
 								<form:option value="" label="--- Select ---" />
 							</form:select>
 						</div></li>
-
+						<li id="cityInput" style="display:none"><label for="city">Please enter city<em
+											class="required">*</em></label>
+										<div  class="input-box">
+											<form:input path="city" style="width:230px" title="City" value=""
+												class="input-text" type="text" required="true" />
+										</div></li>
 					<li><label for="Year_Established">Year Established </label>
 						<div class="input-box">
 							<form:input id="Year_Established" path="Year_Established" title="Please enter year"

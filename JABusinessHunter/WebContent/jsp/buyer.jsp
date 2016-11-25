@@ -623,11 +623,17 @@ p {
 								<li><label for="City">Select City</label>
 
 									<div class="input-box">
-										<form:select path="City" title="City"
+										<form:select path="City" title="City" onchange="textBoxForCity(this.value)"
 											class="required-entry input-text">
 											<form:option value="" label="--- Select ---" />
 										</form:select>
 									</div></li>
+									<li id="cityInput" style="display:none"><label for="city">Please enter city<em
+											class="required">*</em></label>
+										<div  class="input-box">
+											<form:input path="city" style="width:340px" title="City" value=""
+												class="input-text" type="text" required="true" />
+										</div></li>
 
 								</li>
 
