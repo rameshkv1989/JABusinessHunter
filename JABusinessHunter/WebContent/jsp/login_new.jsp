@@ -130,6 +130,12 @@
 						});
 
 			});
+	
+	function redirectForgotPassword(){
+		document.forms[0].method="get";
+		document.forms[0].action="forgotPassword.do";
+		document.forms[0].submit();
+	}
 </script>
 
 <style>
@@ -509,7 +515,7 @@ p {
 								<button type="submit" title="Submit" class="button btn-sent">
 									<span>Login</span>
 								</button>
-								<button type="submit" title="Submit" class="button btn-sent">
+								<button type="button" onclick="redirectForgotPassword()" class="button btn-sent">
 									<span>Forgot Password</span>
 								</button>
 								<img src="images/loader.gif" id="loader" style="display: none;">
@@ -605,7 +611,7 @@ p {
 											class="required">*</em></label>
 										<div  class="input-box">
 											<form:input path="cityText" style="width:410px" title="cityText" value=""
-												class="input-text" type="text" required="true" />
+												class="input-text" type="text" />
 										</div></li>
 									<li><label for="mobile">Contact No.<em
 											class="required">*</em></label>

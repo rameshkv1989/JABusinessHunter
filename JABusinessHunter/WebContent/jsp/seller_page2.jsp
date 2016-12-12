@@ -149,7 +149,7 @@
 											class="required">*</em></label>
 										<div  class="input-box">
 											<form:input path="cityText" style="width:230px" title="cityText" value=""
-												class="input-text" type="text" required="true" />
+												class="input-text" type="text" />
 										</div></li>
 					<li><label for="Year_Established">Year Established </label>
 						<div class="input-box">

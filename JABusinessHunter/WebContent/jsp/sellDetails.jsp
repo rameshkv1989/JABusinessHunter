@@ -382,7 +382,7 @@ jQuery(document).ready(function() {
             
             <!-- BEGIN ACTIONS -->
             <div class="actions"> 
-                               <button type="button" title="View In Detail" class="button btn-cart ajx-cart" onclick="setLocation('http://demo.magikthemes.com/index.php/accordfixred/checkout/cart/add/uenc/aHR0cDovL2RlbW8ubWFnaWt0aGVtZXMuY29tL2luZGV4LnBocC9hY2NvcmRmaXhyZWQvYm95cy5odG1sP21vZGU9bGlzdA,,/product/62/form_key/8nwGp5d4DW0C83ts/')"><span>Edit Details</span></button>
+                               <button type="button" title="View In Detail" class="button btn-cart ajx-cart" onclick="setLocation('a','b','c')"><span>Edit Details</span></button>
            
             </div> <!--actions-->
           </div>  
@@ -417,7 +417,7 @@ jQuery(document).ready(function() {
             
             <!-- BEGIN ACTIONS -->
             <div class="actions"> 
-                               <button type="button" title="View In Detail" class="button btn-cart ajx-cart" onclick="setLocation('http://demo.magikthemes.com/index.php/accordfixred/checkout/cart/add/uenc/aHR0cDovL2RlbW8ubWFnaWt0aGVtZXMuY29tL2luZGV4LnBocC9hY2NvcmRmaXhyZWQvYm95cy5odG1sP21vZGU9bGlzdA,,/product/62/form_key/8nwGp5d4DW0C83ts/')"><span>Edit Details</span></button>
+                               <button type="button" title="View In Detail" class="button btn-cart ajx-cart" onclick="setLocation('a','b','c')"><span>Edit Details</span></button>
            
             </div> <!--actions-->
           </div>  

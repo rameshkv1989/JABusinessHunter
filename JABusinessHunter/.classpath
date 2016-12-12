@@ -17,7 +17,6 @@
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/jstl-api-impl.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.15.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/Logging.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-3.1.12.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/neethi-3.0.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/ojdbc14.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/org.springframework.asm-3.0.3.RELEASE.jar"/>
@@ -30,5 +29,6 @@
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/org.springframework.web.servlet-3.0.3.RELEASE.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/org.springframework.web.servlet-sources-3.0.3.RELEASE.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.40-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

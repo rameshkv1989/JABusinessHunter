@@ -90,6 +90,8 @@ public class Redirect {
 			return "./jsp/activationError.jsp";
 		}
 	}
+	
+	
 
 	@RequestMapping(value={"/aboutus.do"}, method={RequestMethod.GET})
 	public String AboutUsRedirect(ModelMap map, HttpServletRequest request){
@@ -226,6 +228,23 @@ public class Redirect {
 		}
 		catch(Exception e){
 			Logger.logStatus(CLASS_NAME,"Exception in GET LoginRedirect : "+e.getMessage(), "error");
+			request.setAttribute("errorMessage", e.getMessage());
+			return "./jsp/error.jsp";
+		}
+	}
+	
+	@RequestMapping(value={"/forgotPassword.do"}, method={RequestMethod.GET})
+	public String ForgotPasswordRedirect(ModelMap map, HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into GET ForgotPasswordRedirect","debug");
+			Login login = new Login();
+			map.addAttribute("login",login);
+			Logger.logStatus(CLASS_NAME,"Exiting GET ForgotPasswordRedirect","debug");
+			return "./jsp/forgotPassword.jsp";
+
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in GET ForgotPasswordRedirect : "+e.getMessage(), "error");
 			request.setAttribute("errorMessage", e.getMessage());
 			return "./jsp/error.jsp";
 		}

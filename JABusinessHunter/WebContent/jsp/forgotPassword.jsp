@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,6 +51,8 @@
 <script type="text/javascript" src="js/toggle.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+
+
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" />
 
@@ -127,10 +130,6 @@
 						});
 
 			});
-
-	function updateTextInput(val) {
-		document.getElementById('askingpricetxt').value = val;
-	}
 </script>
 
 <style>
@@ -202,7 +201,7 @@ p {
 #contactForm textarea {
 	background: #F0F0F0;
 	border: none;
-	/*  height: 175px;*/
+	height: 175px;
 	margin-bottom: 10px;
 	padding: 5px;
 	width: 97%;
@@ -221,16 +220,12 @@ p {
 	width: 84%;
 	outline: none;
 }
-
-.column.fifty {
-	width: 50%;
-}
 </style>
 
 
 <div id="right_toolbar">
 
-	<jsp:include page="search.jsp"></jsp:include>
+	<jsp:include page="search.jsp" />
 
 	<div id="back-top" style="display: none;">
 		<a href="#top"><img src="images/backto_top.png"></a>
@@ -244,7 +239,7 @@ p {
 
 </head>
 
-<body class="flexible  cms-index-index cms-accord-home" onload="tabCssChange('personal-details');">
+<body class="flexible  cms-index-index cms-accord-home">
 	<noscript>
 		<div class="global-site-notice noscript">
 			<div class="notice-inner">
@@ -257,10 +252,7 @@ p {
 		</div>
 	</noscript>
 	<header>
-		<jsp:include page="loginHeader.jsp"></jsp:include>
-
-		
-		<!--header-->
+		<jsp:include page="loginHeader.jsp" />
 	</header>
 	<nav>
 		<div class="nav-inner">
@@ -291,8 +283,8 @@ p {
 				});
 			</script>
 
-			<%-- <jsp:include page="menu.jsp"></jsp:include> --%>
-			<jsp:include page="nav.jsp"></jsp:include>
+			<%-- <jsp:include page="menu.jsp" /> --%>
+			<jsp:include page="nav.jsp" />
 			<script type="text/javascript">
 				//<![CDATA[
 
@@ -461,7 +453,7 @@ p {
 					<ul>
 						<li class="home"><a href="home.do" title=" ">Home</a> <span>»
 						</span></li>
-						<li class="category348"><strong>Personal Details</strong></li>
+						<li class="category348"><strong>Login / Sign Up</strong></li>
 					</ul>
 				</div>
 				<!--inner-->
@@ -471,111 +463,52 @@ p {
 			<article class="col-main">
 
 
-				<div class="page-title">
-					<h2>Personal Details</h2>
-				</div>
-				<!--page-title-->
+
 
 
 				<div class="category-products">
-					<br />
-					<form:form id="accountInfo" method="post" action="modifyAccount.do"
-						commandName="accountInfo">
+					
+					<form:form id="resetPasswordForm" method="post" commandName="login"
+						action="resetPassword.do">
 
 
-						<div class="column fifty">
-							<form:errors path="name" class="required" /><br>
-							<form:errors path="title" class="required_success"/><br>
+						<div class="column fourty">
+
+							<div class="page-title">
+								<h1>Forgot Password ?</h1>
+							</div>
+							<!--page-title-->
+							<form:errors path="username" class="required" /><br>
+							<form:errors path="message" class="required_success"/><br>
+							<h3>We will send you a link to reset your password.</h3>
+							<br>
 							<ul class="form-list">
-							<li><label for="Title">Title<em class="required">*</em></label>
-
+								<li><h2 >Enter Email Address<em class="required">*</em></h2>
 										<div class="input-box">
-											<form:select path="title" title="Contact_Title"
-												class="required-entry input-text" required="true">
-												<form:option value="" label="--- Select ---" />
-												<form:option value="Mr" label="Mr" />
-												<form:option value="Ms" label="Ms" />
-												<form:option value="Mrs" label="Mrs" />
-												<form:option value="Madam" label="Madam" />
-												<form:option value="Datuk" label="Datuk" />
-												<form:option value="Datin" label="Datin" />
-												<form:option value="Dr" label="Dr" />
-											</form:select>
+											<form:input path="username" title="Email" value=""
+												class="input-text required-entry validate-email"
+												type="email" required="true" />
 										</div></li>
-								<li><label for="name">Name<em class="required">*</em></label>
-										<div class="input-box">
-											<form:input path="name" title="Name" value=""
-												class="input-text required-entry" required="true"
-												type="text" />
-										</div></li>
-								<li><!-- <label for="email">Email<em class="required">*</em></label> -->
-										<div class="input-box">
-											<form:input path="email" class="input-text required-entry" hidden="true"
-												type="text" />
-										</div></li>
-
-								
-								<li><label for="Country">Country</label>
-
-									<div class="input-box">
-										<form:select path="Country" title="Country"
-											onchange="getOptionValues(this.value,'state','getOptionValues.do')"
-											class="required-entry input-text">
-											<form:option value="" label="--- Select ---" />
-											<form:option value="Malaysia" label="Malaysia" />
-										</form:select>
-									</div></li>
-
-								<li><label for="State">State</label>
-
-									<div class="input-box">
-										<form:select path="state" items="${statesMap}"
-											onchange="getOptionValues(this.value,'city','getOptionValues.do')"
-											title="State" class="required-entry input-text">
-											<form:option value="" label="--- Select ---" />
-										</form:select>
-									</div></li>
-
-
-								<li><label for="City">Select City</label>
-
-									<div class="input-box">
-										<form:select path="city" title="City" items="${cityMap}"
-											class="required-entry input-text">
-											<form:option value="" label="--- Select ---" />
-										</form:select>
-									</div></li>
-
-								<li><label for="mobile">Contact No.<em
-											class="required">*</em></label>
-										<div class="input-box">
-											<form:input path="mobile" title="Enter only numbers" value=""
-												class="input-text" type="text" required="true" pattern="\d*" />
-										</div></li>
-
-
-
+								<p class="required">* Required Fields</p>
 							</ul>
 
-<input type="text" name="hideit" id="hideit" value=""
-								style="display: none !important;" />
-							<button type="submit" title="Get Search Results"
-								class="button btn-sent">
-								<span>Update</span>
-							</button>
-							<img src="images/loader.gif" id="loader" style="display: none;">
+
+
+							<div class="textright">
+
+								<input type="text" name="hideit" id="hideit" value=""
+									style="display: none !important;" />
+								<button type="submit" title="Submit" class="button btn-sent">
+									<span>Send Reset Link</span>
+								</button>
+								<img src="images/loader.gif" id="loader" style="display: none;">
+							</div>
+
+
 						</div>
 						<!--column sixty-->
-
-<!-- 						<div class="column fifty last">
-
-							
-
-
-						</div> -->
-
-
 					</form:form>
+
 				</div>
 
 
@@ -605,7 +538,7 @@ p {
 				}
 			</script>
 			</article>
-			<jsp:include page="aside_account.jsp"></jsp:include>
+			<jsp:include page="aside.jsp" />
 			<!--col-right sidebar-->
 		</div>
 		<!--main-container-inner-->
@@ -613,11 +546,7 @@ p {
 	<!--main-container col2-left-layout-->
 	<section class="service-section service-section1"></section>
 	<!--service-section service-section1-->
-
-	<jsp:include page="footer.jsp"></jsp:include>
-	<%-- <jsp:include page="reachUsSlider.jsp"></jsp:include> --%>
-
-
-
+	<jsp:include page="footer.jsp" />
+	<%-- <jsp:include page="reachUsSlider.jsp" /> --%>
 </body>
 </html>

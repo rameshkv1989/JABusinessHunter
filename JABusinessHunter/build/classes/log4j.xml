@@ -7,7 +7,9 @@
 	<!-- EBIF Adapter Log -->
 	<appender name="hha_log" class="org.apache.log4j.DailyRollingFileAppender">
 	
-		<param name="File" value="D:/logs/jabh.log" /> 
+		   <param name="File" value="D:/logs/jabh.log" />
+               <!--  <param name="File" value="/home/businesshunter/businesshunter.com.my/busniessHunt/jabh.log" /> -->
+
 		<!-- <param name="File" value="/var/lib/openshift/574573ea89f5cf5cdf0001ec/app-root/logs/hha.log" /> -->
 		<param name="Threshold" value="debug" />
 		<param name="DatePattern" value=".yyyy-MM-dd" />

@@ -95,7 +95,7 @@ public class UserDAO {
 	public Integer getLastUserID() throws Exception{
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into getLastUserID","debug");
-			String query =  "SELECT MAX(userID) FROM USER;";
+			String query =  "SELECT MAX(userID) FROM user;";
 			Integer maxValue = template.queryForObject(query, Integer.class);
 			Logger.logStatus(CLASS_NAME,"Exiting signUpUser","debug");
 			return maxValue;
@@ -139,7 +139,7 @@ public class UserDAO {
 	public int deleteSignUpUser(String email) throws Exception{
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into deleteSignUpUser","debug");
-			String query =  "DELETE FROM USER where userName=?;";
+			String query =  "DELETE FROM user where userName=?;";
 			int deleteCount = template.update(query,new Object[]{email});	
 			Logger.logStatus(CLASS_NAME,"Exiting deleteSignUpUser","debug");
 			return deleteCount;
@@ -153,13 +153,27 @@ public class UserDAO {
 	public int activateAccount(String email) throws Exception{
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into activateAccount","debug");
-			String query =  "UPDATE USER set status=1 where userName=?;";
+			String query =  "UPDATE user set status=1 where userName=?;";
 			int activateCount = template.update(query,new Object[]{email});	
 			Logger.logStatus(CLASS_NAME,"Exiting activateAccount","debug");
 			return activateCount;
 		}
 		catch (Exception e) {
 			Logger.logStatus(CLASS_NAME,"Exception in activateAccount : "+e.getMessage(), "error");
+			throw e;
+		} 
+	}
+
+	public boolean updateUser(SignUp accountInfo) throws Exception{
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into updateUser","debug");
+			String query =  "UPDATE user set title=?,name=?,city=?,state=?,country=?,mobile=? where userName=?;";
+			template.update(query,new Object[]{accountInfo.getTitle(),accountInfo.getName(),accountInfo.getCity(),accountInfo.getState(),accountInfo.getCountry(),accountInfo.getMobile(),accountInfo.getUserName()});	
+			Logger.logStatus(CLASS_NAME,"Exiting updateUser","debug");
+			return true;
+		}
+		catch (Exception e) {
+			Logger.logStatus(CLASS_NAME,"Exception in updateUser : "+e.getMessage(), "error");
 			throw e;
 		} 
 	}

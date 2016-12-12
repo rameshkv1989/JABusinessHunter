@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jabh.mail.SendMailSSL;
 import com.jabh.manager.AccountManager;
 import com.jabh.model.Buyer;
 import com.jabh.model.Franchise;
@@ -34,10 +35,10 @@ public class PostController {
 			if(login ==null || login.getUsername()==null ||login.getPassword()==null){
 				SignUp signUp = new SignUp();
 				map.addAttribute("signUp",signUp);
-				login.setMessage("Please enter username or password");
+				result.rejectValue("username", "error.inValid", "Please enter UserName or Password");
 				Logger.logStatus(CLASS_NAME,"User name or password null","debug");
 			}
-			
+
 			Logger.logStatus(CLASS_NAME,"User Name to Login : "+login.getUsername(),"debug");
 			SignUp loginVerification = new AccountManager().getLoginDetails(login);
 			if(loginVerification == null){
@@ -79,24 +80,93 @@ public class PostController {
 					Logger.logStatus(CLASS_NAME,"Account deleted : uName :"+login.getUsername()+" : password : "+login.getPassword(),"debug");
 					return "./jsp/login_new.jsp";
 				}
-				
 			}
 		}
 		catch(Exception e){
 			Logger.logStatus(CLASS_NAME,"Exception in POST LoginSubmit : "+e.getMessage(), "error");
 			request.setAttribute("errorMessage", e.getMessage());
-			return "./jsp/error.jsp";
+			result.rejectValue("username", "error.Error", "Unable to Login, please try again");
+			SignUp signUp = new SignUp();
+			map.addAttribute("signUp",signUp);
+			return "./jsp/login_new.jsp";
 		}
 	}
+
+	@RequestMapping(value={"/resetPassword.do"}, method={RequestMethod.POST})
+	public String ResetSubmit(@Valid @ModelAttribute("login")Login login,BindingResult result,ModelMap map,HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into POST ResetSubmit","debug");
+			if(login ==null || login.getUsername()==null){
+				Logger.logStatus(CLASS_NAME,"Email is Null","debug");
+				result.rejectValue("username", "error.inValid", "Please enter Email");
+				Logger.logStatus(CLASS_NAME,"Exiting POST ResetSubmit","debug");
+				return "./jsp/forgotPassword.jsp";
+			}
+
+			Logger.logStatus(CLASS_NAME,"Email : "+login.getUsername(),"debug");
+			SignUp loginVerification = new AccountManager().getPersonalDetails(login.getUsername());
+			if(loginVerification == null){
+				result.rejectValue("username", "error.inValid", "Email not registered");
+				Logger.logStatus(CLASS_NAME,"Email not registered : uName :"+login.getUsername(),"debug");
+				Logger.logStatus(CLASS_NAME,"Exiting POST ResetSubmit","debug");
+				return "./jsp/forgotPassword.jsp";
+			}
+			else{
+				if(loginVerification.getStatus()==0){
+					result.rejectValue("username", "error.Registered", "Please activate your account. Activation Email already sent to Email : "+login.getUsername());
+					Logger.logStatus(CLASS_NAME,"Registered user, activation pending : uName :"+login.getUsername(),"debug");
+					Logger.logStatus(CLASS_NAME,"Exiting POST ResetSubmit","debug");
+					return "./jsp/forgotPassword.jsp";
+				}
+				else if(loginVerification.getStatus()==1){
+					System.out.println("Success");
+					try{
+						boolean sendEMailStatus = SendMailSSL.sendResetMail(loginVerification);
+						if(!sendEMailStatus){
+							Logger.logStatus(CLASS_NAME,"Unable to send Reset Email : uName : "+login.getUsername(), "error");
+							result.rejectValue("username", "error.Error", "Please try again");
+							return "./jsp/forgotPassword.jsp";
+						}
+					}
+					catch(Exception e){
+						Logger.logStatus(CLASS_NAME,"Exception in Sending Email : "+e.getMessage(), "error");
+						result.rejectValue("username", "error.Error", "Please try again");
+						return "./jsp/forgotPassword.jsp";
+					}
+					Logger.logStatus(CLASS_NAME,"Exiting POST ResetSubmit","debug");
+					result.rejectValue("message", "error.Success", "Succesfull!!! Reset link has been mailed to your EmailID : "+login.getUsername()+". Please reset your password!!!");
+					return "./jsp/forgotPassword.jsp";
+				}
+				else if(loginVerification.getStatus()==2){
+					result.rejectValue("username", "error.Suspended", "Account Suspended, please contact admin");
+					Logger.logStatus(CLASS_NAME,"Account Suspended : uName :"+login.getUsername(),"debug");
+					Logger.logStatus(CLASS_NAME,"Exiting POST ResetSubmit","debug");
+					return "./jsp/forgotPassword.jsp";
+				}
+				else{
+					result.rejectValue("username", "error.Deleted", "Invalid Email");
+					login.setMessage("Invalid Email");
+					Logger.logStatus(CLASS_NAME,"Account deleted : uName :"+login.getUsername(),"debug");
+					return "./jsp/forgotPassword.jsp";
+				}
+
+			}
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in POST ResetSubmit : "+e.getMessage(), "error");
+			result.rejectValue("username", "error.Error", "Please try again");
+			return "./jsp/forgotPassword.jsp";
+		}
+	}
+
 
 	@RequestMapping(value={"/signUpSubmit.do"}, method={RequestMethod.POST})
 	public String SignUpSubmit(@Valid @ModelAttribute("signUp")SignUp signUp,BindingResult result,ModelMap map,HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into POST SignUpSubmit","debug");
-			System.out.println("SignUp Email : "+signUp.getEmail());
-			
+
 			if(signUp==null || signUp.getTitle()==null || signUp.getEmail()==null || signUp.getPassword()==null || signUp.getName()==null || signUp.getCity()==null
-					|| signUp.getState()==null || signUp.getCountry()==null|| signUp.getAbout()==null){
+					|| signUp.getState()==null || signUp.getCountry()==null|| signUp.getAbout()==null || signUp.getMobile()==null){
 				result.rejectValue("email", "error.Empty", "Values Should not be Empty");
 				Login login = new Login();
 				map.addAttribute("login",login);
@@ -253,8 +323,8 @@ public class PostController {
 			return null;
 		}
 	}
-	
-	
+
+
 	@RequestMapping(value = "/getOptionValuesCat.do", method = RequestMethod.GET)
 	public @ResponseBody String getOptionValuesCat(@RequestParam("param") String param) {
 		try{
@@ -270,7 +340,7 @@ public class PostController {
 			return null;
 		}
 	}
-	
+
 	@RequestMapping(value={"/search.do"}, method={RequestMethod.GET})
 	public String SearchSubmit(@RequestParam("searchValue") String searchValue,HttpServletRequest request){
 		try{
@@ -299,7 +369,7 @@ public class PostController {
 			return "./jsp/error.jsp";
 		}
 	}
-	
+
 	@RequestMapping(value={"/editSellDetails.do"}, method={RequestMethod.POST})
 	public String SellDetailsEdit(HttpServletRequest request){
 		try{
@@ -328,8 +398,8 @@ public class PostController {
 			return null;
 		}
 	}
-	
-	@RequestMapping(value={"/editSellDetails.do"}, method={RequestMethod.POST})
+
+	@RequestMapping(value={"/paymentSuccess.do"}, method={RequestMethod.POST})
 	public String PaymentSuccess(HttpServletRequest request) {
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET PaymentSuccess","debug");
@@ -342,7 +412,7 @@ public class PostController {
 			return null;
 		}
 	}
-	
+
 	@RequestMapping(value={"/paymentCancel.do"}, method={RequestMethod.GET})
 	public String PaymentCancel(HttpServletRequest request,HttpServletResponse response) {
 		try{
@@ -350,7 +420,7 @@ public class PostController {
 			System.out.println("Entering into GET PaymentCancel");
 			System.out.println("req Query : "+request.getQueryString());
 			System.out.println("req header : "+request.getHeaderNames());
-		
+
 			Logger.logStatus(CLASS_NAME,"Exiting GET PaymentCancel","debug");
 			return "./jsp/cancel.jsp";
 		}

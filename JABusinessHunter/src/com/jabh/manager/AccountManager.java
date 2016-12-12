@@ -69,6 +69,18 @@ public class AccountManager {
 			throw e;
 		}
 	}
+	public boolean updateUser(SignUp accountInfo) throws Exception {
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into updateUser","debug");
+			boolean updateStatus = userDAO.updateUser(accountInfo);
+			Logger.logStatus(CLASS_NAME,"Exiting from updateUser","debug");
+			return updateStatus;
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in updateUser : "+e.getMessage(), "error");
+			throw e;
+		}
+	}
 	
 	
 }

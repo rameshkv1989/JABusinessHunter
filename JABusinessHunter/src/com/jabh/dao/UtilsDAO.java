@@ -20,7 +20,7 @@ public class UtilsDAO {
 
 		try{		
 			Logger.logStatus(CLASS_NAME,"Entering into getStates","debug");
-			String query =  "SELECT Country,States FROM States";
+			String query =  "SELECT Country,States FROM states";
 			Map<String,String> mapStates= template.query(query, new ResultSetExtractor<Map<String,String>>(){
 			    public Map<String,String> extractData(ResultSet rs) throws SQLException,DataAccessException {
 			        Map<String,String> mapRet= new HashMap<String,String>();
@@ -44,7 +44,7 @@ public class UtilsDAO {
 
 		try{		
 			Logger.logStatus(CLASS_NAME,"Entering into getCities","debug");
-			String query =  "SELECT State,Cities FROM Cities";
+			String query =  "SELECT State,Cities FROM cities";
 			Map<String,String> mapCities= template.query(query, new ResultSetExtractor<Map<String,String>>(){
 			    public Map<String,String> extractData(ResultSet rs) throws SQLException,DataAccessException {
 			        Map<String,String> mapRet= new HashMap<String,String>();

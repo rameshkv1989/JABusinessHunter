@@ -632,7 +632,7 @@ p {
 											class="required">*</em></label>
 										<div  class="input-box">
 											<form:input path="cityText" style="width:340px" title="cityText" value=""
-												class="input-text" type="text" required="true" />
+												class="input-text" type="text" />
 										</div></li>
 
 								</li>
