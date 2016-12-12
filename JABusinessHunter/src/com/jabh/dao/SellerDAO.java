@@ -19,7 +19,7 @@ public class SellerDAO {
 	public List<Plans> getPlans() throws Exception{
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into getPlans","debug");
-			String query =  "SELECT a.Duration AS Duration,a.Totalcost AS StandardTotalCost,a.Costofday AS StandardCostofDay,b.Totalcost AS FeaturedTotalCost,b.Costofday AS FeaturedCostofDay FROM (SELECT CONCAT(Duration,' ',DurationType) AS Duration,Totalcost,Costofday FROM plan WHERE PlanType=1 ORDER BY Duration ASC) a, (SELECT CONCAT(Duration,' ',DurationType) AS Duration,Totalcost,Costofday FROM plan WHERE PlanType=2 ORDER BY Duration ASC) b WHERE a.Duration=b.Duration;";
+			String query =  "SELECT a.Duration AS Duration,a.Totalcost AS StandardTotalCost,a.Costofday AS StandardCostofDay,b.Totalcost AS FeaturedTotalCost,b.Costofday AS FeaturedCostofDay FROM (SELECT CONCAT(Duration,' ',DurationType) AS Duration,Totalcost,Costofday FROM plan WHERE PlanType=1 ORDER BY Duration ASC) a, (SELECT CONCAT(Duration,' ',DurationType) AS Duration,Totalcost,Costofday FROM plan WHERE PlanType=2 ORDER BY Duration ASC) b WHERE a.Duration=b.Duration ORDER BY StandardTotalCost ASC;";
 			List<Map<String, Object>> plansData = new ArrayList<Map<String, Object>>();
 			plansData = template.queryForList(query, new Object[] {});
 			List<Plans> plans = new ArrayList<Plans>();
