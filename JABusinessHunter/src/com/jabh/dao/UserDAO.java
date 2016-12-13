@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.jabh.mail.SendMailSSL;
+import com.jabh.model.ChangePassword;
 import com.jabh.model.Login;
 import com.jabh.model.SignUp;
 import com.jabh.util.AppUtils;
@@ -174,6 +175,44 @@ public class UserDAO {
 		}
 		catch (Exception e) {
 			Logger.logStatus(CLASS_NAME,"Exception in updateUser : "+e.getMessage(), "error");
+			throw e;
+		} 
+	}
+	
+	public boolean validateUser(String userName) throws Exception{
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into validateUser","debug");
+			String query =  "SELECT status FROM user where userName=?;";
+			int status = (int)template.queryForObject(query,new Object[]{userName}, Integer.class);	
+			if(status!=1){
+				Logger.logStatus(CLASS_NAME,"Invalid User Status : "+status , "error");
+				return false;
+			}
+			Logger.logStatus(CLASS_NAME,"Exiting validateUser","debug");
+			return true;
+		}
+		catch(EmptyResultDataAccessException e){
+			Logger.logStatus(CLASS_NAME,"validateUser, Invalid UserName : "+userName , "error");
+			Logger.logStatus(CLASS_NAME,"Exiting validateUser","debug");
+			return false;
+		}
+		catch (Exception e) {
+			Logger.logStatus(CLASS_NAME,"Exception in validateUser : "+e.getMessage(), "error");
+			Logger.logStatus(CLASS_NAME,"Exiting validateUser","debug");
+			throw e;
+		} 
+	}
+
+	public boolean resetUser(ChangePassword resetPassword) throws Exception{
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into resetUser","debug");
+			String query =  "UPDATE user set password=? where userName=?;";
+			template.update(query,new Object[]{resetPassword.getNewPassword(),resetPassword.getUsername()});	
+			Logger.logStatus(CLASS_NAME,"Exiting resetUser","debug");
+			return true;
+		}
+		catch (Exception e) {
+			Logger.logStatus(CLASS_NAME,"Exception in resetUser : "+e.getMessage(), "error");
 			throw e;
 		} 
 	}

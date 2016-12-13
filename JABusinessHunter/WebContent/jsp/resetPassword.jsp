@@ -440,6 +440,15 @@ p {
 													});
 
 								});
+				
+				function resetValidations(){
+					if(document.getElementById('newPassword').value == document.getElementById('confirmPassword').value){
+						document.getElementById('resetPasswordSubmitForm').submit();
+					}
+					else{
+						alert("New password and Confirm password are not same");
+					}
+				}
 				//]]>
 			</script>
 		</div>
@@ -453,7 +462,7 @@ p {
 					<ul>
 						<li class="home"><a href="home.do" title=" ">Home</a> <span>»
 						</span></li>
-						<li class="category348"><strong>Login / Sign Up</strong></li>
+						<li class="category348"><strong>Reset Password</strong></li>
 					</ul>
 				</div>
 				<!--inner-->
@@ -467,28 +476,39 @@ p {
 
 
 				<div class="category-products">
-					
-					<form:form id="resetPasswordForm" method="post" commandName="login"
-						action="forgotPasswordSubmit.do">
+
+					<form:form id="resetPasswordSubmitForm" method="post"
+						commandName="resetPassword" action="resetPasswordSubmit.do">
 
 
 						<div class="column fourty">
 
 							<div class="page-title">
-								<h1>Forgot Password ?</h1>
+								<h1>Reset Password</h1>
 							</div>
+							<form:errors path="newPassword" class="required" /><br>
 							<!--page-title-->
-							<form:errors path="username" class="required" /><br>
-							<form:errors path="message" class="required_success"/><br>
-							<h3>We will send you a link to reset your password.</h3>
-							<br>
 							<ul class="form-list">
-								<li><h2 >Enter Email Address<em class="required">*</em></h2>
-										<div class="input-box">
-											<form:input path="username" title="Email" value=""
-												class="input-text required-entry validate-email"
-												type="email" required="true" />
-										</div></li>
+								<li><h2>Resetting Password for : ${resetPassword.username}</h2></li>
+								<form:input path="username" title="" value=""
+											class="input-text required-entry validate-email"
+											type="text" hidden="hidden"/>
+								<li><h2>
+										New Password<em class="required">*</em>
+									</h2>
+									<div class="input-box">
+										<form:input path="newPassword" title="" value=""
+											class="input-text required-entry validate-email"
+											type="password" required="true" />
+									</div></li>
+								<li><h2>
+										Confirm Password<em class="required">*</em>
+									</h2>
+									<div class="input-box">
+										<form:input path="confirmPassword" title="" value=""
+											class="input-text required-entry validate-email"
+											type="password" required="true" />
+									</div></li>
 								<p class="required">* Required Fields</p>
 							</ul>
 
@@ -498,8 +518,9 @@ p {
 
 								<input type="text" name="hideit" id="hideit" value=""
 									style="display: none !important;" />
-								<button type="submit" title="Submit" class="button btn-sent">
-									<span>Send Reset Link</span>
+								<button type="button" title="Reset" class="button btn-sent"
+									onclick="resetValidations()">
+									<span>Reset</span>
 								</button>
 								<img src="images/loader.gif" id="loader" style="display: none;">
 							</div>

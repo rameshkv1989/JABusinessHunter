@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.jabh.manager.AccountManager;
 import com.jabh.manager.SellerManager;
 import com.jabh.model.Buyer;
+import com.jabh.model.ChangePassword;
 import com.jabh.model.Franchise;
 import com.jabh.model.Login;
 import com.jabh.model.Seller;
@@ -44,12 +45,13 @@ public class Redirect {
 	public String ActivateRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Login login = new Login();
-			map.addAttribute("login",login);
+			
 			Logger.logStatus(CLASS_NAME,"Entering into GET ActivateRedirect","debug");
 			String email=(String)request.getParameter("email");
 			if(email == null || email.trim().isEmpty()){
 				Logger.logStatus(CLASS_NAME,"Empty Email","debug");
 				login.setMessage("Invalid account.");
+				map.addAttribute("login",login);
 				Logger.logStatus(CLASS_NAME,"Exiting GET ActivateRedirect","debug");
 				return "./jsp/activationError.jsp";
 			}
@@ -59,12 +61,14 @@ public class Redirect {
 			if(checkExistingUser==null){
 				Logger.logStatus(CLASS_NAME,"Invalid Email : "+email,"debug");
 				login.setMessage("Invalid account.");
+				map.addAttribute("login",login);
 				Logger.logStatus(CLASS_NAME,"Exiting GET ActivateRedirect","debug");
 				return "./jsp/activationError.jsp";
 			}
 			if(checkExistingUser.getStatus()!=0){
 				Logger.logStatus(CLASS_NAME,"Invalid Email to Activate : "+email+", Account status : "+checkExistingUser.getStatus(),"debug");
 				login.setMessage("Invalid account.");
+				map.addAttribute("login",login);
 				Logger.logStatus(CLASS_NAME,"Exiting GET ActivateRedirect","debug");
 				return "./jsp/activationError.jsp";
 			}
@@ -72,11 +76,13 @@ public class Redirect {
 			if(activateAccount==0){
 				Logger.logStatus(CLASS_NAME,"Unable to Activate Account : "+email,"debug");
 				login.setMessage("Unable to activate account, please try again.");
+				map.addAttribute("login",login);
 				Logger.logStatus(CLASS_NAME,"Exiting GET ActivateRedirect","debug");
 				return "./jsp/activationError.jsp";
 			}
 			Logger.logStatus(CLASS_NAME,"Activation Succesfull, Email : "+email,"debug");
 			login.setMessage("Activation Succesfull!!! Please login.");
+			map.addAttribute("login",login);
 			Logger.logStatus(CLASS_NAME,"Exiting GET ActivateRedirect","debug");
 			return "./jsp/activationSuccess.jsp";
 
@@ -88,6 +94,70 @@ public class Redirect {
 			map.addAttribute("login",login);
 			Logger.logStatus(CLASS_NAME,"Exception in GET ActivateRedirect : "+e.getMessage(), "error");
 			return "./jsp/activationError.jsp";
+		}
+	}
+	
+	@RequestMapping(value={"/resetPassword.do"}, method={RequestMethod.GET})
+	public String ResetPasswordRedirect(ModelMap map, HttpServletRequest request){
+		try{
+			ChangePassword resetPassword = new ChangePassword();
+			Logger.logStatus(CLASS_NAME,"Entering into GET ResetPasswordRedirect","debug");
+			String email=(String)request.getParameter("email");
+			if(email == null || email.trim().isEmpty()){
+				Logger.logStatus(CLASS_NAME,"Empty Email","debug");
+				resetPassword.setMessage("Invalid account.");
+				map.addAttribute("resetPassword",resetPassword);
+				Logger.logStatus(CLASS_NAME,"Exiting GET ResetPasswordRedirect","debug");
+				return "./jsp/resetError.jsp";
+			}
+			Logger.logStatus(CLASS_NAME,"Reset Email : "+email,"debug");
+			SignUp checkExistingUser = new AccountManager().getPersonalDetails(email);
+			Logger.logStatus(CLASS_NAME,"checkExistingUser : "+checkExistingUser,"debug");
+			if(checkExistingUser==null){
+				Logger.logStatus(CLASS_NAME,"Invalid Email : "+email,"debug");
+				resetPassword.setMessage("Invalid account.");
+				map.addAttribute("resetPassword",resetPassword);
+				Logger.logStatus(CLASS_NAME,"Exiting GET ResetPasswordRedirect","debug");
+				return "./jsp/resetError.jsp";
+			}
+			if(checkExistingUser.getStatus()== 0){
+				Logger.logStatus(CLASS_NAME,"Invalid Email to Reset : "+email+", Account status : "+checkExistingUser.getStatus(),"debug");
+				resetPassword.setMessage("Please activate the account, activation email already sent to your email id.");
+				map.addAttribute("resetPassword",resetPassword);
+				Logger.logStatus(CLASS_NAME,"Exiting GET ResetPasswordRedirect","debug");
+				return "./jsp/resetError.jsp";
+			}
+			else if(checkExistingUser.getStatus()== 2){
+				Logger.logStatus(CLASS_NAME,"Invalid Email to Reset : "+email+", Account status : "+checkExistingUser.getStatus(),"debug");
+				resetPassword.setMessage("Account suspended, please contact admin.");
+				map.addAttribute("resetPassword",resetPassword);
+				Logger.logStatus(CLASS_NAME,"Exiting GET ResetPasswordRedirect","debug");
+				return "./jsp/resetError.jsp";
+			}
+			else if (checkExistingUser.getStatus()== 1){
+				Logger.logStatus(CLASS_NAME,"Valid account to reset, Email : "+email,"debug");
+				ChangePassword resetPasswordNew = new ChangePassword();
+				resetPasswordNew.setUsername(checkExistingUser.getUserName());
+				System.out.println(checkExistingUser.getUserName());
+				map.addAttribute("resetPassword",resetPasswordNew);
+				Logger.logStatus(CLASS_NAME,"Exiting GET ResetPasswordRedirect","debug");
+				return "./jsp/resetPassword.jsp";
+			}
+			else{
+				Logger.logStatus(CLASS_NAME,"Invalid Email to Reset : "+email+", Account status : "+checkExistingUser.getStatus(),"debug");
+				resetPassword.setMessage("Invalid Account.");
+				map.addAttribute("resetPassword",resetPassword);
+				Logger.logStatus(CLASS_NAME,"Exiting GET ResetPasswordRedirect","debug");
+				return "./jsp/resetError.jsp";
+			}
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Unable to reset Account : "+request.getParameter("email"),"debug");
+			ChangePassword resetPassword = new ChangePassword();
+			resetPassword.setMessage("Unable to reset password, please try again.");
+			map.addAttribute("resetPassword",resetPassword);
+			Logger.logStatus(CLASS_NAME,"Exception in GET ResetPasswordRedirect : "+e.getMessage(), "error");
+			return "./jsp/resetError.jsp";
 		}
 	}
 	

@@ -81,7 +81,7 @@ public class SendMailSSL {
 			message.setSubject("J&A Business Hunter - Reset Password");
 			message.setText("Greetings "+signUp.getName()
 					+ "\n\nThank You for choosing J&A Business Hunter!. Please click on below link to reset you password." +
-					"\n\n" +appPropery.getProperty("activation_URL")+signUp.getEmail()+
+					"\n\n" +appPropery.getProperty("reset_URL")+signUp.getEmail()+
 					"\n\n\nThank you," +
 					"\nTeam J&A Business Hunter");
 

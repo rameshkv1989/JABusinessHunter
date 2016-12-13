@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.jabh.mail.SendMailSSL;
 import com.jabh.manager.AccountManager;
 import com.jabh.model.Buyer;
+import com.jabh.model.ChangePassword;
 import com.jabh.model.Franchise;
 import com.jabh.model.Login;
 import com.jabh.model.Seller;
@@ -92,8 +93,8 @@ public class PostController {
 		}
 	}
 
-	@RequestMapping(value={"/resetPassword.do"}, method={RequestMethod.POST})
-	public String ResetSubmit(@Valid @ModelAttribute("login")Login login,BindingResult result,ModelMap map,HttpServletRequest request){
+	@RequestMapping(value={"/forgotPasswordSubmit.do"}, method={RequestMethod.POST})
+	public String ForgotPasswordSubmit(@Valid @ModelAttribute("login")Login login,BindingResult result,ModelMap map,HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into POST ResetSubmit","debug");
 			if(login ==null || login.getUsername()==null){
@@ -158,6 +159,8 @@ public class PostController {
 			return "./jsp/forgotPassword.jsp";
 		}
 	}
+
+
 
 
 	@RequestMapping(value={"/signUpSubmit.do"}, method={RequestMethod.POST})
@@ -305,6 +308,61 @@ public class PostController {
 			Logger.logStatus(CLASS_NAME,"Exception in POST ServiceProviderSubmit : "+e.getMessage(), "error");
 			request.setAttribute("errorMessage", e.getMessage());
 			return "./jsp/error.jsp";
+		}
+	}
+
+	@RequestMapping(value={"/resetPasswordSubmit.do"}, method={RequestMethod.POST})
+	public String ResetPasswordSubmit(@Valid @ModelAttribute("resetPassword")ChangePassword resetPassword,BindingResult result,HttpServletRequest request){
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into POST ResetPasswordSubmit","debug");
+			System.out.println("In submit : "+resetPassword.getUsername());
+			if(resetPassword.getUsername()!=null){
+				if(new AccountManager().validateUser(resetPassword.getUsername())){
+					if(resetPassword.getNewPassword()==null || resetPassword.getConfirmPassword()==null){
+						Logger.logStatus(CLASS_NAME,"Empty password values","debug");
+						result.rejectValue("newPassword", "error.Empty", "Invalid password details, Please try again.");
+						Logger.logStatus(CLASS_NAME,"Exiting POST ResetPasswordSubmit","debug");
+						return "./jsp/resetPassword.jsp";
+					}
+					if(!(resetPassword.getNewPassword().equalsIgnoreCase(resetPassword.getConfirmPassword()))){
+						Logger.logStatus(CLASS_NAME,"New password and Confirm password are not same","debug");
+						result.rejectValue("newPassword", "error.Empty", "New password and Confirm password are not same");
+						Logger.logStatus(CLASS_NAME,"Exiting POST ResetPasswordSubmit","debug");
+						return "./jsp/resetPassword.jsp";
+					}
+					boolean resetStatus = new AccountManager().resetUser(resetPassword);
+					if(resetStatus){
+						Logger.logStatus(CLASS_NAME,"Password reset Success, userName : "+resetPassword.getUsername(),"debug");
+						resetPassword.setMessage("Password reset Success, Please Login");
+						Logger.logStatus(CLASS_NAME,"Exiting POST ResetPasswordSubmit","debug");
+						return "./jsp/resetSuccess.jsp";
+					}
+					else{
+						Logger.logStatus(CLASS_NAME,"Unable to reset password for user : "+resetPassword.getUsername(), "debug");
+						resetPassword.setMessage("Unable to reset password, please try again.");
+						Logger.logStatus(CLASS_NAME,"Exiting POST ResetPasswordSubmit","debug");
+						return "./jsp/resetError.jsp";
+					}
+				}
+				else{
+					Logger.logStatus(CLASS_NAME,"Invalid User, userName : "+resetPassword.getUsername(),"debug");
+					resetPassword.setMessage("Invalid account.");
+					Logger.logStatus(CLASS_NAME,"Exiting POST ResetPasswordSubmit","debug");
+					return "./jsp/resetError.jsp";
+				}
+			}
+			else{
+				Logger.logStatus(CLASS_NAME,"Empty userName","debug");
+				resetPassword.setMessage("Invalid account.");
+				Logger.logStatus(CLASS_NAME,"Exiting POST ResetPasswordSubmit","debug");
+				return "./jsp/resetError.jsp";
+			}
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in POST ResetPasswordSubmit : "+e.fillInStackTrace(), "error");
+			Logger.logStatus(CLASS_NAME,"Unable to reset password","debug");
+			resetPassword.setMessage("Unable to reset password, please try again.");
+			return "./jsp/resetError.jsp";
 		}
 	}
 

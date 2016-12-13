@@ -1,6 +1,7 @@
 package com.jabh.manager;
 
 import com.jabh.dao.UserDAO;
+import com.jabh.model.ChangePassword;
 import com.jabh.model.Login;
 import com.jabh.model.SignUp;
 import com.utils.logging.Logger;
@@ -78,6 +79,33 @@ public class AccountManager {
 		}
 		catch(Exception e){
 			Logger.logStatus(CLASS_NAME,"Exception in updateUser : "+e.getMessage(), "error");
+			throw e;
+		}
+	}
+	
+	public boolean validateUser(String userName) throws Exception {
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into validateUser","debug");
+			boolean validateStatus = userDAO.validateUser(userName);
+			Logger.logStatus(CLASS_NAME,"Exiting from validateUser","debug");
+			return validateStatus;
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in validateUser : "+e.fillInStackTrace(), "error");
+			Logger.logStatus(CLASS_NAME,"Exiting from validateUser","debug");
+			throw e;
+		}
+	}
+	public boolean resetUser(ChangePassword resetPassword) throws Exception {
+		try{
+			Logger.logStatus(CLASS_NAME,"Entering into resetUser","debug");
+			boolean resetStatus = userDAO.resetUser(resetPassword);
+			Logger.logStatus(CLASS_NAME,"Exiting from resetUser","debug");
+			return resetStatus;
+		}
+		catch(Exception e){
+			Logger.logStatus(CLASS_NAME,"Exception in resetUser : "+e.fillInStackTrace(), "error");
+			Logger.logStatus(CLASS_NAME,"Exiting from resetUser","debug");
 			throw e;
 		}
 	}

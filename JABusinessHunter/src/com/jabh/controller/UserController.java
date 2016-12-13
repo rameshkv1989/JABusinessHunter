@@ -22,15 +22,15 @@ public class UserController {
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into POST ModifyAccount","debug");
 			String userName = (String)request.getSession().getAttribute("userName");
-		
-			if(accountInfo==null || accountInfo.getTitle()==null || accountInfo.getName()==null || accountInfo.getCity()==null
-					|| accountInfo.getState()==null || accountInfo.getCountry()==null || accountInfo.getMobile()==null){
-				result.rejectValue("name", "error.Empty", "Values Should not be Empty");
-				Logger.logStatus(CLASS_NAME,"Empty Values","debug");
-				Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");
-				return "./jsp/myAccount.jsp";
-			}
 			if(userName != null){
+				if(accountInfo==null || accountInfo.getTitle()==null || accountInfo.getName()==null || accountInfo.getCity()==null
+						|| accountInfo.getState()==null || accountInfo.getCountry()==null || accountInfo.getMobile()==null){
+					result.rejectValue("name", "error.Empty", "Values Should not be Empty");
+					Logger.logStatus(CLASS_NAME,"Empty Values","debug");
+					Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");
+					return "./jsp/myAccount.jsp";
+				}
+
 				if(!accountInfo.getEmail().equalsIgnoreCase(accountInfo.getEmail())){
 					result.rejectValue("name", "error.Empty", "Invalid Details");
 					Logger.logStatus(CLASS_NAME,"EMailID and userName doesn't match","debug");
@@ -60,9 +60,9 @@ public class UserController {
 		}
 		catch(Exception e){
 			Logger.logStatus(CLASS_NAME,"Exception in POST ModifyAccount : "+e.fillInStackTrace(), "error");
-			Logger.logStatus(CLASS_NAME,"Empty Values","debug");
-			result.rejectValue("name", "error.Empty", "Please try Again");
-			return "./jsp/myAccount.jsp";
+			//Logger.logStatus(CLASS_NAME,"Empty Values","debug");
+			//	result.rejectValue("name", "error.Empty", "Please try Again");
+			return "/login.do";
 		}
 	}
 }
