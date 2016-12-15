@@ -38,12 +38,16 @@ public class UserController {
 					return "./jsp/myAccount.jsp";
 				}
 				accountInfo.setUserName(userName);
-				result.rejectValue("title", "error.Empty", "Updated details");
+				//result.rejectValue("title", "error.Empty", "Updated details");
+				if(accountInfo.getCity().equalsIgnoreCase("Others")){
+					accountInfo.setCity(accountInfo.getCityText());
+				}
 				boolean updateStatus = new AccountManager().updateUser(accountInfo);
 				if(updateStatus){
 					Logger.logStatus(CLASS_NAME,"Details updated","debug");
+					accountInfo.setMessage("Details Updated.");
 					Logger.logStatus(CLASS_NAME,"Exiting POST ModifyAccount","debug");
-					return "./jsp/myAccount.jsp";	
+					return "./jsp/updateUserSuccess.jsp";	
 				}
 				else{
 					Logger.logStatus(CLASS_NAME,"Unable to Update","debug");

@@ -89,7 +89,7 @@ function getOptionValues(selectValue,populateValue,submitValue){
 	});
 }
 
-function textBoxForCity(form,selectValue){
+function textBoxForCity(selectValue){
 	if(selectValue == 'Others'){
 	    document.getElementById("cityInput").style.display = 'inline-block';
 	}else{

@@ -191,6 +191,9 @@ public class PostController {
 				Logger.logStatus(CLASS_NAME,"Exiting POST SignUpSubmit","debug");	
 				return "./jsp/login_new.jsp";
 			}
+			if(signUp.getCity().equalsIgnoreCase("Others")){
+				signUp.setCity(signUp.getCityText());
+			}
 			boolean updateStatus = new AccountManager().signUpUser(signUp);
 			if(!updateStatus){
 				result.rejectValue("email", "error.AreadyUsed", "Unable to Sign up, please try again");
@@ -243,16 +246,43 @@ public class PostController {
 	@RequestMapping(value={"/sellSubmit.do"}, method={RequestMethod.POST})
 	public String SellSubmit(@Valid @ModelAttribute("sellerModel")Seller sellerModel,BindingResult result,HttpServletRequest request){
 		try{
-			Logger.logStatus(CLASS_NAME,"Entering into POST SellSubmit","debug");
+			/*int width = 963;    //width of the image
+			int height = 640;   //height of the image
+*/			Logger.logStatus(CLASS_NAME,"Entering into POST SellSubmit","debug");
+			String userName = (String) request.getSession().getAttribute("userName");
+			if(userName==null || (!(new AccountManager().validateUser(userName)))){
+				Logger.logStatus(CLASS_NAME,"User not logged in","debug");
+				Logger.logStatus(CLASS_NAME,"Exiting POST SellSubmit","debug");
+				return "/login.do";
+			}
+			if(sellerModel == null || sellerModel.getPackages()== null || sellerModel.getHeading() == null || sellerModel.getBusinesstype() == null || 
+					sellerModel.getCompanytype() == null || sellerModel.getBusinesscategory() == null || sellerModel.getBusinesssubcategory() ==null ||
+					sellerModel.getCountry() == null || sellerModel.getState() == null || sellerModel.getCity() == null ||
+					sellerModel.getContact_Title() == null || sellerModel.getContactname() == null || sellerModel.getContactno() == null ||
+					sellerModel.getEmail() == null || sellerModel.getCompanyprofile() == null || sellerModel.getWhythisbusiness() == null || 
+					sellerModel.getSellingreason() == null){
+				Logger.logStatus(CLASS_NAME,"Empty values","debug");
+				sellerModel.setMessage("Invalid details, please try again.");
+				Logger.logStatus(CLASS_NAME,"Exiting POST SellSubmit","debug");
+				return "./jsp/sellSubmitError.jsp";
+			}
+			
+			/*System.out.println(request.getParameter("attachment"));
+			File f = new File(request.getParameter("attachment"));;
+			File f2 = new File("C:\\Users\\VL\\Desktop\\test.jpg");
+
+			BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+			image = ImageIO.read(f
+			ImageIO.write(image, "jpg", f2);*/
 			System.out.println("Seller Package : "+sellerModel.getPackages());
 			Logger.logStatus(CLASS_NAME,"Exiting POST SellSubmit","debug");
 			return "./jsp/SellPay.jsp";
 
 		}
 		catch(Exception e){
-			Logger.logStatus(CLASS_NAME,"Exception in POST SellSubmit : "+e.getMessage(), "error");
-			request.setAttribute("errorMessage", e.getMessage());
-			return "./jsp/error.jsp";
+			Logger.logStatus(CLASS_NAME,"Exception in POST SellSubmit : "+e.fillInStackTrace(), "error");
+			sellerModel.setMessage("Please try again.");
+			return "./jsp/sellSubmitError.jsp";
 		}
 	}
 

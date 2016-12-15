@@ -487,8 +487,7 @@ p {
 
 				<div class="category-products">
 					<br />
-					<form:form id="contactForm" method="post" commandName="sellerModel"
-						action="sellSubmit.do">
+					<form:form id="contactForm" method="post" commandName="sellerModel" action="sellSubmit.do">
 
 						<div id="sellerPage1NewDiv">
 							<div class="column sixty">

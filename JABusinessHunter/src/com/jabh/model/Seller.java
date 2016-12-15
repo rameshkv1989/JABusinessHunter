@@ -42,6 +42,14 @@ public class Seller implements Serializable{
 	private String companyregdno;
 	private String terms;
 	private Map<Integer,String> packageIdList;
+	private String message;
+	
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
 	public Integer getPackages() {
 		return packages;
 	}

@@ -1,5 +1,7 @@
 package com.jabh.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -198,6 +200,15 @@ public class Redirect {
 	public String SellerRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET SellerRedirect","debug");
+			String userName = (String) request.getSession().getAttribute("userName");
+			if(userName==null || (!(new AccountManager().validateUser(userName)))){
+				Logger.logStatus(CLASS_NAME,"User not logged in","debug");
+				Login login = new Login();
+				login.setMessage("Please Login.");
+				map.addAttribute("login",login);
+				Logger.logStatus(CLASS_NAME,"Exiting GET SellerRedirect","debug");
+				return "./jsp/noLogin.jsp";
+			}
 			Seller sellerModel = new Seller();
 			sellerModel.setPackageIdList(new SellerManager().getPlanIds());
 			request.setAttribute("packageList", new SellerManager().getPlans());
@@ -217,6 +228,15 @@ public class Redirect {
 	public String BuyerRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET BuyerRedirect","debug");
+			String userName = (String) request.getSession().getAttribute("userName");
+			if(userName==null || (!(new AccountManager().validateUser(userName)))){
+				Logger.logStatus(CLASS_NAME,"User not logged in","debug");
+				Login login = new Login();
+				login.setMessage("Please Login.");
+				map.addAttribute("login",login);
+				Logger.logStatus(CLASS_NAME,"Exiting GET BuyerRedirect","debug");
+				return "./jsp/noLogin.jsp";
+			}
 			Buyer buyerModel = new Buyer();
 			map.addAttribute("buyerModel",buyerModel);
 			Logger.logStatus(CLASS_NAME,"Exiting GET BuyerRedirect","debug");
@@ -234,10 +254,18 @@ public class Redirect {
 	public String FranchiseRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET FranchiseRedirect","debug");
+			String userName = (String) request.getSession().getAttribute("userName");
+			if(userName==null || (!(new AccountManager().validateUser(userName)))){
+				Logger.logStatus(CLASS_NAME,"User not logged in","debug");
+				Login login = new Login();
+				login.setMessage("Please Login.");
+				map.addAttribute("login",login);
+				Logger.logStatus(CLASS_NAME,"Exiting GET FranchiseRedirect","debug");
+				return "./jsp/noLogin.jsp";
+			}
 			Franchise franchiseModel = new Franchise();
 			franchiseModel.setPackageIdList(new SellerManager().getPlanIds());
 			request.setAttribute("packageList", new SellerManager().getPlans());
-			System.out.println("size : "+franchiseModel.getPackageIdList().size());
 			map.addAttribute("franchiseModel",franchiseModel);
 			Logger.logStatus(CLASS_NAME,"Exiting GET FranchiseRedirect","debug");
 			return "./jsp/franchise.jsp";
@@ -254,6 +282,15 @@ public class Redirect {
 	public String ServiveProvidersRedirect(ModelMap map, HttpServletRequest request){
 		try{
 			Logger.logStatus(CLASS_NAME,"Entering into GET ServiveProvidersRedirect","debug");
+			String userName = (String) request.getSession().getAttribute("userName");
+			if(userName==null || (!(new AccountManager().validateUser(userName)))){
+				Logger.logStatus(CLASS_NAME,"User not logged in","debug");
+				Login login = new Login();
+				login.setMessage("Please Login.");
+				map.addAttribute("login",login);
+				Logger.logStatus(CLASS_NAME,"Exiting GET ServiveProvidersRedirect","debug");
+				return "./jsp/noLogin.jsp";
+			}
 			ServiceProvider serviceProviderModel = new ServiceProvider();
 			serviceProviderModel.setPackageIdList(new SellerManager().getPlanIds());
 			request.setAttribute("packageList", new SellerManager().getPlans());
@@ -360,18 +397,21 @@ public class Redirect {
 			String userName = (String)request.getSession().getAttribute("userName");
 			if(userName != null){
 				SignUp signUp = new AccountManager().getPersonalDetails(userName);
+				
 				if(signUp!=null){
+					Map<String,String> states = Utility.getMapFromString(Utility.getStates(signUp.getCountry()));
+					Map<String,String> cities = Utility.getMapFromString(Utility.getStates(signUp.getState()));
+					if(!(cities.containsKey(signUp.getCity()))){
+						cities.put(signUp.getCity(), signUp.getCity());
+					}
+					map.addObject("statesMap",states);
+					map.addObject("cityMap",cities);
+					map.addAttribute("accountInfo",signUp);
 					if(signUp.getRole()==1){
-						map.addAttribute("accountInfo",signUp);	
-						map.addObject("statesMap",Utility.getMapFromString(Utility.getStates(signUp.getCountry())));
-						map.addObject("cityMap",Utility.getMapFromString(Utility.getStates(signUp.getState())));
 						Logger.logStatus(CLASS_NAME,"Exiting GET MyAccountRedirect","debug");
 						return "./jsp/myAccount.jsp";
 					}
 					else{
-						map.addAttribute("accountInfo",signUp);	
-						map.addObject("statesMap",Utility.getMapFromString(Utility.getStates(signUp.getCountry())));
-						map.addObject("cityMap",Utility.getMapFromString(Utility.getStates(signUp.getState())));
 						Logger.logStatus(CLASS_NAME,"Exiting GET MyAccountRedirect","debug");
 						return "./jsp/myAccount_User.jsp";
 					}

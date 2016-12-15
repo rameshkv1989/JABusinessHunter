@@ -515,37 +515,42 @@ p {
 										</div></li>
 
 								
-								<li><label for="Country">Country</label>
+								<li><label for="Country">Country<em class="required">*</em></label>
 
 									<div class="input-box">
 										<form:select path="Country" title="Country"
 											onchange="getOptionValues(this.value,'state','getOptionValues.do')"
-											class="required-entry input-text">
+											class="required-entry input-text" required="true">
 											<form:option value="" label="--- Select ---" />
 											<form:option value="Malaysia" label="Malaysia" />
 										</form:select>
 									</div></li>
 
-								<li><label for="State">State</label>
+								<li><label for="State">State<em class="required">*</em></label>
 
 									<div class="input-box">
 										<form:select path="state" items="${statesMap}"
-											onchange="getOptionValues(this.value,'city','getOptionValues.do')"
+											onchange="getOptionValues(this.value,'city','getOptionValues.do')" required="true"
 											title="State" class="required-entry input-text">
 											<form:option value="" label="--- Select ---" />
 										</form:select>
 									</div></li>
 
 
-								<li><label for="City">Select City</label>
+								<li><label for="City">Select City<em class="required">*</em></label>
 
 									<div class="input-box">
-										<form:select path="city" title="City" items="${cityMap}"
-											class="required-entry input-text">
+										<form:select path="city" title="City" items="${cityMap}" onchange="textBoxForCity(this.value)"
+											class="required-entry input-text" required="true">
 											<form:option value="" label="--- Select ---" />
 										</form:select>
 									</div></li>
-
+								<li id="cityInput" style="display:none"><label for="cityText">Please enter city<!-- <em
+											class="required">*</em> --></label>
+										<div  class="input-box">
+											<form:input path="cityText" style="width:230px" title="cityText" value=""
+												class="input-text" type="text" />
+										</div></li>
 								<li><label for="mobile">Contact No.<em
 											class="required">*</em></label>
 										<div class="input-box">

@@ -23,7 +23,16 @@ public class SignUp implements Serializable{
 	private String country;
 	private String mobile;
 	private String about;
+	private String message;
 	
+	
+	
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
 	public BigInteger getUserID() {
 		return userID;
 	}

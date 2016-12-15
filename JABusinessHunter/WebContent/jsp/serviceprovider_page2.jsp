@@ -125,8 +125,8 @@
 					<form:option value="Ayer Baloi" label="Ayer Baloi" />
 				</form:select>
 			</div></li>
-			<li id="cityInput" style="display:none"><label for="cityText">Please enter city<em
-											class="required">*</em></label>
+			<li id="cityInput" style="display:none"><label for="cityText">Please enter city<!-- <em
+											class="required">*</em> --></label>
 										<div  class="input-box">
 											<form:input path="cityText" style="width:225px" title="cityText" value=""
 												class="input-text" type="text" />
